@@ -15,8 +15,15 @@ CASAS = ("lote101", "costa204")
 AGENTES = ("claude", "codex")
 CUENTAS_CLAUDE = ("gmail", "bravosm")
 
-# Herramientas MCP de Home Assistant permitidas en las fases de solo lectura.
-HA_TOOLS_LECTURA = ("GetLiveContext", "GetDateTime")
+# Herramientas MCP de Home Assistant permitidas en las fases de solo lectura. Lista explícita
+# (no se confía en la anotación readOnlyHint). Nombres con prefijo de dominio, como los expone
+# el servidor MCP de HA 2026.10.
+HA_TOOLS_LECTURA = (
+    "homeassistant__GetLiveContext",
+    "llm__GetDateTime",
+    "todo__get_items",
+    "media_player__search_media",
+)
 
 
 def leer_env(path: Path) -> dict[str, str]:

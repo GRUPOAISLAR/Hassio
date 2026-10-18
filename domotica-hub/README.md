@@ -38,7 +38,7 @@ en_cola → en_curso → (PR) ─┬─ sin plan_aplicar.md ──────�
 
 **Qué puede hacer**
 - *Fase trabajo* (siempre): leer/editar archivos de la copia de trabajo y consultar HA solo con
-  `GetLiveContext` y `GetDateTime`, usando el token de **lectura**. Claude corre sin Bash, con
+  `homeassistant__GetLiveContext`, `llm__GetDateTime`, `todo__get_items` y `media_player__search_media`, usando el token de **lectura**. Claude corre sin Bash, con
   `--permission-mode dontAsk` (todo lo no permitido se rechaza). Codex corre con sandbox
   `workspace-write` y su shell no ve variables con `TOKEN`/`KEY`/`SECRET`/`HA_`.
 - *Fase aplicar* (solo tras el merge del PR por el dueño): ejecutar el `plan_aplicar.md`

@@ -16,7 +16,7 @@ def test_claude_trabajo_solo_lectura(entorno, tmp_path: Path):
     cfg = entorno["cfg"]
     cmd, env = _comando_claude(cfg, "lote101", TRABAJO, "gmail", None, "hola", tmp_path / "mcp.json")
     permitidas = cmd[cmd.index("--allowedTools") + 1:]
-    assert "mcp__ha-lote101__GetLiveContext" in permitidas
+    assert "mcp__ha-lote101__homeassistant__GetLiveContext" in permitidas
     assert not any(p == "mcp__ha-lote101" or "Hass" in p for p in permitidas)
     assert "Bash" not in cmd[cmd.index("--tools") + 1]
     assert env["HA_LOTE101_TOKEN"] == "ficticio-lectura"
@@ -32,7 +32,9 @@ def test_claude_aplicar_usa_token_de_escritura(entorno, tmp_path: Path):
 
 def test_codex_trabajo_limita_herramientas_y_resume(entorno):
     cmd, env = _comando_codex(entorno["cfg"], "lote101", TRABAJO, None, "x")
-    assert any("enabled_tools" in c for c in cmd) and 'sandbox_mode="workspace-write"' in cmd
+    assert any("enabled_tools" in c and "homeassistant__GetLiveContext" in c and "Hass" not in c for c in cmd)
+    assert 'sandbox_mode="workspace-write"' in cmd
+    assert 'mcp_servers.ha-lote101.default_tools_approval_mode="approve"' in cmd
     assert env["HA_LOTE101_TOKEN"] == "ficticio-lectura" and "ficticio-lectura" not in " ".join(cmd)
     cmd, _ = _comando_codex(entorno["cfg"], "lote101", APLICAR, "abc", "x")
     assert cmd[:3] == ["codex", "exec", "resume"] and not any("enabled_tools" in c for c in cmd)

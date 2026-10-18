@@ -106,6 +106,8 @@ def _comando_codex(cfg: Config, casa: str, fase: str, sesion: str | None, prompt
         "-c", 'shell_environment_policy.exclude=["HA_*","*TOKEN*","*KEY*","*SECRET*"]',
         "-c", f'mcp_servers.ha-{casa}.url="{ha[f"HA_{C}_URL"]}/api/mcp"',
         "-c", f'mcp_servers.ha-{casa}.bearer_token_env_var="HA_{C}_TOKEN"',
+        # Sin aprobación interactiva en exec: lo que se habilita (enabled_tools) se aprueba solo.
+        "-c", f'mcp_servers.ha-{casa}.default_tools_approval_mode="approve"',
     ]
     if fase == TRABAJO:
         tools = ",".join(f'"{t}"' for t in HA_TOOLS_LECTURA)
