@@ -1,0 +1,26 @@
+[Unit]
+Description=domotica-hub (cola MCP de tareas de domótica para Claude Code y Codex)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=gaston
+Group=gaston
+WorkingDirectory=/home/gaston/domotica
+# claude está en ~/.local/bin y codex en /usr/local/bin.
+Environment=PATH=/home/gaston/.local/bin:/usr/local/bin:/usr/bin:/bin
+ExecStart=/home/gaston/domotica/venv/bin/python -m domotica_hub
+Restart=always
+RestartSec=5
+# Incluye a los agentes que lanza (mismo cgroup).
+MemoryMax=4G
+KillMode=mixed
+TimeoutStopSec=40
+UMask=0077
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=full
+
+[Install]
+WantedBy=multi-user.target
