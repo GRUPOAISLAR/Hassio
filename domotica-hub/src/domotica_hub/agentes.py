@@ -4,14 +4,18 @@ Qué recibe el modelo:
   - El prompt armado por el ejecutor (descripción de la tarea + reglas de la fase).
   - El contenido de la copia de trabajo de la tarea (repo GRUPOAISLAR/Hassio).
   - Lo que devuelvan las herramientas MCP de Home Assistant de la casa de la tarea.
-Qué puede hacer:
-  - Fase "trabajo": leer/editar archivos dentro de la copia de trabajo y consultar HA solo con
-    HA_TOOLS_LECTURA (token de lectura). Sin Bash en Claude; Codex con sandbox workspace-write
-    (sin red para comandos) y sin variables con TOKEN/KEY/SECRET en su shell.
-  - Fase "aplicar" (solo después de que el dueño mergea el PR): todas las herramientas MCP de HA
-    de esa casa, con el token de escritura. Sin edición de archivos.
+Qué puede hacer (aprobación mixta):
+  - Fase "trabajo" (sin aprobación previa):
+      · ha-<casa>: estado y CONTROL DIRECTO de las entidades expuestas a Assist (token agente).
+      · hacfg-<casa>: lectura de toda la configuración con ha-mcp en READ_ONLY_MODE y solo las
+        herramientas de HAMCP_TOOLS_LECTURA (token admin). Cambios de configuración → plan + PR.
+      · Leer/editar archivos de la copia de trabajo. Sin Bash en Claude; Codex con sandbox
+        workspace-write y un shell que no ve variables HA_*, HOMEASSISTANT_*, *TOKEN*, *KEY*, *SECRET*.
+  - Fase "aplicar" (solo después de que el dueño mergea el PR): ha-mcp sin restricciones
+    (incluye edición de YAML) + Assist. Sin edición de archivos.
 Límites:
   - No recibe tokens de GitHub ni de la otra casa; no hace push (lo hace el ejecutor).
+  - Los tokens viajan por entorno, nunca en la línea de comandos ni en archivos.
   - Tiempo máximo por corrida: Config.timeout_tarea_s.
 """
 
@@ -28,7 +32,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Callable
 
-from .config import HA_TOOLS_LECTURA, Config
+from .config import HAMCP_TOOLS_LECTURA, Config
 
 TRABAJO = "trabajo"
 APLICAR = "aplicar"
@@ -57,14 +61,27 @@ def _env_base() -> dict[str, str]:
     }
 
 
-def _ha_env(cfg: Config, casa: str, fase: str) -> dict[str, str]:
+def _ha_env(cfg: Config, casa: str) -> dict[str, str]:
+    """URL y tokens de la casa. HA_TOKEN: usuario agente (Assist). HOMEASSISTANT_*: ha-mcp (admin)."""
     C = casa.upper()
-    url = cfg.secreto(f"HA_{C}_URL").rstrip("/")
-    clave_token = f"HA_{C}_TOKEN_{'ESCRITURA' if fase == APLICAR else 'LECTURA'}"
-    token = cfg.secreto(clave_token)
-    if not url or not token:
-        raise RuntimeError(f"Falta HA_{C}_URL o {clave_token} en el archivo env")
-    return {f"HA_{C}_URL": url, f"HA_{C}_TOKEN": token}
+    claves = (f"HA_{C}_URL", f"HA_{C}_TOKEN_AGENTE", f"HA_{C}_TOKEN_ADMIN")
+    url, agente, admin = (cfg.secreto(k) for k in claves)
+    faltan = [k for k, v in zip(claves, (url, agente, admin)) if not v]
+    if faltan:
+        raise RuntimeError(f"Falta {', '.join(faltan)} en el archivo env")
+    url = url.rstrip("/")
+    return {"HA_URL": url, "HA_TOKEN": agente, "HOMEASSISTANT_URL": url, "HOMEASSISTANT_TOKEN": admin}
+
+
+def _hamcp_opciones(fase: str) -> dict[str, str]:
+    """Opciones no secretas de ha-mcp según la fase."""
+    trabajo = fase == TRABAJO
+    return {
+        "READ_ONLY_MODE": "true" if trabajo else "false",
+        "ENABLE_YAML_CONFIG_EDITING": "false" if trabajo else "true",
+        "HA_MCP_DISABLE_SETTINGS_UI": "true",
+        "LOG_LEVEL": "WARNING",
+    }
 
 
 def _comando_claude(cfg: Config, casa: str, fase: str, cuenta: str, sesion: str | None, prompt: str,
@@ -72,46 +89,65 @@ def _comando_claude(cfg: Config, casa: str, fase: str, cuenta: str, sesion: str 
     token = cfg.secreto(f"CLAUDE_TOKEN_{cuenta.upper()}")
     if not token:
         raise RuntimeError(f"Falta CLAUDE_TOKEN_{cuenta.upper()} en el archivo env")
-    C = casa.upper()
-    # Placeholders: Claude Code los expande desde el entorno; el archivo no tiene secretos.
-    mcp_cfg.write_text(json.dumps({"mcpServers": {f"ha-{casa}": {
-        "type": "http",
-        "url": f"${{HA_{C}_URL}}/api/mcp",
-        "headers": {"Authorization": f"Bearer ${{HA_{C}_TOKEN}}"},
-    }}}))
+    # Placeholders ${VAR}: Claude Code los expande desde su entorno; el archivo no tiene secretos.
+    mcp_cfg.write_text(json.dumps({"mcpServers": {
+        f"ha-{casa}": {
+            "type": "http",
+            "url": "${HA_URL}/api/mcp",
+            "headers": {"Authorization": "Bearer ${HA_TOKEN}"},
+        },
+        f"hacfg-{casa}": {
+            "type": "stdio",
+            "command": str(cfg.hamcp_bin),
+            "args": [],
+            "env": {"HOMEASSISTANT_URL": "${HOMEASSISTANT_URL}", "HOMEASSISTANT_TOKEN": "${HOMEASSISTANT_TOKEN}",
+                    **_hamcp_opciones(fase)},
+        },
+    }}))
     if fase == TRABAJO:
         herramientas = "Read,Edit,Write,Glob,Grep"
-        permitidas = ["Read", "Edit", "Write", "Glob", "Grep",
-                      *[f"mcp__ha-{casa}__{t}" for t in HA_TOOLS_LECTURA]]
+        permitidas = ["Read", "Edit", "Write", "Glob", "Grep", f"mcp__ha-{casa}",
+                      *[f"mcp__hacfg-{casa}__{t}" for t in HAMCP_TOOLS_LECTURA]]
     else:
         herramientas = "Read"
-        permitidas = ["Read", f"mcp__ha-{casa}"]
+        permitidas = ["Read", f"mcp__ha-{casa}", f"mcp__hacfg-{casa}"]
     cmd = ["claude", "-p", prompt, "--output-format", "json", "--strict-mcp-config",
            "--mcp-config", str(mcp_cfg), "--tools", herramientas,
            "--permission-mode", "dontAsk", "--allowedTools", *permitidas]
     if sesion:
         cmd += ["--resume", sesion]
-    env = {**_env_base(), **_ha_env(cfg, casa, fase),
+    env = {**_env_base(), **_ha_env(cfg, casa),
            "CLAUDE_CONFIG_DIR": str(cfg.agentes_dir / f"claude-{cuenta}"),
            "CLAUDE_CODE_OAUTH_TOKEN": token}
     return cmd, env
 
 
+def _toml_lista(valores) -> str:
+    return "[" + ",".join(json.dumps(v) for v in valores) + "]"
+
+
 def _comando_codex(cfg: Config, casa: str, fase: str, sesion: str | None, prompt: str) -> tuple[list[str], dict[str, str]]:
-    C = casa.upper()
-    ha = _ha_env(cfg, casa, fase)
+    ha = _ha_env(cfg, casa)
+    opciones = "{" + ",".join(f"{k}={json.dumps(v)}" for k, v in _hamcp_opciones(fase).items()) + "}"
+    a, c = f"mcp_servers.ha-{casa}", f"mcp_servers.hacfg-{casa}"
     over = [
         "-c", 'approval_policy="never"',
         "-c", 'sandbox_mode="workspace-write"' if fase == TRABAJO else 'sandbox_mode="read-only"',
-        "-c", 'shell_environment_policy.exclude=["HA_*","*TOKEN*","*KEY*","*SECRET*"]',
-        "-c", f'mcp_servers.ha-{casa}.url="{ha[f"HA_{C}_URL"]}/api/mcp"',
-        "-c", f'mcp_servers.ha-{casa}.bearer_token_env_var="HA_{C}_TOKEN"',
-        # Sin aprobación interactiva en exec: lo que se habilita (enabled_tools) se aprueba solo.
-        "-c", f'mcp_servers.ha-{casa}.default_tools_approval_mode="approve"',
+        "-c", 'shell_environment_policy.exclude=["HA_*","HOMEASSISTANT_*","*TOKEN*","*KEY*","*SECRET*"]',
+        # Assist (HTTP): el token se lee de HA_TOKEN en el entorno.
+        "-c", f'{a}.url="{ha["HA_URL"]}/api/mcp"',
+        "-c", f'{a}.bearer_token_env_var="HA_TOKEN"',
+        "-c", f'{a}.default_tools_approval_mode="auto"',
+        # ha-mcp (stdio): URL y token se reenvían desde el entorno (env_vars), no van en la línea.
+        "-c", f'{c}.command="{cfg.hamcp_bin}"',
+        "-c", f'{c}.env_vars={_toml_lista(["HOMEASSISTANT_URL", "HOMEASSISTANT_TOKEN"])}',
+        "-c", f"{c}.env={opciones}",
+        "-c", f"{c}.startup_timeout_sec=60",
+        # Sin aprobación interactiva en exec: lo habilitado se aprueba solo.
+        "-c", f'{c}.default_tools_approval_mode="auto"',
     ]
     if fase == TRABAJO:
-        tools = ",".join(f'"{t}"' for t in HA_TOOLS_LECTURA)
-        over += ["-c", f"mcp_servers.ha-{casa}.enabled_tools=[{tools}]"]
+        over += ["-c", f"{c}.enabled_tools={_toml_lista(HAMCP_TOOLS_LECTURA)}"]
     if sesion:
         cmd = ["codex", "exec", "resume", "--json", "--skip-git-repo-check", *over, sesion, prompt]
     else:

@@ -65,8 +65,8 @@ def entorno(tmp_path: Path):
 
     env = tmp_path / "env"
     env.write_text(
-        "HA_LOTE101_URL=https://ejemplo.invalid\nHA_LOTE101_TOKEN_LECTURA=ficticio-lectura\n"
-        "HA_LOTE101_TOKEN_ESCRITURA=ficticio-escritura\nCLAUDE_TOKEN_GMAIL=ficticio\n"
+        "HA_LOTE101_URL=https://ejemplo.invalid\nHA_LOTE101_TOKEN_AGENTE=ficticio-agente\n"
+        "HA_LOTE101_TOKEN_ADMIN=ficticio-admin\nCLAUDE_TOKEN_GMAIL=ficticio\n"
         "CLAUDE_TOKEN_BRAVOSM=ficticio\nGH_TOKEN_HASSIO=ficticio\n"
     )
     cfg = Config(env_file=env, base=base, agentes_dir=tmp_path / "agentes", intervalo_pr_s=0)

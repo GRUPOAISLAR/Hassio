@@ -75,12 +75,15 @@ TAREA:
 {t['descripcion']}
 
 REGLAS:
-- Podés consultar el estado de la casa con las herramientas MCP "ha-{casa}" (solo lectura).
-- En esta fase NO podés modificar Home Assistant. Si la tarea requiere cambios en HA, no los
-  intentes: escribí un plan exacto y verificable en tareas/{raiz}/plan_aplicar.md (qué entidades,
-  servicios o acciones, en qué orden, valores esperados antes/después y cómo verificar).
+- Estado y control de dispositivos: herramientas "ha-{casa}". Si la tarea pide encender,
+  apagar o ajustar algo, hacelo directamente y verificá el resultado.
+- Configuración (automatizaciones, scripts, escenas, helpers, dashboards, áreas, integraciones,
+  HACS, YAML): podés LEERLA con "hacfg-{casa}", pero en esta fase NO podés cambiarla. Si la
+  tarea requiere cambios de configuración, escribí un plan exacto y verificable en
+  tareas/{raiz}/plan_aplicar.md: qué crear/modificar/borrar, el contenido completo (YAML o
+  JSON de cada automatización, script, dashboard, etc.), en qué orden y cómo verificar.
   El dueño revisa ese plan en el PR y, si lo aprueba, se aplica en otra fase.
-- Si la tarea no requiere cambios en HA, no crees plan_aplicar.md.
+- Si la tarea no requiere cambios de configuración, no crees plan_aplicar.md.
 - Cambios de configuración versionada: editá archivos solo dentro de casas/{casa}/ o tareas/{raiz}/.
 - Nunca escribas tokens, contraseñas, URLs de acceso remoto ni contenido de secrets.yaml.
 - No incluyas datos personales que no hagan falta para la tarea.
@@ -90,7 +93,8 @@ REGLAS:
 
 def prompt_aplicar(t: dict, pr: int, plan: str) -> str:
     return f"""El dueño aprobó (mergeó) el PR #{pr} de la tarea #{t['id']} en la casa "{t['casa']}".
-Ahora tenés permiso de escritura sobre Home Assistant con las herramientas "ha-{t['casa']}".
+Ahora tenés permiso de escritura sobre la configuración de Home Assistant con las herramientas
+"hacfg-{t['casa']}" (y control de dispositivos con "ha-{t['casa']}").
 
 Aplicá EXACTAMENTE este plan aprobado, sin agregar nada:
 ----- plan_aplicar.md -----

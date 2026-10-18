@@ -29,10 +29,30 @@ def guardar_clave(cfg: Config) -> None:
     print("Clave guardada (solo el hash).")
 
 
+def probar(cfg: Config, agente: str, casa: str, pedido: str, cuenta: str = "gmail") -> None:
+    """Corre un agente con los mismos permisos de la fase de trabajo, sin issue/PR. Para pruebas manuales."""
+    import tempfile
+    import threading
+    from pathlib import Path
+
+    from . import agentes
+
+    with tempfile.TemporaryDirectory(prefix="domotica-prueba-") as tmp:
+        r = agentes.ejecutar(cfg, agente=agente, casa=casa, fase=agentes.TRABAJO, cuenta=cuenta, sesion=None,
+                             prompt=pedido, cwd=Path(tmp), log_path=Path(tmp) / "log",
+                             cancelar=threading.Event())
+        print(r.texto if r.ok else f"ERROR: {r.error}")
+        if r.extra.get("denegadas"):
+            print("Denegadas:", ", ".join(d.get("tool_name", "?") for d in r.extra["denegadas"]))
+
+
 def main() -> None:
     cfg = Config.cargar()
     if sys.argv[1:] == ["clave"]:
         guardar_clave(cfg)
+        return
+    if sys.argv[1:2] == ["probar"] and len(sys.argv) in (5, 6):
+        probar(cfg, *sys.argv[2:])
         return
 
     import uvicorn
