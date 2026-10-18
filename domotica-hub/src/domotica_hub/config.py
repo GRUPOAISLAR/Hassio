@@ -70,6 +70,11 @@ class Config:
         return self.base / "repo"
 
     @property
+    def codex_bin(self) -> Path:
+        """Codex propio de domótica (npm local, versión fija); no se usa el global del VPS."""
+        return self.base / "codex" / "node_modules" / ".bin" / "codex"
+
+    @property
     def hamcp_bin(self) -> Path:
         return self.base / "venv-hamcp" / "bin" / "ha-mcp"
 

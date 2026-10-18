@@ -47,8 +47,9 @@ def test_codex_trabajo_limita_config_y_no_expone_tokens(entorno):
     assert any(c.startswith("mcp_servers.hacfg-lote101.env=") and 'READ_ONLY_MODE="true"' in c for c in cmd)
     assert not any(c.startswith("mcp_servers.ha-lote101.enabled_tools") for c in cmd)  # Assist completo
     assert 'sandbox_mode="workspace-write"' in cmd and "HOMEASSISTANT_*" in linea
+    assert "features.apps=false" in cmd                           # sin conectores de ChatGPT
     cmd, _ = _comando_codex(entorno["cfg"], "lote101", APLICAR, "abc", "x")
-    assert cmd[:3] == ["codex", "exec", "resume"]
+    assert cmd[0].endswith("codex/node_modules/.bin/codex") and cmd[1:3] == ["exec", "resume"]
     assert not any("enabled_tools" in c for c in cmd) and any('READ_ONLY_MODE="false"' in c for c in cmd)
 
 

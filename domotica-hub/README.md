@@ -56,7 +56,8 @@ Dos servidores MCP por casa, ambos corriendo en el VPS:
   de YAML (requiere el componente `ha_mcp_tools` en la casa).
 
 **Límites**
-- Claude corre sin Bash y con `--permission-mode dontAsk`; Codex con sandbox y un shell que no
+- Claude corre sin Bash y con `--permission-mode dontAsk`; Codex (0.163.0, instalación propia,
+  sin los conectores de la cuenta de ChatGPT: `features.apps=false`) con sandbox y un shell que no
   ve variables `HA_*`, `HOMEASSISTANT_*`, `*TOKEN*`, `*KEY*`, `*SECRET*`.
 - Los tokens viajan por entorno: nunca en la línea de comandos, en archivos ni en Git.
 - No recibe el token de GitHub (el push y los PR los hace el servicio) ni los de la otra casa.
@@ -91,6 +92,7 @@ Dos servidores MCP por casa, ambos corriendo en el VPS:
 ```bash
 python3 -m venv ~/domotica/venv
 python3 -m venv ~/domotica/venv-hamcp && ~/domotica/venv-hamcp/bin/pip install 'ha-mcp==8.6.0'
+mkdir -p ~/domotica/codex && npm install --prefix ~/domotica/codex @openai/codex@0.163.0   # Codex propio (>= 0.163)
 ~/domotica/venv/bin/pip install -e ~/domotica/repo/domotica-hub     # mcp==2.3.0
 ~/domotica/venv/bin/python -m domotica_hub clave                      # define la clave del dueño
 sudo cp ~/domotica/repo/domotica-hub/deploy/domotica-hub.service /etc/systemd/system/
