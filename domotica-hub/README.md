@@ -31,22 +31,36 @@ en_cola → en_curso → (PR) ─┬─ sin plan_aplicar.md ──────�
 
 ## Agentes de IA: datos, acciones y límites
 
+Dos servidores MCP por casa, ambos corriendo en el VPS:
+
+| Servidor | Qué es | Token (usuario de HA) |
+|---|---|---|
+| `ha-<casa>` | MCP oficial de HA (API Assist): estado y control de las entidades **expuestas a Assist** | `domotica-agente` (no admin) |
+| `hacfg-<casa>` | [ha-mcp](https://github.com/homeassistant-ai/ha-mcp) `8.6.0`: configuración completa | `domotica-admin` (admin) |
+
 **Qué recibe el modelo**
 - La descripción de la tarea y las reglas de la fase (ver `prompt_trabajo` / `prompt_aplicar`).
 - La copia de trabajo de este repositorio.
-- El estado de la casa de la tarea, a través del servidor MCP de Home Assistant (`/api/mcp`).
+- Estado, historial, registros y configuración de la casa de la tarea, a través de esos servidores.
 
-**Qué puede hacer**
-- *Fase trabajo* (siempre): leer/editar archivos de la copia de trabajo y consultar HA solo con
-  `homeassistant__GetLiveContext`, `llm__GetDateTime`, `todo__get_items` y `media_player__search_media`, usando el token de **lectura**. Claude corre sin Bash, con
-  `--permission-mode dontAsk` (todo lo no permitido se rechaza). Codex corre con sandbox
-  `workspace-write` y su shell no ve variables con `TOKEN`/`KEY`/`SECRET`/`HA_`.
+**Qué puede hacer (aprobación mixta)**
+- *Fase trabajo* (sin aprobación previa):
+  - **Controlar dispositivos directamente** con `ha-<casa>` (solo entidades expuestas a Assist).
+  - **Leer** toda la configuración con `hacfg-<casa>`: ha-mcp corre con `READ_ONLY_MODE`
+    (oculta y bloquea escrituras) y además solo se habilitan las herramientas de
+    `HAMCP_TOOLS_LECTURA` (lista explícita).
+  - Leer/editar archivos de la copia de trabajo. Los cambios de configuración se proponen en
+    `tareas/<id>/plan_aplicar.md` dentro del PR.
 - *Fase aplicar* (solo tras el merge del PR por el dueño): ejecutar el `plan_aplicar.md`
-  **mergeado** (se lee de la rama principal, no de la copia de trabajo) con todas las herramientas
-  MCP de esa casa y el token de **escritura**. Sin edición de archivos.
+  **mergeado** (se lee de la rama principal) con ha-mcp sin restricciones, incluida la edición
+  de YAML (requiere el componente `ha_mcp_tools` en la casa).
 
 **Límites**
+- Claude corre sin Bash y con `--permission-mode dontAsk`; Codex con sandbox y un shell que no
+  ve variables `HA_*`, `HOMEASSISTANT_*`, `*TOKEN*`, `*KEY*`, `*SECRET*`.
+- Los tokens viajan por entorno: nunca en la línea de comandos, en archivos ni en Git.
 - No recibe el token de GitHub (el push y los PR los hace el servicio) ni los de la otra casa.
+- `ha_report_issue` (reportes para un servicio externo) queda deshabilitada.
 - Tiempo máximo por corrida: `DOMOTICA_TIMEOUT_TAREA_MIN` (45 min por defecto).
 - Respaldo de cuenta: si `gmail` llega a su límite de uso en una tarea nueva sin cuenta
   explícita, se reintenta una vez con `bravosm`. Una sesión iniciada nunca cambia de cuenta.
@@ -64,7 +78,8 @@ en_cola → en_curso → (PR) ─┬─ sin plan_aplicar.md ──────�
 | Clave | Uso |
 |---|---|
 | `HA_<CASA>_URL` | URL de Nabu Casa de la casa |
-| `HA_<CASA>_TOKEN_LECTURA` / `HA_<CASA>_TOKEN_ESCRITURA` | Tokens de HA por fase |
+| `HA_<CASA>_TOKEN_AGENTE` | Token del usuario `domotica-agente` (no admin) para Assist |
+| `HA_<CASA>_TOKEN_ADMIN` | Token del usuario `domotica-admin` (admin) para ha-mcp |
 | `CLAUDE_TOKEN_GMAIL`, `CLAUDE_TOKEN_BRAVOSM`, `CLAUDE_CUENTA_DEFAULT` | `claude setup-token` por cuenta |
 | `GH_TOKEN_HASSIO` | Token de alcance fino solo para este repo (Contents, Issues, Pull requests) |
 | `DOMOTICA_CLAVE_HASH` | Hash de la clave de consentimiento (`python -m domotica_hub clave`) |
@@ -75,6 +90,7 @@ en_cola → en_curso → (PR) ─┬─ sin plan_aplicar.md ──────�
 
 ```bash
 python3 -m venv ~/domotica/venv
+python3 -m venv ~/domotica/venv-hamcp && ~/domotica/venv-hamcp/bin/pip install 'ha-mcp==8.6.0'
 ~/domotica/venv/bin/pip install -e ~/domotica/repo/domotica-hub     # mcp==2.3.0
 ~/domotica/venv/bin/python -m domotica_hub clave                      # define la clave del dueño
 sudo cp ~/domotica/repo/domotica-hub/deploy/domotica-hub.service /etc/systemd/system/

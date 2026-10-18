@@ -15,14 +15,26 @@ CASAS = ("lote101", "costa204")
 AGENTES = ("claude", "codex")
 CUENTAS_CLAUDE = ("gmail", "bravosm")
 
-# Herramientas MCP de Home Assistant permitidas en las fases de solo lectura. Lista explícita
-# (no se confía en la anotación readOnlyHint). Nombres con prefijo de dominio, como los expone
-# el servidor MCP de HA 2026.10.
-HA_TOOLS_LECTURA = (
-    "homeassistant__GetLiveContext",
-    "llm__GetDateTime",
-    "todo__get_items",
-    "media_player__search_media",
+# Servidores MCP por casa:
+#   ha-<casa>     MCP oficial de HA (API Assist) con el token de `domotica-agente` (no admin):
+#                 estado y control directo de las entidades expuestas a Assist.
+#   hacfg-<casa>  ha-mcp (HAMCP_VERSION) con el token de `domotica-admin`: configuración completa.
+#                 En la fase de trabajo corre con READ_ONLY_MODE y además solo se habilitan estas
+#                 herramientas (lista explícita, no se confía en anotaciones). ha_report_issue queda
+#                 afuera porque arma reportes para un servicio externo.
+HAMCP_VERSION = "8.6.0"
+HAMCP_TOOLS_LECTURA = (
+    "ha_config_get_automation", "ha_config_get_calendar_events", "ha_config_get_category",
+    "ha_config_get_dashboard", "ha_config_get_label", "ha_config_get_scene", "ha_config_get_script",
+    "ha_config_list_dashboard_resources", "ha_config_list_groups", "ha_config_list_helpers",
+    "ha_eval_template", "ha_get_app", "ha_get_automation_traces", "ha_get_camera_image", "ha_get_device",
+    "ha_get_entity", "ha_get_entity_exposure", "ha_get_hacs_info", "ha_get_history", "ha_get_integration",
+    "ha_get_logs", "ha_get_operation_status", "ha_get_overview", "ha_get_skill_guide", "ha_get_state",
+    "ha_get_system_health", "ha_get_todo", "ha_get_zone", "ha_list_floors_areas", "ha_list_services",
+    # Mixtas: en READ_ONLY_MODE ha-mcp permite sus lecturas y bloquea sus escrituras al llamarlas.
+    "ha_manage_app", "ha_manage_backup", "ha_manage_blueprints", "ha_manage_energy_prefs",
+    "ha_manage_pipeline", "ha_manage_radio", "ha_manage_theme", "ha_manage_updates",
+    "ha_search",
 )
 
 
@@ -56,6 +68,10 @@ class Config:
     @property
     def repo(self) -> Path:
         return self.base / "repo"
+
+    @property
+    def hamcp_bin(self) -> Path:
+        return self.base / "venv-hamcp" / "bin" / "ha-mcp"
 
     @property
     def db_path(self) -> Path:

@@ -12,36 +12,48 @@ from domotica_hub import agentes
 from domotica_hub.agentes import APLICAR, TRABAJO, _comando_claude, _comando_codex, _parsear_codex
 
 
-def test_claude_trabajo_solo_lectura(entorno, tmp_path: Path):
+def test_claude_trabajo_control_directo_y_config_solo_lectura(entorno, tmp_path: Path):
     cfg = entorno["cfg"]
     cmd, env = _comando_claude(cfg, "lote101", TRABAJO, "gmail", None, "hola", tmp_path / "mcp.json")
     permitidas = cmd[cmd.index("--allowedTools") + 1:]
-    assert "mcp__ha-lote101__homeassistant__GetLiveContext" in permitidas
-    assert not any(p == "mcp__ha-lote101" or "Hass" in p for p in permitidas)
+    assert "mcp__ha-lote101" in permitidas                        # control directo (Assist)
+    assert "mcp__hacfg-lote101__ha_get_state" in permitidas
+    assert "mcp__hacfg-lote101" not in permitidas                 # nunca el servidor de config entero
+    assert not any(p.startswith("mcp__hacfg-lote101__ha_config_set") or "ha_restart" in p
+                   or "ha_report_issue" in p for p in permitidas)
     assert "Bash" not in cmd[cmd.index("--tools") + 1]
-    assert env["HA_LOTE101_TOKEN"] == "ficticio-lectura"
+    cfg_mcp = (tmp_path / "mcp.json").read_text()
+    assert "ficticio" not in cfg_mcp                              # solo placeholders
+    srv = json.loads(cfg_mcp)["mcpServers"]["hacfg-lote101"]
+    assert srv["env"]["READ_ONLY_MODE"] == "true" and srv["env"]["ENABLE_YAML_CONFIG_EDITING"] == "false"
+    assert env["HA_TOKEN"] == "ficticio-agente" and env["HOMEASSISTANT_TOKEN"] == "ficticio-admin"
     assert "GH_TOKEN" not in env and "GH_TOKEN_HASSIO" not in env
-    assert "ficticio" not in (tmp_path / "mcp.json").read_text()  # el archivo solo tiene placeholders
 
 
-def test_claude_aplicar_usa_token_de_escritura(entorno, tmp_path: Path):
-    cmd, env = _comando_claude(entorno["cfg"], "lote101", APLICAR, "gmail", "s1", "x", tmp_path / "mcp.json")
-    assert env["HA_LOTE101_TOKEN"] == "ficticio-escritura"
-    assert "mcp__ha-lote101" in cmd and cmd[cmd.index("--resume") + 1] == "s1"
+def test_claude_aplicar_habilita_config(entorno, tmp_path: Path):
+    cmd, _ = _comando_claude(entorno["cfg"], "lote101", APLICAR, "gmail", "s1", "x", tmp_path / "mcp.json")
+    assert "mcp__hacfg-lote101" in cmd and cmd[cmd.index("--resume") + 1] == "s1"
+    srv = json.loads((tmp_path / "mcp.json").read_text())["mcpServers"]["hacfg-lote101"]
+    assert srv["env"]["READ_ONLY_MODE"] == "false" and srv["env"]["ENABLE_YAML_CONFIG_EDITING"] == "true"
 
 
-def test_codex_trabajo_limita_herramientas_y_resume(entorno):
+def test_codex_trabajo_limita_config_y_no_expone_tokens(entorno):
     cmd, env = _comando_codex(entorno["cfg"], "lote101", TRABAJO, None, "x")
-    assert any("enabled_tools" in c and "homeassistant__GetLiveContext" in c and "Hass" not in c for c in cmd)
-    assert 'sandbox_mode="workspace-write"' in cmd
-    assert 'mcp_servers.ha-lote101.default_tools_approval_mode="approve"' in cmd
-    assert env["HA_LOTE101_TOKEN"] == "ficticio-lectura" and "ficticio-lectura" not in " ".join(cmd)
+    linea = " ".join(cmd)
+    assert "ficticio" not in linea                                # tokens solo por entorno
+    assert env["HOMEASSISTANT_TOKEN"] == "ficticio-admin"
+    habil = next(c for c in cmd if c.startswith("mcp_servers.hacfg-lote101.enabled_tools="))
+    assert "ha_get_state" in habil and "ha_config_set" not in habil and "ha_restart" not in habil
+    assert any(c.startswith("mcp_servers.hacfg-lote101.env=") and 'READ_ONLY_MODE="true"' in c for c in cmd)
+    assert not any(c.startswith("mcp_servers.ha-lote101.enabled_tools") for c in cmd)  # Assist completo
+    assert 'sandbox_mode="workspace-write"' in cmd and "HOMEASSISTANT_*" in linea
     cmd, _ = _comando_codex(entorno["cfg"], "lote101", APLICAR, "abc", "x")
-    assert cmd[:3] == ["codex", "exec", "resume"] and not any("enabled_tools" in c for c in cmd)
+    assert cmd[:3] == ["codex", "exec", "resume"]
+    assert not any("enabled_tools" in c for c in cmd) and any('READ_ONLY_MODE="false"' in c for c in cmd)
 
 
 def test_falta_casa_configurada(entorno, tmp_path: Path):
-    with pytest.raises(RuntimeError, match="HA_COSTA204_URL"):
+    with pytest.raises(RuntimeError, match="HA_COSTA204_TOKEN_ADMIN"):
         _comando_claude(entorno["cfg"], "costa204", TRABAJO, "gmail", None, "x", tmp_path / "m.json")
 
 
