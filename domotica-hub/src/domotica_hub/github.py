@@ -55,11 +55,15 @@ class GitHub:
 
     # --- consultas ----------------------------------------------------------------------
 
+    def _repo_view(self, campo: str) -> dict:
+        # `gh repo view` recibe el repo como argumento, no acepta --repo.
+        return json.loads(self._correr(["gh", "repo", "view", self.cfg.repo_github, "--json", campo]))
+
     def visibilidad(self) -> str:
-        return json.loads(self.gh("repo", "view", "--json", "visibility"))["visibility"].upper()
+        return self._repo_view("visibility")["visibility"].upper()
 
     def rama_default(self) -> str:
-        return json.loads(self.gh("repo", "view", "--json", "defaultBranchRef"))["defaultBranchRef"]["name"]
+        return self._repo_view("defaultBranchRef")["defaultBranchRef"]["name"]
 
     def estado_pr(self, pr: int) -> str:
         """OPEN, MERGED o CLOSED."""
