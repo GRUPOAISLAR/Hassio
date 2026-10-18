@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import threading
+import time
 from pathlib import Path
 
 from conftest import mergear
@@ -147,3 +148,15 @@ def test_salud_escribe_archivo(entorno):
     ej._hilo = threading.Thread(target=lambda: None)
     ej.escribir_salud()
     assert (e["cfg"].estado / "salud.json").exists()
+
+
+def test_limpieza_de_copias_viejas(entorno):
+    e = entorno
+    ej = _ejecutor(e, AgenteFalso())
+    tid = e["db"].crear_tarea("lote101", "claude", "¿Qué luces están encendidas?", "gmail", False)
+    ej._procesar(e["db"].siguiente_en_cola())
+    wt = Path(e["db"].tarea(tid)["worktree"])
+    assert wt.exists()
+    assert ej.limpiar_viejas() == []                       # recién terminada: se conserva
+    assert ej.limpiar_viejas(ahora=time.time() + 8 * 24 * 3600) == [tid]
+    assert not wt.exists()

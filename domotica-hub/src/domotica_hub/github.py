@@ -79,3 +79,6 @@ class GitHub:
             "pr", "create", "--head", rama, "--base", base, "--title", titulo, "--body-file", "-", entrada=cuerpo
         )
         return int(url.rstrip("/").rsplit("/", 1)[-1])
+
+    def cerrar_issue(self, issue: int) -> None:
+        self.gh("issue", "close", str(issue))

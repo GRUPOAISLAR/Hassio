@@ -1,0 +1,18 @@
+[Unit]
+Description=Vigía de salud de domotica-hub (avisa por issue en GitHub, no por canales de AISLAR)
+After=network-online.target
+
+[Service]
+Type=oneshot
+User=gaston
+Group=gaston
+WorkingDirectory=/home/gaston/domotica
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+ExecStart=/home/gaston/domotica/venv/bin/python -m domotica_hub vigia
+# Exit 1 = el hub falla (ya avisado por issue); no es un error del vigía.
+SuccessExitStatus=1
+UMask=0077
+NoNewPrivileges=yes
+PrivateTmp=yes
+ProtectSystem=full
+TimeoutStartSec=120

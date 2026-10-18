@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Chequeo de salud de domotica-hub para integrar en aislar-healthcheck.
+"""Chequeo de salud de domotica-hub (sin red ni credenciales); el vigía usa domotica_hub.vigia.
 
 Sale con 0 si ~/domotica/estado/salud.json existe, tiene menos de 3 minutos y ok=true;
 con 1 en otro caso, imprimiendo el motivo en una línea. No necesita red ni credenciales.

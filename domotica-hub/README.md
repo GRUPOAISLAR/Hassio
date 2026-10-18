@@ -97,8 +97,19 @@ sudo cp ~/domotica/repo/domotica-hub/deploy/domotica-hub.service /etc/systemd/sy
 sudo systemctl daemon-reload && sudo systemctl enable --now domotica-hub
 ```
 
-Salud: `deploy/check_salud.py` (sale 0/1) lee `~/domotica/estado/salud.json`, que el servicio
-actualiza cada minuto. Pensado para sumarse a `aislar-healthcheck`.
+Salud: el servicio actualiza `~/domotica/estado/salud.json` cada minuto. El vigía
+(`domotica-vigia.timer`, cada 5 min) revisa ese archivo y `https://…/salud`; tras dos fallas
+seguidas abre un issue `[salud]` en este repo (GitHub avisa al dueño) y lo cierra al
+recuperarse. Es independiente de `aislar-healthcheck` a propósito: los avisos de domótica
+(proyecto personal) no van a los canales de AISLAR. `deploy/check_salud.py` queda como
+chequeo manual (sale 0/1).
+
+```bash
+sudo cp ~/domotica/repo/domotica-hub/deploy/domotica-vigia.{service,timer} /etc/systemd/system/
+sudo systemctl daemon-reload && sudo systemctl enable --now domotica-vigia.timer
+```
+
+Las copias de trabajo de tareas finalizadas se borran a los 7 días (ya no se pueden continuar).
 
 ## Pruebas
 
