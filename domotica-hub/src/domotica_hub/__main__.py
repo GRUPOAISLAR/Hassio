@@ -51,6 +51,11 @@ def main() -> None:
     if sys.argv[1:] == ["clave"]:
         guardar_clave(cfg)
         return
+    if sys.argv[1:] == ["vigia"]:
+        from .vigia import revisar
+
+        cfg.preparar_directorios()
+        sys.exit(revisar(cfg))
     if sys.argv[1:2] == ["probar"] and len(sys.argv) in (5, 6):
         probar(cfg, *sys.argv[2:])
         return

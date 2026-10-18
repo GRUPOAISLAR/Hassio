@@ -31,6 +31,8 @@ from .github import GitHub
 log = logging.getLogger("domotica_hub.ejecutor")
 
 ESPERA_BLOQUEO_S = 10 * 60
+# Copias de trabajo de tareas finalizadas se borran pasado este tiempo (ya no se pueden continuar).
+RETENCION_WORKTREE_S = 7 * 24 * 3600
 
 
 class ErrorTarea(RuntimeError):
@@ -117,6 +119,7 @@ class Ejecutor:
         self._despertar = threading.Event()
         self._hilo: threading.Thread | None = None
         self._ultima_revision_pr = 0.0
+        self._ultima_limpieza = 0.0
         self.ultimo_ciclo = 0.0
         self.ultimo_error = ""
         self._rama_default: str | None = None
@@ -183,6 +186,9 @@ class Ejecutor:
                 if time.time() - self._ultima_revision_pr >= self.cfg.intervalo_pr_s:
                     self._ultima_revision_pr = time.time()
                     self._revisar_prs()
+                if time.time() - self._ultima_limpieza >= 3600:
+                    self._ultima_limpieza = time.time()
+                    self.limpiar_viejas()
             except Exception as e:  # el bucle no debe morir
                 self.ultimo_error = f"{time.strftime('%F %T')} {type(e).__name__}: {e}"[:500]
                 log.exception("error en el ciclo del ejecutor")
@@ -395,6 +401,28 @@ class Ejecutor:
             self._comentar(t, f"❌ Error al aplicar la tarea #{tid}:\n\n```\n{msg}\n```")
         finally:
             self._cancelar.pop(tid, None)
+
+    def limpiar_viejas(self, ahora: float | None = None) -> list[int]:
+        """Borra copias de trabajo de tareas finalizadas hace más de RETENCION_WORKTREE_S."""
+        limite = (ahora or time.time()) - RETENCION_WORKTREE_S
+        marcas = ",".join("?" * len(D.ESTADOS_FINALES))
+        filas = self.db.todos(
+            f"SELECT * FROM tareas WHERE estado IN ({marcas}) AND worktree IS NOT NULL AND actualizada < ?",
+            (*D.ESTADOS_FINALES, limite))
+        # Una copia compartida por continuaciones solo se borra si ninguna tarea activa la usa.
+        en_uso = {f["worktree"] for f in self.db.todos(
+            f"SELECT worktree FROM tareas WHERE estado NOT IN ({marcas}) AND worktree IS NOT NULL",
+            D.ESTADOS_FINALES)}
+        borradas = []
+        for t in filas:
+            if t["worktree"] in en_uso or not Path(t["worktree"]).exists():
+                continue
+            self._limpiar(t)
+            self.db.evento(t["id"], "limpieza", "copia de trabajo borrada por antigüedad")
+            borradas.append(t["id"])
+        if borradas:
+            git_local("worktree", "prune", cwd=self.cfg.repo)
+        return borradas
 
     def _limpiar(self, t: dict) -> None:
         if t.get("worktree") and Path(t["worktree"]).exists():
