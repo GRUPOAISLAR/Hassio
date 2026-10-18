@@ -131,27 +131,30 @@ def _comando_codex(cfg: Config, casa: str, fase: str, sesion: str | None, prompt
     opciones = "{" + ",".join(f"{k}={json.dumps(v)}" for k, v in _hamcp_opciones(fase).items()) + "}"
     a, c = f"mcp_servers.ha-{casa}", f"mcp_servers.hacfg-{casa}"
     over = [
+        # Sin conectores de la cuenta de ChatGPT (codex_apps): esquivarían estos permisos.
+        "-c", "features.apps=false",
         "-c", 'approval_policy="never"',
         "-c", 'sandbox_mode="workspace-write"' if fase == TRABAJO else 'sandbox_mode="read-only"',
         "-c", 'shell_environment_policy.exclude=["HA_*","HOMEASSISTANT_*","*TOKEN*","*KEY*","*SECRET*"]',
         # Assist (HTTP): el token se lee de HA_TOKEN en el entorno.
         "-c", f'{a}.url="{ha["HA_URL"]}/api/mcp"',
         "-c", f'{a}.bearer_token_env_var="HA_TOKEN"',
-        "-c", f'{a}.default_tools_approval_mode="auto"',
+        "-c", f'{a}.default_tools_approval_mode="approve"',
         # ha-mcp (stdio): URL y token se reenvían desde el entorno (env_vars), no van en la línea.
         "-c", f'{c}.command="{cfg.hamcp_bin}"',
         "-c", f'{c}.env_vars={_toml_lista(["HOMEASSISTANT_URL", "HOMEASSISTANT_TOKEN"])}',
         "-c", f"{c}.env={opciones}",
         "-c", f"{c}.startup_timeout_sec=60",
-        # Sin aprobación interactiva en exec: lo habilitado se aprueba solo.
-        "-c", f'{c}.default_tools_approval_mode="auto"',
+        # "approve" = aprobado de antemano (en exec no hay a quién preguntar); el límite real es
+        # enabled_tools + READ_ONLY_MODE. Requiere Codex >= 0.163 (en 0.159 se colgaba).
+        "-c", f'{c}.default_tools_approval_mode="approve"',
     ]
     if fase == TRABAJO:
         over += ["-c", f"{c}.enabled_tools={_toml_lista(HAMCP_TOOLS_LECTURA)}"]
     if sesion:
-        cmd = ["codex", "exec", "resume", "--json", "--skip-git-repo-check", *over, sesion, prompt]
+        cmd = [str(cfg.codex_bin), "exec", "resume", "--json", "--skip-git-repo-check", *over, sesion, prompt]
     else:
-        cmd = ["codex", "exec", "--json", "--skip-git-repo-check", *over, prompt]
+        cmd = [str(cfg.codex_bin), "exec", "--json", "--skip-git-repo-check", *over, prompt]
     env = {**_env_base(), **ha, "CODEX_HOME": str(cfg.agentes_dir / "codex-gmail")}
     return cmd, env
 
