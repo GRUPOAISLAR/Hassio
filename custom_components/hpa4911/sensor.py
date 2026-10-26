@@ -23,11 +23,10 @@ async def async_setup_entry(
     coordinator = config_entry.runtime_data
     mac = config_entry.data["mac"]
     
-    # Create sensor entities
-    sensors = [
-        HPA4911FirmwareSensor(coordinator, mac),
-        HPA4911BatterySensor(coordinator, mac),
-    ]
+    # Create sensor entities (window covering controllers have no IR module battery)
+    sensors = [HPA4911FirmwareSensor(coordinator, mac)]
+    if not coordinator.is_cover(mac):
+        sensors.append(HPA4911BatterySensor(coordinator, mac))
     async_add_entities(sensors, True)
     _LOGGER.debug("HPA4911 sensor entities setup completed for %s", config_entry.data["name"])
 

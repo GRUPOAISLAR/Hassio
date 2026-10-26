@@ -1,0 +1,32 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Agregar equipo Solidmation / BGH",
+        "description": "Configurá un kit BGH Smart Control (HPA-4911) o un comando de cortina Solidmation (HPA-4202)",
+        "data": {
+          "name": "Nombre",
+          "mac": "Dirección MAC (ej. AC:CF:23:80:3D:9A)",
+          "ip_address": "Dirección IP",
+          "device_type": "Tipo de equipo",
+          "invert_direction": "Invertir sentido del motor (solo cortinas)"
+        }
+      }
+    },
+    "error": {
+      "invalid_mac": "Formato de MAC inválido",
+      "invalid_ip": "Formato de IP inválido"
+    },
+    "abort": {
+      "already_configured": "El equipo ya está configurado"
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "climate": "Aire acondicionado (HPA-4911 / BGH)",
+        "cover": "Cortina (HPA-4202)"
+      }
+    }
+  }
+}

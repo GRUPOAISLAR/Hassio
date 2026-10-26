@@ -2,18 +2,31 @@
   "config": {
     "step": {
       "user": {
-        "title": "Add HPA4911 Device",
-        "description": "Configure your HPA4911 BGH Smart Control Kit device",
+        "title": "Add Solidmation / BGH device",
+        "description": "Configure a BGH Smart Control Kit (HPA-4911) or a Solidmation window covering controller (HPA-4202)",
         "data": {
           "name": "Device Name",
           "mac": "MAC Address (e.g., AC:CF:23:80:3D:9A)",
-          "ip": "IP Address"
+          "ip_address": "IP Address",
+          "device_type": "Device type",
+          "invert_direction": "Invert motor direction (covers only)"
         }
       }
     },
     "error": {
       "invalid_mac": "Invalid MAC address format",
       "invalid_ip": "Invalid IP address format"
+    },
+    "abort": {
+      "already_configured": "Device is already configured"
+    }
+  },
+  "selector": {
+    "device_type": {
+      "options": {
+        "climate": "Air conditioner (HPA-4911 / BGH)",
+        "cover": "Window covering (HPA-4202)"
+      }
     }
   }
 }

@@ -11,8 +11,19 @@ from homeassistant.const import CONF_IP_ADDRESS, CONF_MAC, CONF_NAME
 from homeassistant.core import HomeAssistant
 from homeassistant.data_entry_flow import FlowResult
 import homeassistant.helpers.config_validation as cv
+from homeassistant.helpers.selector import (
+    SelectSelector,
+    SelectSelectorConfig,
+    SelectSelectorMode,
+)
 
-from .const import DOMAIN
+from .const import (
+    CONF_DEVICE_TYPE,
+    CONF_INVERT_DIRECTION,
+    DEVICE_TYPE_CLIMATE,
+    DEVICE_TYPES,
+    DOMAIN,
+)
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -21,6 +32,14 @@ STEP_USER_DATA_SCHEMA = vol.Schema(
         vol.Required(CONF_NAME): str,
         vol.Required(CONF_MAC): cv.string,
         vol.Required(CONF_IP_ADDRESS): cv.string,
+        vol.Required(CONF_DEVICE_TYPE, default=DEVICE_TYPE_CLIMATE): SelectSelector(
+            SelectSelectorConfig(
+                options=DEVICE_TYPES,
+                mode=SelectSelectorMode.DROPDOWN,
+                translation_key=CONF_DEVICE_TYPE,
+            )
+        ),
+        vol.Optional(CONF_INVERT_DIRECTION, default=False): cv.boolean,
     }
 )
 
@@ -58,6 +77,8 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                         CONF_NAME: user_input[CONF_NAME],
                         CONF_MAC: mac,
                         CONF_IP_ADDRESS: ip_address,
+                        CONF_DEVICE_TYPE: user_input[CONF_DEVICE_TYPE],
+                        CONF_INVERT_DIRECTION: user_input.get(CONF_INVERT_DIRECTION, False),
                     },
                 )
 

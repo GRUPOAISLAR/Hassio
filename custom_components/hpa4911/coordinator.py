@@ -8,8 +8,8 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 from homeassistant.config_entries import ConfigEntry
 
-from .hpa4911_client import HPA4911AsyncClient, HVACStatus, DeviceStatus
-from .const import DOMAIN
+from .hpa4911_client import HPA4911AsyncClient, HVACStatus, CoverStatus, DeviceStatus
+from .const import CONF_DEVICE_TYPE, DEVICE_TYPE_CLIMATE, DEVICE_TYPE_COVER, DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -52,6 +52,7 @@ class HPA4911Coordinator(DataUpdateCoordinator):
         # Initialize device data
         self.device_data[mac] = {
             "hvac_status": None,
+            "cover_status": None,
             "device_status": None,
             "last_update": None,
         }
@@ -78,6 +79,10 @@ class HPA4911Coordinator(DataUpdateCoordinator):
     def get_device_config(self, mac: str) -> Dict[str, Any]:
         """Get config for a specific device."""
         return self.devices.get(mac, {})
+
+    def is_cover(self, mac: str) -> bool:
+        """Return True if the device is a window covering controller."""
+        return self.devices.get(mac, {}).get(CONF_DEVICE_TYPE, DEVICE_TYPE_CLIMATE) == DEVICE_TYPE_COVER
         
     async def _async_setup(self) -> None:
         """Set up the coordinator."""
@@ -86,6 +91,7 @@ class HPA4911Coordinator(DataUpdateCoordinator):
             # Set up callbacks to handle real-time updates
             self.client.set_climate_callback(self._handle_hvac_update)
             self.client.set_sensor_callback(self._handle_device_update)
+            self.client.set_cover_callback(self._handle_cover_update)
             
             try:
                 await self.client.connect()
@@ -127,10 +133,12 @@ class HPA4911Coordinator(DataUpdateCoordinator):
                 device_config.get("ip_address")
             )
             
-            await self.client.request_battery_status(
-                mac,
-                device_config.get("ip_address")
-            )
+            # Window covering controllers have no IR module battery
+            if not self.is_cover(mac):
+                await self.client.request_battery_status(
+                    mac,
+                    device_config.get("ip_address")
+                )
 
     def _handle_hvac_update(self, status: HVACStatus, source_ip: str) -> None:
         """Handle HVAC status update from device."""
@@ -139,6 +147,17 @@ class HPA4911Coordinator(DataUpdateCoordinator):
         if mac and mac in self.device_data:
             _LOGGER.debug("HVAC status update for device %s: %s", mac, status)
             self.device_data[mac]["hvac_status"] = status
+            self.device_data[mac]["last_update"] = asyncio.get_event_loop().time()
+            # Trigger update to all listening entities
+            self.async_set_updated_data(self.device_data)
+
+    def _handle_cover_update(self, status: CoverStatus, source_ip: str) -> None:
+        """Handle window covering status update from device."""
+        # Find device by IP
+        mac = self.ip_to_mac.get(source_ip)
+        if mac and mac in self.device_data:
+            _LOGGER.debug("Cover status update for device %s: %s", mac, status)
+            self.device_data[mac]["cover_status"] = status
             self.device_data[mac]["last_update"] = asyncio.get_event_loop().time()
             # Trigger update to all listening entities
             self.async_set_updated_data(self.device_data)
@@ -219,6 +238,16 @@ class HPA4911Coordinator(DataUpdateCoordinator):
             )
         else:
             _LOGGER.warning("Coordinator: Cannot set HVAC swing off - client=%s, device_exists=%s", self.client is not None, mac in self.devices)
+
+    async def async_cover_command(self, mac: str, command_id: int) -> None:
+        """Send a window covering command (up/down/stop) to a specific device."""
+        if self.client and mac in self.devices:
+            device_config = self.devices[mac]
+            device_ip = device_config.get("ip_address")
+            _LOGGER.debug("Coordinator: Sending cover command 0x%02x to device %s (MAC: %s, IP: %s)", command_id, device_config.get('name'), mac, device_ip)
+            await self.client.send_cover_command(mac, command_id, device_ip)
+        else:
+            _LOGGER.warning("Coordinator: Cannot send cover command - client=%s, device_exists=%s", self.client is not None, mac in self.devices)
 
     async def async_shutdown(self) -> None:
         """Shutdown the coordinator."""

@@ -19,6 +19,10 @@ class HVACStatus:
     timer_off_minutes: int
 
 @dataclass
+class CoverStatus:
+    state: int  # 0=stopped, 1=moving up, 2=moving down
+
+@dataclass
 class DeviceStatus:
     rssi: Optional[int] = None
     battery_level: Optional[int] = None
@@ -31,6 +35,7 @@ class DeviceResponse:
     command_id: int
     payload: bytes = b''
     hvac_status: Optional[HVACStatus] = None
+    cover_status: Optional[CoverStatus] = None
     device_status: Optional[DeviceStatus] = None
 
 class HPA4911AsyncClient:
@@ -44,8 +49,9 @@ class HPA4911AsyncClient:
         self.transport = None
         self.protocol = None
         self.sequence = 0
-        self._status_callback: Optional[Callable] = None
-        self._device_info_callback: Optional[Callable] = None
+        self._climate_callback: Optional[Callable] = None
+        self._sensor_callback: Optional[Callable] = None
+        self._cover_callback: Optional[Callable] = None
         
         # Set up logger
         import logging
@@ -58,6 +64,10 @@ class HPA4911AsyncClient:
     def set_sensor_callback(self, callback: Callable):
         """Set callback for device info updates"""
         self._sensor_callback = callback
+
+    def set_cover_callback(self, callback: Callable):
+        """Set callback for window covering status updates"""
+        self._cover_callback = callback
     
     async def connect(self):
         """Connect using asyncio UDP"""
@@ -101,6 +111,8 @@ class HPA4911AsyncClient:
         """Handle decoded response"""
         if response.hvac_status and self._climate_callback:
             self._climate_callback(response.hvac_status, addr)
+        elif response.cover_status and self._cover_callback:
+            self._cover_callback(response.cover_status, addr)
         elif response.device_status and self._sensor_callback:
             self._sensor_callback(response.device_status, addr)
     
@@ -266,6 +278,18 @@ class HPA4911AsyncClient:
         self._logger.debug("Sending HVAC swing OFF command: MAC=%s, Mode=%s, Fan=%s, Temp=%s°C, Flags=%s, IP=%s, Packet=%s", device_mac, mode, fan_mode, temperature, flags, target_ip, packet.hex())
         self.transport.sendto(packet, (target_ip, self.PORT_CLIENT))
     
+    async def send_cover_command(self, device_mac: str, command_id: int, device_ip: str = None):
+        """Send a window covering command (up/down/stop) to endpoint 1, without payload"""
+        if not self.transport:
+            await self.connect()
+
+        mac_bytes = bytes.fromhex(device_mac.replace(':', ''))
+        packet = self._create_header(mac_bytes, command_id, dest_endpoint=1)
+
+        target_ip = device_ip or self.BROADCAST_IP
+        self._logger.debug("Sending cover command: MAC=%s, Command=0x%02x, IP=%s, Packet=%s", device_mac, command_id, target_ip, packet.hex())
+        self.transport.sendto(packet, (target_ip, self.PORT_CLIENT))
+
     async def listen_for_responses(self, timeout: float = 30.0):
         """Listen for responses"""
         if not self.protocol:
@@ -327,10 +351,13 @@ class UDPProtocol(asyncio.DatagramProtocol):
         
         response = DeviceResponse(command_id=command_id, payload=payload)
         
-        # Decode HVAC status (command 253)
-        if command_id == 253 and len(payload) >= 12:
+        # Decode status report (command 253): HVAC (type 6) or window covering (type 4)
+        if command_id == 253 and len(payload) >= 2:
             status_type = payload[0]
-            if status_type == 6:  # HVAC status type
+            if status_type == 4:  # Window covering status type: motor state
+                response.cover_status = CoverStatus(state=payload[1])
+                self._logger.debug("Cover Status Response from %s: %s", mac_address, response.cover_status)
+            elif status_type == 6 and len(payload) >= 12:  # HVAC status type
                 mode, fan_mode, flags = struct.unpack('<BBB', payload[1:4])
                 measured_temp_raw = struct.unpack('<h', payload[4:6])[0]
                 desired_temp_raw = struct.unpack('<h', payload[6:8])[0]

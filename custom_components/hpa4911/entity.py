@@ -3,7 +3,7 @@ from homeassistant.helpers.update_coordinator import CoordinatorEntity
 from homeassistant.helpers.entity import DeviceInfo
 
 from .coordinator import HPA4911Coordinator
-from .const import DOMAIN, MANUFACTURER, MODEL
+from .const import COVER_MANUFACTURER, COVER_MODEL, DOMAIN, MANUFACTURER, MODEL
 
 
 class HPA4911Entity(CoordinatorEntity[HPA4911Coordinator]):
@@ -18,13 +18,14 @@ class HPA4911Entity(CoordinatorEntity[HPA4911Coordinator]):
         
         self.mac = mac
         device_config = coordinator.get_device_config(mac)
+        is_cover = coordinator.is_cover(mac)
         
         # Set up device info
         self._attr_device_info = DeviceInfo(
             identifiers={(DOMAIN, mac)},
             name=device_config.get("name", "HPA-4911"),
-            manufacturer=MANUFACTURER,
-            model=MODEL,
+            manufacturer=COVER_MANUFACTURER if is_cover else MANUFACTURER,
+            model=COVER_MODEL if is_cover else MODEL,
         )
         
         # Store device config for easy access
