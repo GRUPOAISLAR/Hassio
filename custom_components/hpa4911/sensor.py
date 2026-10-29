@@ -2,7 +2,7 @@
 import logging
 from typing import Any, Dict, List, Optional
 
-from homeassistant.components.sensor import SensorEntity, SensorDeviceClass
+from homeassistant.components.sensor import SensorEntity, SensorDeviceClass, SensorStateClass
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import PERCENTAGE
 from homeassistant.core import HomeAssistant, callback
@@ -27,6 +27,7 @@ async def async_setup_entry(
     sensors = [HPA4911FirmwareSensor(coordinator, mac)]
     if not coordinator.is_cover(mac):
         sensors.append(HPA4911BatterySensor(coordinator, mac))
+        sensors.append(HPA4911VibrationSensor(coordinator, mac))
     async_add_entities(sensors, True)
     _LOGGER.debug("HPA4911 sensor entities setup completed for %s", config_entry.data["name"])
 
@@ -54,6 +55,32 @@ class HPA4911FirmwareSensor(HPA4911Entity, SensorEntity):
             self._attr_extra_state_attributes = {"firmware_info": device_status.firmware_info}
             _LOGGER.debug("Updated firmware sensor to %s", device_status.firmware)
         
+        super()._handle_coordinator_update()
+
+
+class HPA4911VibrationSensor(HPA4911Entity, SensorEntity):
+    """Vibration level measured by the kit on the AC unit."""
+
+    def __init__(self, coordinator: HPA4911Coordinator, mac: str):
+        super().__init__(coordinator, mac)
+        self._attr_name = "Vibration"
+        self._attr_unique_id = f"{mac}_vibration"
+        self._attr_icon = "mdi:vibrate"
+        self._attr_state_class = SensorStateClass.MEASUREMENT
+        self._attr_native_value = None
+
+    @callback
+    def _handle_coordinator_update(self) -> None:
+        """Handle updated data from the coordinator."""
+        device_data = self.coordinator.get_device_data(self.mac)
+        if not device_data:
+            return
+
+        device_status = device_data.get("device_status")
+        if device_status and device_status.vibration is not None:
+            self._attr_native_value = device_status.vibration
+            _LOGGER.debug("Updated vibration sensor to %s", device_status.vibration)
+
         super()._handle_coordinator_update()
 
 

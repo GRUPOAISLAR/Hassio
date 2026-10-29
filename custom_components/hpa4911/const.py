@@ -29,3 +29,7 @@ CMD_COVER_DOWN: Final = 0x29
 COVER_STATE_STOPPED: Final = 0
 COVER_STATE_UP: Final = 1
 COVER_STATE_DOWN: Final = 2
+
+# Vibration level reported by the HVAC kit (command 245): about 65-71 with the
+# unit off and 25000-30000 with the indoor fan running (verified 29/10/2026)
+VIBRATION_RUNNING_THRESHOLD: Final = 1000

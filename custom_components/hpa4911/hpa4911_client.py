@@ -29,6 +29,7 @@ class DeviceStatus:
     ir_mac_address: Optional[str] = None
     firmware: Optional[str] = None
     firmware_info: Optional[str] = None
+    vibration: Optional[int] = None  # vibration level measured by the kit on the AC unit
 
 @dataclass
 class DeviceResponse:
@@ -375,6 +376,16 @@ class UDPProtocol(asyncio.DatagramProtocol):
                 )
                 self._logger.debug("HVAC Status Response from %s: %s", mac_address, response.hvac_status)
         
+        # Decode vibration report (command 245, ASCII "Vibration level: N"), sent about once a minute
+        elif command_id == 245 and payload.startswith(b'Vibration level:'):
+            try:
+                vibration = int(payload.split(b':', 1)[1].strip())
+            except ValueError:
+                vibration = None
+            if vibration is not None:
+                response.device_status = DeviceStatus(vibration=vibration)
+                self._logger.debug("Vibration Response from %s: %s", mac_address, vibration)
+
         # Decode HPA4911 status (command 162 response)
         elif command_id == 162 and len(payload) >= 8:
             custom_cmd = payload[0]
