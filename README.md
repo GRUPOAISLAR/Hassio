@@ -10,6 +10,8 @@ Mantiene el mismo dominio (`hpa4911`), así que reemplaza a la original sin toca
 - **Entidad cortina** para el HPA-4202: subir, bajar y parar. Muestra *subiendo* / *bajando* según lo que informa el equipo.
 - **Invertir sentido del motor**: si al conectar el motor la cortina baja cuando debería subir, se marca esta opción al agregar el equipo.
 
+- **Aires (HPA-4911): vibración y "funcionando"**. El kit mide la vibración del equipo y la informa cerca de una vez por minuto. Se agregan un sensor *Vibration* y un sensor binario *Running*, que indica si el aire realmente está andando, independientemente del modo que el kit cree haber enviado por infrarrojo.
+
 El HPA-4202 informa el estado del motor (parado, subiendo, bajando), pero **no la posición**: Home Assistant no sabe si la cortina quedó abierta o cerrada, por eso la entidad tiene ambos botones siempre disponibles.
 
 ## Protocolo del HPA-4202 (verificado el 26/10/2026, firmware 1.0.1.0)
@@ -24,6 +26,12 @@ Mismo protocolo UDP local que los BGH: se envía al puerto 20910 del equipo y se
 | Ir a posición (no probado, no usado) | `0x27` | 1 | 1 byte |
 
 Estado: comando `0xFD` desde el endpoint 1 con payload `04 XX FF`, donde `XX` = `00` parado, `01` subiendo, `02` bajando. Mientras el motor se mueve lo repite cada ~2 s. Los IDs provienen de la app "Hunter Douglas Smart Shades" 2.2.4 de Solidmation (clase `HACommand_Constants`).
+
+## Vibración del HPA-4911 (verificado el 29/10/2026, firmware 1.0.0.17)
+
+El kit manda el comando `0xF5` (245) con texto ASCII `Vibration level: N`. En un aire BGH de 2026 dio 65 a 71 apagado y 25000 a 30000 con el ventilador interior andando, así que *Running* se enciende por encima de 1000 (`VIBRATION_RUNNING_THRESHOLD`). Por el mismo comando llegan otros textos de diagnóstico (`BLELogic_UpdateAmbientTemperature...`, `BLE NAK`), que se ignoran.
+
+No todos los kits lo mandan: el de la galería (mismo modelo y firmware) no informó vibración en ningún momento, y su modo vuelve solo a *calor* unos 57 s después de apagarlo aunque el aire siga apagado.
 
 ## Instalación
 

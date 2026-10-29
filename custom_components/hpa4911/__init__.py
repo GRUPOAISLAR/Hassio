@@ -11,7 +11,7 @@ from .coordinator import HPA4911Coordinator, get_coordinator
 _LOGGER = logging.getLogger(__name__)
 
 PLATFORMS_BY_TYPE = {
-    DEVICE_TYPE_CLIMATE: [Platform.CLIMATE, Platform.SENSOR],
+    DEVICE_TYPE_CLIMATE: [Platform.CLIMATE, Platform.SENSOR, Platform.BINARY_SENSOR],
     DEVICE_TYPE_COVER: [Platform.COVER, Platform.SENSOR],
 }
 
