@@ -28,5 +28,31 @@
         "cover": "Cortina (HPA-4202)"
       }
     }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Opciones del aire",
+        "description": "Si el kit informa un modo que no coincide con el aire (por ejemplo, vuelve solo a calor con el aire apagado), activá esta opción: Home Assistant va a mostrar el último modo que mandó él y no el que informa el kit.",
+        "data": {
+          "ignore_kit_mode": "Ignorar el modo que informa el kit"
+        }
+      }
+    },
+    "abort": {
+      "no_options": "Este equipo no tiene opciones"
+    }
+  },
+  "services": {
+    "set_assumed_hvac_mode": {
+      "name": "Corregir modo sin enviar orden",
+      "description": "Cambia el modo que muestra Home Assistant sin mandar nada al aire. Solo para aires con la opción 'Ignorar el modo que informa el kit'.",
+      "fields": {
+        "hvac_mode": {
+          "name": "Modo",
+          "description": "Modo real del aire (por ejemplo, off)."
+        }
+      }
+    }
   }
 }

@@ -8,7 +8,7 @@ import voluptuous as vol
 
 from homeassistant import config_entries
 from homeassistant.const import CONF_IP_ADDRESS, CONF_MAC, CONF_NAME
-from homeassistant.core import HomeAssistant
+from homeassistant.core import HomeAssistant, callback
 from homeassistant.data_entry_flow import FlowResult
 import homeassistant.helpers.config_validation as cv
 from homeassistant.helpers.selector import (
@@ -19,6 +19,7 @@ from homeassistant.helpers.selector import (
 
 from .const import (
     CONF_DEVICE_TYPE,
+    CONF_IGNORE_KIT_MODE,
     CONF_INVERT_DIRECTION,
     DEVICE_TYPE_CLIMATE,
     DEVICE_TYPES,
@@ -48,6 +49,14 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
     """Handle a config flow for Local BGH Smart."""
 
     VERSION = 1
+
+    @staticmethod
+    @callback
+    def async_get_options_flow(
+        config_entry: config_entries.ConfigEntry,
+    ) -> config_entries.OptionsFlow:
+        """Return the options flow."""
+        return OptionsFlow()
 
     async def async_step_user(
         self, user_input: dict[str, Any] | None = None
@@ -101,3 +110,29 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
             return True
         except ValueError:
             return False
+
+
+class OptionsFlow(config_entries.OptionsFlow):
+    """Options for an HVAC kit."""
+
+    async def async_step_init(
+        self, user_input: dict[str, Any] | None = None
+    ) -> FlowResult:
+        """Manage the options."""
+        if self.config_entry.data.get(CONF_DEVICE_TYPE, DEVICE_TYPE_CLIMATE) != DEVICE_TYPE_CLIMATE:
+            return self.async_abort(reason="no_options")
+
+        if user_input is not None:
+            return self.async_create_entry(data=user_input)
+
+        return self.async_show_form(
+            step_id="init",
+            data_schema=vol.Schema(
+                {
+                    vol.Optional(
+                        CONF_IGNORE_KIT_MODE,
+                        default=self.config_entry.options.get(CONF_IGNORE_KIT_MODE, False),
+                    ): cv.boolean,
+                }
+            ),
+        )

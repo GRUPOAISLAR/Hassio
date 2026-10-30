@@ -28,5 +28,31 @@
         "cover": "Window covering (HPA-4202)"
       }
     }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Air conditioner options",
+        "description": "If the kit reports a mode that does not match the unit (for example, it falls back to heat while the unit is off), enable this: Home Assistant will show the last mode it sent instead of the one the kit reports.",
+        "data": {
+          "ignore_kit_mode": "Ignore the mode reported by the kit"
+        }
+      }
+    },
+    "abort": {
+      "no_options": "This device has no options"
+    }
+  },
+  "services": {
+    "set_assumed_hvac_mode": {
+      "name": "Correct mode without sending",
+      "description": "Changes the mode Home Assistant shows without sending anything to the unit. Only for units with 'Ignore the mode reported by the kit' enabled.",
+      "fields": {
+        "hvac_mode": {
+          "name": "Mode",
+          "description": "The unit's real mode (for example, off)."
+        }
+      }
+    }
   }
 }

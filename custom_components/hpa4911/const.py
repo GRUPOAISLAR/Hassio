@@ -11,6 +11,9 @@ MODEL: Final = "HPA4911 Smart Control Kit"
 
 CONF_DEVICE_TYPE: Final = "device_type"
 CONF_INVERT_DIRECTION: Final = "invert_direction"
+CONF_IGNORE_KIT_MODE: Final = "ignore_kit_mode"
+
+SERVICE_SET_ASSUMED_HVAC_MODE: Final = "set_assumed_hvac_mode"
 
 DEVICE_TYPE_CLIMATE: Final = "climate"
 DEVICE_TYPE_COVER: Final = "cover"
