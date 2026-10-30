@@ -13,8 +13,14 @@ from homeassistant.components.climate import (
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import ATTR_TEMPERATURE, UnitOfTemperature
 from homeassistant.core import HomeAssistant, callback
+from homeassistant.exceptions import ServiceValidationError
+from homeassistant.helpers import entity_platform
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.helpers.restore_state import RestoreEntity
+import homeassistant.helpers.config_validation as cv
+import voluptuous as vol
 
+from .const import CONF_IGNORE_KIT_MODE, SERVICE_SET_ASSUMED_HVAC_MODE
 from .coordinator import HPA4911Coordinator
 from .entity import HPA4911Entity
 
@@ -31,6 +37,16 @@ HPA4911_TO_HA_MODE = {
 }
 
 HA_TO_HPA4911_MODE = {v: k for k, v in HPA4911_TO_HA_MODE.items()}
+
+# Action shown for a mode assumed from the last command (ignore_kit_mode)
+ASSUMED_MODE_ACTION = {
+    HVACMode.OFF: HVACAction.OFF,
+    HVACMode.COOL: HVACAction.COOLING,
+    HVACMode.HEAT: HVACAction.HEATING,
+    HVACMode.DRY: HVACAction.DRYING,
+    HVACMode.FAN_ONLY: HVACAction.FAN,
+    HVACMode.AUTO: HVACAction.IDLE,
+}
 
 # Fan mode mapping (matches cloud implementation)
 HPA4911_TO_HA_FAN = {
@@ -65,15 +81,29 @@ async def async_setup_entry(
     mac = config_entry.data["mac"]
     
     # Create climate entity
-    async_add_entities([HPA4911Climate(coordinator, mac)])
+    ignore_kit_mode = config_entry.options.get(CONF_IGNORE_KIT_MODE, False)
+    async_add_entities([HPA4911Climate(coordinator, mac, ignore_kit_mode)])
+
+    platform = entity_platform.async_get_current_platform()
+    platform.async_register_entity_service(
+        SERVICE_SET_ASSUMED_HVAC_MODE,
+        {vol.Required("hvac_mode"): vol.In([mode.value for mode in HA_TO_HPA4911_MODE])},
+        "async_set_assumed_hvac_mode",
+    )
     _LOGGER.debug("HPA4911 climate entity setup completed for %s", config_entry.data["name"])
 
-class HPA4911Climate(HPA4911Entity, ClimateEntity):
-    """HPA4911 climate entity."""
+class HPA4911Climate(HPA4911Entity, ClimateEntity, RestoreEntity):
+    """HPA4911 climate entity.
+
+    With ignore_kit_mode the entity shows the last mode sent from Home
+    Assistant (restored across restarts) instead of the mode the kit reports,
+    for kits that report a mode the unit is not in.
+    """
     
-    def __init__(self, coordinator: HPA4911Coordinator, mac: str) -> None:
+    def __init__(self, coordinator: HPA4911Coordinator, mac: str, ignore_kit_mode: bool = False) -> None:
         """Initialize the climate entity."""
         super().__init__(coordinator, mac)
+        self._ignore_kit_mode = ignore_kit_mode
         
         self._attr_name = None  # Use device name
         self._attr_unique_id = f"{mac}_climate"
@@ -120,6 +150,9 @@ class HPA4911Climate(HPA4911Entity, ClimateEntity):
         if hvac_status:
             self._attr_current_temperature = hvac_status.measured_temp
             self._attr_target_temperature = hvac_status.desired_temp
+            if self._ignore_kit_mode:
+                super()._handle_coordinator_update()
+                return
             self._attr_hvac_mode = HPA4911_TO_HA_MODE.get(hvac_status.mode, HVACMode.OFF)
             
             # Determine HVAC action
@@ -149,11 +182,39 @@ class HPA4911Climate(HPA4911Entity, ClimateEntity):
         
         super()._handle_coordinator_update()
     
+    async def async_added_to_hass(self) -> None:
+        """Restore the assumed mode when the kit's mode is ignored."""
+        await super().async_added_to_hass()
+        if not self._ignore_kit_mode:
+            return
+        last_state = await self.async_get_last_state()
+        mode = HVACMode.OFF
+        if last_state and last_state.state in [m.value for m in HA_TO_HPA4911_MODE]:
+            mode = HVACMode(last_state.state)
+        self._set_assumed_mode(mode)
+
+    @callback
+    def _set_assumed_mode(self, hvac_mode: HVACMode) -> None:
+        """Show hvac_mode as the unit's mode without sending anything."""
+        self._attr_hvac_mode = hvac_mode
+        self._attr_hvac_action = ASSUMED_MODE_ACTION[hvac_mode]
+        self.async_write_ha_state()
+
+    async def async_set_assumed_hvac_mode(self, hvac_mode: str) -> None:
+        """Service: correct the shown mode without sending an IR command."""
+        if not self._ignore_kit_mode:
+            raise ServiceValidationError(
+                "Only available when the kit's reported mode is ignored (integration options)"
+            )
+        self._set_assumed_mode(HVACMode(hvac_mode))
+
     async def async_set_hvac_mode(self, hvac_mode: HVACMode) -> None:
         """Set new target hvac mode."""
         if hvac_mode in HA_TO_HPA4911_MODE:
             mode = HA_TO_HPA4911_MODE[hvac_mode]
             await self.coordinator.async_set_hvac_mode(self.mac, mode)
+            if self._ignore_kit_mode:
+                self._set_assumed_mode(hvac_mode)
     
     async def async_set_temperature(self, **kwargs: Any) -> None:
         """Set new target temperature."""

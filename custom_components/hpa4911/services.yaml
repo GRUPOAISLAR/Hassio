@@ -1,0 +1,18 @@
+set_assumed_hvac_mode:
+  target:
+    entity:
+      integration: hpa4911
+      domain: climate
+  fields:
+    hvac_mode:
+      required: true
+      example: "off"
+      selector:
+        select:
+          options:
+            - "off"
+            - "cool"
+            - "heat"
+            - "dry"
+            - "fan_only"
+            - "auto"

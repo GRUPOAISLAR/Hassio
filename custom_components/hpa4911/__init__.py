@@ -43,7 +43,13 @@ async def async_setup_entry(hass: HomeAssistant, entry: HPA4911ConfigEntry) -> b
     entry.runtime_data = coordinator
     
     await hass.config_entries.async_forward_entry_setups(entry, _platforms(entry))
+    entry.async_on_unload(entry.add_update_listener(_async_options_updated))
     return True
+
+
+async def _async_options_updated(hass: HomeAssistant, entry: HPA4911ConfigEntry) -> None:
+    """Reload the entry when its options change."""
+    await hass.config_entries.async_reload(entry.entry_id)
 
 async def async_unload_entry(hass: HomeAssistant, entry: HPA4911ConfigEntry) -> bool:
     """Unload a config entry."""

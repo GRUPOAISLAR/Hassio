@@ -33,6 +33,21 @@ El kit manda el comando `0xF5` (245) con texto ASCII `Vibration level: N`. En un
 
 No todos los kits lo mandan: el de la galería (mismo modelo y firmware) no informó vibración en ningún momento, y su modo vuelve solo a *calor* unos 57 s después de apagarlo aunque el aire siga apagado.
 
+## Aires cuyo kit informa mal el modo
+
+Algunos kits informan un modo que no coincide con el aire. El de la galería, por ejemplo, vuelve solo a *calor* unos 57 s después de apagarlo, aunque el aire siga apagado. Para esos aires, en **Ajustes → Dispositivos y servicios → Local BGH Smart → (el aire) → Configurar**, activá **Ignorar el modo que informa el kit**:
+
+- Home Assistant muestra el último modo que mandó él, y lo conserva al reiniciar. La temperatura del ambiente sigue saliendo del kit.
+- Con el servicio `hpa4911.set_assumed_hvac_mode` se corrige el modo que se muestra **sin mandar nada al aire**, por ejemplo después de usar el control remoto:
+
+```yaml
+action: hpa4911.set_assumed_hvac_mode
+target:
+  entity_id: climate.aire_galeria
+data:
+  hvac_mode: "off"
+```
+
 ## Instalación
 
 1. Copiar `custom_components/hpa4911` a `/config/custom_components/hpa4911` (reemplazando la versión de HACS de arpena, o quitándola de HACS primero).
