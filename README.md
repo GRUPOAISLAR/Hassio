@@ -48,6 +48,10 @@ data:
   hvac_mode: "off"
 ```
 
+## Cambios de IP
+
+Los kits toman la IP por DHCP y pueden cambiarla si se corta la red (pasó el 01/11/2026 en el Lote 101: todos los kits quedaron *no disponibles*). La integración reconoce cada kit por la MAC que viene en la cabecera de cada paquete, aprende la IP nueva sola y la usa para los comandos. Si un kit no responde por más de 5 min, además de su IP lo busca por difusión en la red. Igual conviene reservarles la IP en el router.
+
 ## Instalación
 
 1. Copiar `custom_components/hpa4911` a `/config/custom_components/hpa4911` (reemplazando la versión de HACS de arpena, o quitándola de HACS primero).

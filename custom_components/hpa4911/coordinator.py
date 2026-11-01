@@ -37,6 +37,7 @@ class HPA4911Coordinator(DataUpdateCoordinator):
         self.devices: Dict[str, Dict[str, Any]] = {}  # MAC -> device config
         self.device_data: Dict[str, Dict[str, Any]] = {}  # MAC -> device data
         self.ip_to_mac: Dict[str, str] = {}  # IP -> MAC mapping
+        self.device_ip: Dict[str, str] = {}  # MAC -> current IP (follows DHCP changes)
         self._subscription_task: Optional[asyncio.Task] = None
         
     def add_device(self, config_entry: ConfigEntry) -> None:
@@ -48,6 +49,7 @@ class HPA4911Coordinator(DataUpdateCoordinator):
         self.devices[mac] = device_config
         if ip:
             self.ip_to_mac[ip] = mac
+            self.device_ip[mac] = ip
             
         # Initialize device data
         self.device_data[mac] = {
@@ -67,8 +69,10 @@ class HPA4911Coordinator(DataUpdateCoordinator):
         
         self.devices.pop(mac, None)
         self.device_data.pop(mac, None)
-        if ip and ip in self.ip_to_mac:
-            self.ip_to_mac.pop(ip)
+        current_ip = self.device_ip.pop(mac, None)
+        for known_ip in (ip, current_ip):
+            if known_ip and self.ip_to_mac.get(known_ip) == mac:
+                self.ip_to_mac.pop(known_ip)
             
         _LOGGER.debug("Removed device %s (MAC: %s) from coordinator", device_config["name"], mac)
     
@@ -121,29 +125,45 @@ class HPA4911Coordinator(DataUpdateCoordinator):
     async def _refresh_subscriptions(self) -> None:
         """Refresh subscriptions for all devices."""
         _LOGGER.debug("Refreshing subscriptions for %d devices", len(self.devices))
-        
-        # Request subscriptions sequentially for each device
-        for mac, device_config in self.devices.items():
-            await self.client.subscribe_hvac_status(
-                mac,
-                device_config.get("ip_address")
-            )
-            
-            await self.client.request_device_info(
-                device_config.get("ip_address")
-            )
-            
-            # Window covering controllers have no IR module battery
-            if not self.is_cover(mac):
-                await self.client.request_battery_status(
-                    mac,
-                    device_config.get("ip_address")
-                )
+        now = asyncio.get_event_loop().time()
 
-    def _handle_hvac_update(self, status: HVACStatus, source_ip: str) -> None:
+        # Request subscriptions sequentially for each device
+        for mac in list(self.devices):
+            device_ip = self.device_ip.get(mac)
+            # A device silent for over 5 min may have a new DHCP address:
+            # ask on broadcast too so it answers and _resolve_mac learns the IP
+            last_update = self.device_data.get(mac, {}).get("last_update")
+            stale = last_update is None or now - last_update > 300
+            targets = [device_ip, None] if stale and device_ip else [device_ip]
+
+            for target in targets:
+                await self.client.subscribe_hvac_status(mac, target)
+                await self.client.request_device_info(target)
+
+                # Window covering controllers have no IR module battery
+                if not self.is_cover(mac):
+                    await self.client.request_battery_status(mac, target)
+
+    def _resolve_mac(self, source_ip: str, mac: Optional[str]) -> Optional[str]:
+        """Return the configured MAC for a packet, learning a changed IP."""
+        if mac and mac in self.devices:
+            if self.device_ip.get(mac) != source_ip:
+                old_ip = self.device_ip.get(mac)
+                _LOGGER.warning(
+                    "Device %s (%s) changed IP from %s to %s",
+                    self.devices[mac].get("name"), mac, old_ip, source_ip,
+                )
+                if old_ip and self.ip_to_mac.get(old_ip) == mac:
+                    self.ip_to_mac.pop(old_ip)
+                self.device_ip[mac] = source_ip
+                self.ip_to_mac[source_ip] = mac
+            return mac
+        return self.ip_to_mac.get(source_ip)
+
+    def _handle_hvac_update(self, status: HVACStatus, source_ip: str, mac: Optional[str] = None) -> None:
         """Handle HVAC status update from device."""
         # Find device by IP
-        mac = self.ip_to_mac.get(source_ip)
+        mac = self._resolve_mac(source_ip, mac)
         if mac and mac in self.device_data:
             _LOGGER.debug("HVAC status update for device %s: %s", mac, status)
             self.device_data[mac]["hvac_status"] = status
@@ -151,10 +171,10 @@ class HPA4911Coordinator(DataUpdateCoordinator):
             # Trigger update to all listening entities
             self.async_set_updated_data(self.device_data)
 
-    def _handle_cover_update(self, status: CoverStatus, source_ip: str) -> None:
+    def _handle_cover_update(self, status: CoverStatus, source_ip: str, mac: Optional[str] = None) -> None:
         """Handle window covering status update from device."""
         # Find device by IP
-        mac = self.ip_to_mac.get(source_ip)
+        mac = self._resolve_mac(source_ip, mac)
         if mac and mac in self.device_data:
             _LOGGER.debug("Cover status update for device %s: %s", mac, status)
             self.device_data[mac]["cover_status"] = status
@@ -162,10 +182,10 @@ class HPA4911Coordinator(DataUpdateCoordinator):
             # Trigger update to all listening entities
             self.async_set_updated_data(self.device_data)
 
-    def _handle_device_update(self, status: DeviceStatus, source_ip: str) -> None:
+    def _handle_device_update(self, status: DeviceStatus, source_ip: str, mac: Optional[str] = None) -> None:
         """Handle device status update from device."""
         # Find device by IP
-        mac = self.ip_to_mac.get(source_ip)
+        mac = self._resolve_mac(source_ip, mac)
         if mac and mac in self.device_data:
             _LOGGER.debug("Device status update for device %s: %s", mac, status)
             self.device_data[mac]["device_status"] = status
@@ -177,7 +197,7 @@ class HPA4911Coordinator(DataUpdateCoordinator):
         """Set HVAC mode for a specific device."""
         if self.client and mac in self.devices:
             device_config = self.devices[mac]
-            device_ip = device_config.get("ip_address")
+            device_ip = self.device_ip.get(mac, device_config.get("ip_address"))
             _LOGGER.debug("Coordinator: Setting HVAC mode for device %s (MAC: %s, IP: %s) to mode %s", device_config.get('name'), mac, device_ip, mode)
             await self.client.set_hvac_mode(
                 mac,
@@ -191,7 +211,7 @@ class HPA4911Coordinator(DataUpdateCoordinator):
         """Set HVAC mode, fan, and temperature for a specific device."""
         if self.client and mac in self.devices:
             device_config = self.devices[mac]
-            device_ip = device_config.get("ip_address")
+            device_ip = self.device_ip.get(mac, device_config.get("ip_address"))
             _LOGGER.debug("Coordinator: Setting HVAC full for device %s (MAC: %s, IP: %s) - Mode: %s, Fan: %s, Flags: %s, Temp: %s°C", device_config.get('name'), mac, device_ip, mode, fan_mode, flags, temperature)
             await self.client.set_hvac_full(
                 mac,
@@ -209,7 +229,7 @@ class HPA4911Coordinator(DataUpdateCoordinator):
         """Set HVAC with swing settings for a specific device."""
         if self.client and mac in self.devices:
             device_config = self.devices[mac]
-            device_ip = device_config.get("ip_address")
+            device_ip = self.device_ip.get(mac, device_config.get("ip_address"))
             _LOGGER.debug("Coordinator: Setting HVAC with swing for device %s (MAC: %s, IP: %s) - Mode: %s, Fan: %s, Temp: %s°C, H_Swing: %s, V_Swing: %s", device_config.get('name'), mac, device_ip, mode, fan_mode, temperature, horizontal_swing, vertical_swing)
             await self.client.set_hvac_with_swing(
                 mac,
@@ -227,7 +247,7 @@ class HPA4911Coordinator(DataUpdateCoordinator):
         """Turn off HVAC swing for a specific device."""
         if self.client and mac in self.devices:
             device_config = self.devices[mac]
-            device_ip = device_config.get("ip_address")
+            device_ip = self.device_ip.get(mac, device_config.get("ip_address"))
             _LOGGER.debug("Coordinator: Setting HVAC swing OFF for device %s (MAC: %s, IP: %s) - Mode: %s, Fan: %s, Temp: %s°C", device_config.get('name'), mac, device_ip, mode, fan_mode, temperature)
             await self.client.set_hvac_swing_off(
                 mac,
@@ -243,7 +263,7 @@ class HPA4911Coordinator(DataUpdateCoordinator):
         """Send a window covering command (up/down/stop) to a specific device."""
         if self.client and mac in self.devices:
             device_config = self.devices[mac]
-            device_ip = device_config.get("ip_address")
+            device_ip = self.device_ip.get(mac, device_config.get("ip_address"))
             _LOGGER.debug("Coordinator: Sending cover command 0x%02x to device %s (MAC: %s, IP: %s)", command_id, device_config.get('name'), mac, device_ip)
             await self.client.send_cover_command(mac, command_id, device_ip)
         else:

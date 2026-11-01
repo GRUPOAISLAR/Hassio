@@ -34,6 +34,7 @@ class DeviceStatus:
 @dataclass
 class DeviceResponse:
     command_id: int
+    mac_address: Optional[str] = None  # sender MAC from the packet header (AA:BB:...)
     payload: bytes = b''
     hvac_status: Optional[HVACStatus] = None
     cover_status: Optional[CoverStatus] = None
@@ -110,12 +111,13 @@ class HPA4911AsyncClient:
 
     def _handle_response(self, response: DeviceResponse, addr: str):
         """Handle decoded response"""
+        mac = response.mac_address
         if response.hvac_status and self._climate_callback:
-            self._climate_callback(response.hvac_status, addr)
+            self._climate_callback(response.hvac_status, addr, mac)
         elif response.cover_status and self._cover_callback:
-            self._cover_callback(response.cover_status, addr)
+            self._cover_callback(response.cover_status, addr, mac)
         elif response.device_status and self._sensor_callback:
-            self._sensor_callback(response.device_status, addr)
+            self._sensor_callback(response.device_status, addr, mac)
     
     def _create_header(self, dest_mac: bytes, cmd_id: int, src_endpoint: int = 0, dest_endpoint: int = 0) -> bytes:
         """Create 17-byte UDP packet header"""
@@ -350,7 +352,7 @@ class UDPProtocol(asyncio.DatagramProtocol):
         command_id = data[16]
         payload = data[17:] if len(data) > 17 else b''
         
-        response = DeviceResponse(command_id=command_id, payload=payload)
+        response = DeviceResponse(command_id=command_id, mac_address=mac_address, payload=payload)
         
         # Decode status report (command 253): HVAC (type 6) or window covering (type 4)
         if command_id == 253 and len(payload) >= 2:
