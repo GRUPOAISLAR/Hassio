@@ -182,6 +182,28 @@ izquierda*):
 > Nota interna: entidades `climate.sonoff_10017cb77f` (HP), `…cb765` (D1), `…cb728` (D2),
 > `…cb76e` (Galería); canales `switch.sonoff_<id>_1/_2`.
 
+### Acceso (pasillo exterior de entrada)
+
+![Pasillo de acceso](fotos/acceso-pasillo-vista.jpg)
+![Tecla del acceso](fotos/acceso-tecla-pasillo.jpg)
+
+Tecla sola en la pared de madera, al entrar: prende las **luces del pasillo de acceso** (los
+apliques bajos de la pared). A veces hay que tocarla dos veces.
+
+### Salida del lavadero
+
+![Ubicación de las teclas, salida del lavadero](fotos/lavadero-salida-teclas-ubicacion.jpg)
+![Teclas de la salida del lavadero](fotos/lavadero-salida-teclas.jpg)
+
+| Posición | Qué maneja |
+|---|---|
+| Tecla de arriba | Luces del perímetro del frente |
+| Tecla de abajo | Luz de la salida del lavadero (techo del semicubierto lateral) |
+
+> Nota interna: arriba `switch.sonoff_10013b0bb7_2` ("Patio y perímetro · Perímetro frente");
+> abajo `switch.sonoff_10013b00fb_2` ("Semi cubierto Lateral Techo"). La tecla del acceso es
+> `switch.sonoff_10013b00fb_1`. Placa sin terminar: faltan las tapas de las teclas.
+
 ---
 
 ## Pendientes para completar
