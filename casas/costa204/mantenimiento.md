@@ -88,3 +88,20 @@ Para hacer en otra visita. Antes de empezar, **pausar el llenado automático** (
 4. Caudal del llenado: cronometrar cuánto tarda en llenar un balde de volumen conocido
    (L/min), para traducir el tiempo de llenado automático a litros/día.
 5. Pasar mm a litros: superficie de la pileta (m²) × mm = litros. Falta registrar largo y ancho.
+
+## Shelly SHDIM-11 (spots del comedor) sin funcionar
+
+![SHDIM-11 sin LED](fotos/shelly-shdim-11-comedor-apagado.jpg)
+
+- Equipo: Shelly Dimmer 2 `349454729610` ("SHDIM-11", circuito L de la planilla: spots del
+  techo del comedor, 3 spots 8 cm; tablero 5 según diseño). En HA: `light.luz_spots_comedor`.
+- Estado: **no disponible en HA al menos desde el 01/11/2026** (es lo más viejo que guarda el
+  historial); el 11/11 se vio en la caja **sin LED** (los dimmers vecinos sí lo tienen) y los
+  spots no prenden.
+- Diagnóstico: con el circuito de iluminación cortado, revisar que L y N estén firmes en los
+  bornes; volver a dar luz y medir 220 V entre L y N del Shelly. Si hay tensión y el LED sigue
+  apagado, el Shelly está quemado → reemplazarlo.
+- Al reemplazar: mismo cableado (L, N, O, SW1, SW2), configurar **`btn_type = dual_button`**,
+  darle IP/nombre y volver a sumarlo en HA (mantener el nombre `light.luz_spots_comedor` para
+  no romper paneles y automatizaciones). Revisar si los "spots estar" y "spots comedor" están
+  cruzados (ver `relevamiento-teclas.md`).
