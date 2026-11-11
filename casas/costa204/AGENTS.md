@@ -62,6 +62,11 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
   son puntos de la malla). Se administra desde la app Google Home. **No es Deco** (el Deco es de
   Lote 101). Los huéspedes usan hoy la red principal; si se arma la red de invitados de Nest Wifi,
   hay que compartirle los TV y parlantes ("dispositivos compartidos") para que puedan transmitir.
+- **Shelly sin contraseña (relevado 11/11/2026)**: los 30 Shelly de la casa (26 Dimmer 2, 1PM del
+  extractor del toilette, sensor de movimiento, 2 H&T, RGBW2 de la pileta, i4 Gen3) están en HA
+  sin usuario ni contraseña: cualquiera en la red principal puede abrir su página y cambiarlos.
+  Prioridad: sacar a los huéspedes de la red principal (red de invitados de Nest Wifi). Ponerles
+  clave exige además actualizar las credenciales de cada uno en HA, o quedan no disponibles.
 - **Seguridad**: Alarmo (sirena), 5 cámaras (Foscam: Frente_Patio_Interno, Frente_izquierda,
   Fondo_Izquierdo, Lateral_Derecho; más Camara Entrada), modo casa (Presente/Ausente) con sugerencia
   automática si todos están fuera más de 1 h.
