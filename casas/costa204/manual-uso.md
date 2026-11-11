@@ -677,9 +677,22 @@ a la lista del disparador.
   aire; cerrar ventanas y puertas; entrar sillas y ropa tendida (puede haber zorros); avisar si
   se rompió algo.
 - Cámaras exteriores declaradas en Airbnb: patio trasero, lateral derecho y frente.
-- **Diferencias entre las publicaciones y la casa (para corregir en los anuncios):** dicen
-  "calefacción central por losa radiante" y "aire acondicionado central" (el aire del estar está
-  en reparación); HomeExchange dice 4 dormitorios y 3 baños completos + toilette. Airbnb no
-  indica detector de humo ni de monóxido de carbono.
-- Pendiente del dueño: horarios de entrada y salida, despensa, ropa blanca, basura,
-  correspondencia, dónde dejar los llaveros, reglas de la pileta, guardia del barrio.
+- Check-in de 12:00 a 18:00; check-out antes de las 10:00. Llaveros: sobre la mesa del comedor,
+  en el centro de mesa. Al irse, avisar por el chat para la lectura final del medidor.
+- Hay sábanas, toallas, papel higiénico y jabón de cortesía. La despensa es privada de los
+  dueños; lo que pueden usar queda en los espacios comunes. Leña y carbón los traen los huéspedes.
+- Residuos: húmedos en bolsa negra lunes, miércoles y viernes desde las 7:30; reciclables secos
+  en bolsa verde los lunes desde las 7:30.
+- Pileta: chicos siempre con un adulto (sin cerco ni guardavidas); se puede usar de noche; sin
+  vidrio; ducharse antes, sin cremas ni aceites; no tocar bomba, tablero ni válvulas.
+- Lavarropas sin secarropas. Matafuego en el lavadero. Gas de tubo en la entrada (ante olor a
+  gas: cerrar la válvula, ventilar y avisar).
+- Guardia del barrio, internos (seguridad, corte de luz) y recomendaciones de la zona: en la guía
+  imprimible (abajo). El ingreso al barrio lo gestiona la inmobiliaria.
+- **Guía publicada para huéspedes (la que se imprime, 3 páginas, y se comparte):**
+  https://claude.ai/artifact/PVbwRKaX5EUgoZdDTJV8hx (lienzo con versión en español, inglés e
+  imprimible). La página con fotos de las teclas: https://claude.ai/artifact/Lwtm4mZLvVhNVKVYvFRPFy
+  (copia en `guia-huesped.html`).
+- **A revisar:** el aire del estar figura en los anuncios y en la guía imprimible, pero desde el
+  11/11/2026 está desconectado (en reparación). Airbnb no indica detector de humo ni de monóxido.
+  HomeExchange dice "lava secarropas" (no hay secarropas) y 4 dormitorios / 3 baños completos.
