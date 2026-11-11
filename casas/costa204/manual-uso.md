@@ -112,6 +112,7 @@ cargador): no desenchufarlo. Con él, en invierno, la calefacción mantiene el b
 
 #### Repetidor Wi-Fi y parlante (mesita redonda junto a la ventana)
 
+![Ubicación del repetidor: mesita negra en el rincón, junto al ventanal](fotos/habitacion-principal-repetidor-wifi-ubicacion.jpg)
 ![Repetidor Wi-Fi y parlante](fotos/habitacion-principal-repetidor-wifi.jpg)
 
 El aparato blanco redondo sobre la mesita negra es el **repetidor de Wi-Fi y parlante** de la
