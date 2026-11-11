@@ -261,7 +261,7 @@ Entrando al lavadero desde la casa, en la pared junto a la puerta, hay dos tecla
 |---|---|---|
 | Izquierda (doble) | Arriba | Spots del pasillo de la cocina, entre la mesada y la isla |
 | Izquierda (doble) | Abajo | Spots del techo de cocina, estar y comedor del lado de la galería |
-| Del medio (doble) | Arriba | *Sin función por ahora* |
+| Del medio (doble) | Arriba | Spots del comedor de la galería |
 | Del medio (doble) | Abajo | Colgante de la mesa del comedor de la galería |
 | Derecha (sola, la más cercana al vajillero) | — | *Sin función identificada* |
 
@@ -292,11 +292,12 @@ No desenchufarlos.
 > - Derecha (sola) = no llega a HA: cableada a algo no domotizado o suelta. Probar de noche.
 > - La salida del Dimmer "Comedor Galería" (`light.shellydimmer2_409151588222`) son los
 >   **spots del comedor de la galería**. Su tecla está en el pasillo de la galería (placa
->   derecha, arriba); la entrada 2 (vajillero medio-arriba) es la que no hace nada.
+>   derecha, arriba). La entrada 2 (vajillero medio-arriba) estaba suelta: desde el 11/11 la
+>   maneja `automation.cocina_tecla_del_vajillero_medio_arriba_prende_spots_del_comedor_de_la_galeria`
+>   (evento `shelly.click`, canal 2 → `light.toggle`). Si se cae HA, esa tecla no anda.
 >
-> **Pendientes (11/11): 4 teclas que no llegan a nada.** Vajillero derecha (sola), vajillero
-> medio-arriba (llega a la entrada 2 del Dimmer "Comedor Galería" sin efecto), galería arriba
-> (junto a los jarrones) y la del medio del pasillo de servicio (reflectores). Sospecha: cable suelto en alguna caja. Revisar con el electricista;
+> **Pendientes (11/11): 3 teclas que no llegan a nada.** Vajillero derecha (sola), galería
+> arriba (junto a los jarrones) y la del medio del pasillo de servicio (reflectores). Sospecha: cable suelto en alguna caja. Revisar con el electricista;
 > mientras tanto, se puede hacer que medio-arriba maneje los spots del comedor con una
 > automatización.
 > - El NSPanel Pro es de embutir; hoy está apoyado en la isla con un soporte.
