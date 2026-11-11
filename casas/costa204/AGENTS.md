@@ -146,11 +146,11 @@ Registro de reparaciones (colector solar, etc.): [`mantenimiento.md`](mantenimie
 - [`fotos/README.md`](fotos/README.md): índice de todas las fotos por lugar. Al sumar una foto,
   agregarla ahí.
 - Cocina (verificado 11/11 en el registro): spots de la mesada y del pasillo son la misma luz
-  `light.luz_spots_cocina`; junto al vajillero, medio-abajo = colgante del comedor de la galería; medio-arriba
-  llega a la entrada 2 del Shelly "Comedor Galería" sin efecto; la derecha y la de arriba de la
-  galería no llegan a HA (probar de noche). Las tres quedaron pendientes de electricista
-  (¿cable suelto?). Los spots del comedor de la galería (`light.shellydimmer2_409151588222`)
-  se manejan desde el pasillo de la galería (placa derecha, arriba).
+  `light.luz_spots_cocina`. Desde el arreglo `dual_button`, todas las segundas teclas de los
+  Shelly andan directo. Siguen sin función (pendientes de electricista, ver
+  `relevamiento-teclas.md`): vajillero derecha, galería jarrones arriba (re-probada 14:34, no
+  genera evento), pasillo de servicio medio, hall de entrada derecha abajo; la placa del medio
+  hall–estar llega a la SW2 del Shelly de la isla (sin cambiar a propósito).
 
 ### Manual de uso
 
