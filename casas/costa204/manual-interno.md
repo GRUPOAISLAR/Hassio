@@ -201,6 +201,16 @@ completar.* Bornera, térmica **C10 bipolar** y:
 | 2 relés de estado sólido (rojos, LCDT-48D10AA, 10 A) | calefacción eléctrica (accionados por el NSPanel) | — |
 | Sonoff iFan "DORM 2 SOFUN-2 VENT 2" | ventilador de techo del dormitorio 2 (luz + velocidades) | `light.sonoff_10013f3c51_1` y su ventilador |
 
+## Equipos de red (placard del dormitorio 2, estante de arriba)
+
+![Router, switch y Raspberry](fotos/red-placard-dormitorio-2.jpg)
+
+Router, switch y **Raspberry Pi**, más una notebook Toshiba, en el estante alto del placard
+del dormitorio 2. Es el corazón de la casa: sin esto no hay Wi-Fi, ni Home Assistant, ni
+cerraduras por app, ni avisos. **No desenchufar** ni mover cables. *A completar: qué equipo
+corre Home Assistant (Raspberry o notebook) y para qué está la notebook.*
+Pendiente: alerta si se cae (por ejemplo, ping externo/Nabu Casa) y ordenar cables.
+
 ## Llaveros de acceso (huéspedes)
 
 Dos llaveros, cada uno con la **tarjeta de la cerradura principal** (rotulada con su número) y

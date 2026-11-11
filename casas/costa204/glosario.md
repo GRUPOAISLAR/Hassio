@@ -50,6 +50,7 @@ huéspedes, el manual interno, Home Assistant, la guía con IA y los mensajes. C
 | Tablero de domótica 7 | Sonoffs de las luces exteriores (perímetro, patio, reflectores, semicubierto) | Hall, pasillo del toilette, a la izquierda del tablero 5 | [foto](fotos/tablero-domotica-7-exterior.jpg) | 🔒 no tocar |
 | Tablero de domótica 6 | Shellys, Sonoffs y contactores de galería, parrilla, baño de galería, servicio y lavadero | *a completar* | [foto](fotos/tablero-domotica-6-galeria.jpg) | 🔒 no tocar |
 | Tablero de domótica 3 | Shellys, Sonoffs, relés de calefacción y control del ventilador del dormitorio 2 y hall de dormitorios | *a completar* | [foto](fotos/tablero-domotica-3-dormitorio-2.jpg) | 🔒 no tocar |
+| Equipos de red (router, switch, Raspberry) | Internet, Wi-Fi y Home Assistant | Placard del dormitorio 2, estante de arriba | [foto](fotos/red-placard-dormitorio-2.jpg) | ✅ no tocar ni desenchufar |
 | Placard de los dueños | Placard de dos puertas, uso privado, con sensor de movimiento | Hall, junto al antetoilette | [foto](fotos/placard-duenos-cerrado.jpg) | 🔒 cerrado |
 | Colector solar de la pileta | Paños de manguera negra | Techo | [foto](fotos/colector-vista-general.jpg) | 🔒 |
 | Flotante del skimmer | Sensor de nivel del agua de la pileta | Skimmer de la pileta | — | 🔒 |

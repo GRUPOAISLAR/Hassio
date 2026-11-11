@@ -163,6 +163,7 @@ Para pedir una foto, usá el nombre del archivo o el del [glosario](../glosario.
 | [tablero-domotica-7-exterior.jpg](tablero-domotica-7-exterior.jpg) | Tablero de domótica 7 (luces exteriores) |
 | [tablero-domotica-6-galeria.jpg](tablero-domotica-6-galeria.jpg) | Tablero de domótica 6 (galería) |
 | [tablero-domotica-3-dormitorio-2.jpg](tablero-domotica-3-dormitorio-2.jpg) | Tablero de domótica 3 (dormitorio 2) |
+| [red-placard-dormitorio-2.jpg](red-placard-dormitorio-2.jpg) | Router, switch y Raspberry (placard del dormitorio 2) |
 | [medidor-tension-fases.jpg](medidor-tension-fases.jpg) | Medidor de tensión por fase |
 | [tablero-electrico-derecho.jpg](tablero-electrico-derecho.jpg) | Tablero eléctrico derecho |
 | [tablero-electrico-izquierdo.jpg](tablero-electrico-izquierdo.jpg) | Tablero eléctrico izquierdo |

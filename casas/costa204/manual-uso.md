@@ -504,6 +504,10 @@ frena).
 | Teclón más cercano a la mesa de luz junto a la ventana | Spots del techo del dormitorio |
 | Cómoda con espejo | Control remoto del ventilador de techo y parlante Google Mini de la habitación |
 
+> En el **estante de arriba del placard del dormitorio 2** están los equipos de internet y de
+> la casa (router y otros): por favor no desenchufarlos ni moverlos. Si se corta el Wi-Fi,
+> avisar al anfitrión.
+
 ![Tecla de la cortina](fotos/dormitorio-2-cortina-tecla.jpg)
 ![Cómoda: parlante y control del ventilador](fotos/dormitorio-2-parlante-control-ventilador.jpg)
 
