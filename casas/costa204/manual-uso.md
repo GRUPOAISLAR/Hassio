@@ -302,14 +302,16 @@ calefacción** de la galería (ver "Paneles de calefacción con pantalla").
 
 | Tecla | Qué maneja |
 |---|---|
-| Arriba | *En revisión* |
+| Arriba | *Sin función identificada* |
 | Abajo | Spots del techo de la galería (sector living) |
 
 ![Teclas y panel de la galería, de cerca](fotos/galeria-teclas-nspanel.jpg)
 
 > Nota interna (registro de HA, 11/11 11:16): las pulsaciones llegaron todas a la entrada 1 del
 > Shelly Dimmer 2 `244CAB40220A` → `light.luz_galeria_living` (tecla de abajo, confirmado).
-> Estaba al 1 % y parecía apagada.
+> Estaba al 1 % y parecía apagada. La tecla de **arriba** no llega a HA (probada 11/11 11:21,
+> 5 toques, ningún evento): cableada a algo no domotizado o suelta. Probar de noche mirando
+> exterior/perímetro, o bajando térmicas de iluminación.
 
 ### Brillo mínimo de las luces dimerizables
 
