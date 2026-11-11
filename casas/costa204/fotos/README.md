@@ -8,6 +8,11 @@ Para pedir una foto, usá el nombre del archivo o el del [glosario](../glosario.
 
 | Foto | Qué muestra |
 |---|---|
+| [fachada-frente.jpg](fachada-frente.jpg) | Frente de la casa desde la calle |
+| [frente-semicubierto-estacionamiento.jpg](frente-semicubierto-estacionamiento.jpg) | Semicubierto del frente: lugar para estacionar |
+| [acceso-pasillo-puerta-principal.jpg](acceso-pasillo-puerta-principal.jpg) | Pasillo de acceso con la puerta principal al fondo |
+| [acceso-patio-puerta-principal.jpg](acceso-patio-puerta-principal.jpg) | Patio de acceso, banco y puerta principal |
+| [puerta-principal.jpg](puerta-principal.jpg) | Puerta principal con la cerradura electrónica en el picaporte |
 | [acceso-pasillo-vista.jpg](acceso-pasillo-vista.jpg) | Pasillo exterior de entrada |
 | [acceso-tecla-pasillo.jpg](acceso-tecla-pasillo.jpg) | Tecla del pasillo de acceso (pared de madera) |
 | [lavadero-salida-teclas-ubicacion.jpg](lavadero-salida-teclas-ubicacion.jpg) | Teclas de afuera junto a la puerta lateral: ubicación |
@@ -60,6 +65,7 @@ Para pedir una foto, usá el nombre del archivo o el del [glosario](../glosario.
 
 | Foto | Qué muestra |
 |---|---|
+| [comedor-estar-vista.jpg](comedor-estar-vista.jpg) | Comedor y estar con la salamandra |
 | [hall-dormitorios-pasillo.jpg](hall-dormitorios-pasillo.jpg) | Hall de los dormitorios y pasillo a la habitación principal |
 | [hall-dormitorios-teclas.jpg](hall-dormitorios-teclas.jpg) | Teclas del hall de los dormitorios |
 | [hall-pasillo-dormitorios-tecla.jpg](hall-pasillo-dormitorios-tecla.jpg) | Tecla del hall junto al paso a los dormitorios |
