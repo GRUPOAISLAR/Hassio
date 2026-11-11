@@ -94,11 +94,14 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
   ubicación de teclas, se niega a dar claves/alarma y dice "no lo sé" ante lo que no está en
   el manual. Si vuelve el error 402, es falta de crédito en AI Studio (afecta también al
   pipeline "Google IA", el preferido de la casa).
-- TTLock Puerta Lateral: pilas cambiadas (100 % al 11/11/2026) y vuelve a reportar. Pero **HA no
-  recibe las aperturas**: el 11/11 a las 09:19 se abrió con huella y `last_operator` y
-  `last_trigger` siguieron en "Unknown". Hay un aviso de reparación `ttlock webhook_setup` abierto
-  desde 08/2026: los eventos de TTLock llegan por webhook desde su nube y ese webhook no está
-  configurado. La puerta principal (Tuya) sí registra la huella n.º 2.
+- TTLock Puerta Lateral: pilas cambiadas (100 % al 11/11/2026). **Webhook registrado el 11/11**
+  (callback URL de Nabu Casa en la app "Costa Esmeralda" de euopen.ttlock.com): los eventos llegan
+  al instante (`sensor.puerta_lateral_last_operator` / `_last_trigger`). Avisa por Telegram
+  quién abrió y cómo, en la misma automatización que la principal. Auto Lock activo.
+- Tecla del acceso (pared de madera junto al pasillo exterior) = Sonoff dual
+  `switch.sonoff_10013b00fb_1` → `light.exterior_semi_cubierto_lateral_placard` ("Pasillo Acceso
+  Principal Exterior"); el canal 2 es el techo del semicubierto lateral. El 11/11 respondió de
+  forma irregular: el primer toque no se registró, el segundo sí.
 - Cuenta Tuya compartida con Lote 101: aquí están deshabilitados los equipos de la otra casa.
 - Reparaciones abiertas en HA (11/2026): migración de `chat_id` de Telegram en varias
   automatizaciones (rompía en 2026.9) y configuración `http` en YAML pendiente de quitar
