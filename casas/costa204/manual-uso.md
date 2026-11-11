@@ -69,6 +69,18 @@ Dos placas, de izquierda a derecha:
 | Izquierda (doble) | Media tecla de abajo | Luz del centro de la habitación | Push, dimerizable |
 | Derecha | Tecla grande | Cortina | Push: un toque la mueve, otro toque la frena |
 
+#### Botonera junto a la cama, lado izquierdo (sobre la mesa de luz)
+
+![Teclas junto a la cama, lado izquierdo](fotos/habitacion-principal-teclas-cama-izquierda.jpg)
+
+Una placa con tres teclas:
+
+| Posición | Qué maneja |
+|---|---|
+| Cuarto de tecla de arriba | Hall de acceso y spots del lado izquierdo de la habitación (entrando) |
+| Cuarto de tecla del medio | Luz del centro de la habitación |
+| Media tecla de abajo | Velador colgante izquierdo |
+
 #### Botonera de la entrada (junto a la puerta del vestidor)
 
 ![Ubicación de la botonera de la entrada](fotos/habitacion-principal-teclas-entrada-ubicacion.jpg)
