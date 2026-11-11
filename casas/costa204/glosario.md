@@ -48,6 +48,7 @@ huéspedes, el manual interno, Home Assistant, la guía con IA y los mensajes. C
 | Sensor de temperatura del baño | Shelly H&T | Baño de la habitación principal, sobre la mesada | — | ✅ no desenchufar |
 | Tablero de domótica 5 | Shellys, Sonoffs y contactores de estar, comedor y cocina | Hall, pasillo del toilette, detrás de las tapas blancas | [foto](fotos/tablero-domotica-5-hall-toilette.jpg) | 🔒 no tocar |
 | Tablero de domótica 7 | Sonoffs de las luces exteriores (perímetro, patio, reflectores, semicubierto) | Hall, pasillo del toilette, a la izquierda del tablero 5 | [foto](fotos/tablero-domotica-7-exterior.jpg) | 🔒 no tocar |
+| Tablero de domótica 6 | Shellys, Sonoffs y contactores de galería, parrilla, baño de galería, servicio y lavadero | *a completar* | [foto](fotos/tablero-domotica-6-galeria.jpg) | 🔒 no tocar |
 | Placard de los dueños | Placard de dos puertas, uso privado, con sensor de movimiento | Hall, junto al antetoilette | [foto](fotos/placard-duenos-cerrado.jpg) | 🔒 cerrado |
 | Colector solar de la pileta | Paños de manguera negra | Techo | [foto](fotos/colector-vista-general.jpg) | 🔒 |
 | Flotante del skimmer | Sensor de nivel del agua de la pileta | Skimmer de la pileta | — | 🔒 |

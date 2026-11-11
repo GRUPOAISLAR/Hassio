@@ -170,6 +170,22 @@ Detrás de las tapas blancas de la pared del antetoilette (arriba de la tecla). 
 > "Perímetro frente". Coincide con lo que se vio con las teclas: **los nombres en HA están
 > invertidos**. Corregirlos verificando a la vista de noche.
 
+## Tablero de domótica 6 (galería)
+
+![Tablero 6](fotos/tablero-domotica-6-galeria.jpg)
+
+"TABLERO 6" de la planilla (galería, parrilla, baño de la galería, habitación de servicio,
+lavadero). *Ubicación exacta: a completar.* Bornera ("caja 1"), térmica **C10 bipolar** y:
+
+| Equipo (rótulo) | Qué maneja | En HA |
+|---|---|---|
+| 5 Shelly Dimmer 2 (SHDIM-17 a 21) | galería living, spots comedor galería, barra, pasillo, colgante comedor galería | `light.luz_galeria_living`, `light.shellydimmer2_409151588222`, `light.luz_barra_galeria`, `light.pasillogaleria`, `light.luz_colagante_comedor_galeria` |
+| 4 contactores BAW CM25 rotulados "Cocina", "Lavad. / Dorm. servicio", "Gale NS P", "Gal Parrilla" | calefacción eléctrica por zona | (los manejan termostatos/NSPanel) |
+| Sonoff Dual R3 SONDUR3-9 "Galería Y / Hab. servicio Z" | luz de la parrilla, luz de la habitación de servicio | `switch.sonoff_10013b0692_1/_2` |
+| Sonoff Dual R3 SONDUR3-17 "Lavadero CAL 7" (y CAL 8) | calefacción del lavadero y de la habitación de servicio | — |
+| Sonoff Dual R3 SONDUR3-11 "Hab. servicio CORT 11" | cortina de la habitación de servicio | `cover.sonoff_10013af1d0` |
+| Sonoff Dual R3 SONDUR3-12 "Galería" (EXT 1 / V) | extractor y luz del baño de la galería | `switch.sonoff_10013afde4_1/_2` |
+
 ## Llaveros de acceso (huéspedes)
 
 Dos llaveros, cada uno con la **tarjeta de la cerradura principal** (rotulada con su número) y
