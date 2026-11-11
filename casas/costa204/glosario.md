@@ -49,8 +49,9 @@ huéspedes, el manual interno, Home Assistant, la guía con IA y los mensajes. C
 | Tablero de domótica 5 | Shellys, Sonoffs y contactores de estar, comedor y cocina | Hall, pasillo del toilette, detrás de las tapas blancas | [foto](fotos/tablero-domotica-5-hall-toilette.jpg) | 🔒 no tocar |
 | Tablero de domótica 7 | Sonoffs de las luces exteriores (perímetro, patio, reflectores, semicubierto) | Hall, pasillo del toilette, a la izquierda del tablero 5 | [foto](fotos/tablero-domotica-7-exterior.jpg) | 🔒 no tocar |
 | Tablero de domótica 6 | Shellys, Sonoffs y contactores de galería, parrilla, baño de galería, servicio y lavadero | *a completar* | [foto](fotos/tablero-domotica-6-galeria.jpg) | 🔒 no tocar |
-| Tablero de domótica 2 | Shelly, Sonoffs, relés de calefacción y control del ventilador del dormitorio 1, antebaño y baño | *a completar* | [foto](fotos/tablero-domotica-2-dormitorio-1.jpg) | 🔒 no tocar |
-| Tablero de domótica 3 | Shellys, Sonoffs, relés de calefacción y control del ventilador del dormitorio 2 y hall de dormitorios | *a completar* | [foto](fotos/tablero-domotica-3-dormitorio-2.jpg) | 🔒 no tocar |
+| Tablero de domótica 1 | Shellys, Sonoffs, relés de calefacción y control del ventilador de la habitación principal y su baño | Habitación principal, detrás de la puerta | [foto](fotos/tablero-domotica-1-habitacion-principal.jpg) | 🔒 no tocar |
+| Tablero de domótica 2 | Shelly, Sonoffs, relés de calefacción y control del ventilador del dormitorio 1, antebaño y baño | Dormitorio 1, detrás de la puerta | [foto](fotos/tablero-domotica-2-dormitorio-1.jpg) | 🔒 no tocar |
+| Tablero de domótica 3 | Shellys, Sonoffs, relés de calefacción y control del ventilador del dormitorio 2 y hall de dormitorios | Dormitorio 2, detrás de la puerta | [foto](fotos/tablero-domotica-3-dormitorio-2.jpg) | 🔒 no tocar |
 | Equipos de red (router, switch, Raspberry) | Internet, Wi-Fi y Home Assistant | Placard del dormitorio 2, estante de arriba | [foto](fotos/red-placard-dormitorio-2.jpg) | ✅ no tocar ni desenchufar |
 | Placard de los dueños | Placard de dos puertas, uso privado, con sensor de movimiento | Hall, junto al antetoilette | [foto](fotos/placard-duenos-cerrado.jpg) | 🔒 cerrado |
 | Colector solar de la pileta | Paños de manguera negra | Techo | [foto](fotos/colector-vista-general.jpg) | 🔒 |
