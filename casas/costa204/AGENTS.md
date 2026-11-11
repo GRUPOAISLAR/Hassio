@@ -9,7 +9,7 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
 |---|---|
 | Id en domotica-hub | `costa204` (servidores `ha-costa204`, `hacfg-costa204`) |
 | Ubicación en HA | Costa 204 |
-| Home Assistant | Core 2026.11.1 (actualizado 11/11/2026 07:14, tras backup completo 6beeb1fd); OS 18.2 → 18.5 en curso |
+| Home Assistant | Core 2026.11.1 (actualizado 11/11/2026 07:14, tras backup completo 6beeb1fd); OS 18.5 (actualizado 11/11/2026 07:24) |
 | Escala | ~1100 entidades, ~96 automatizaciones, ~17 scripts, 17 áreas |
 | Áreas | estar, comedor, cocina, galería, baño galería, habitación principal, habitación de servicio, chicas, hall dormitorios, baño dormitorios, hall planta baja, toilette, lavadero, subsuelo, accesos, exterior, cooperativa |
 
