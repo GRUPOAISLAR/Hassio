@@ -50,6 +50,8 @@ Para pedir una foto, usá el nombre del archivo o el del [glosario](../glosario.
 
 | Foto | Qué muestra |
 |---|---|
+| [hall-entrada-teclas-ubicacion.jpg](hall-entrada-teclas-ubicacion.jpg) | Hall de entrada: ubicación de las teclas |
+| [hall-entrada-teclas.jpg](hall-entrada-teclas.jpg) | Teclas del hall de entrada |
 | [estar-hall-teclas-ubicacion.jpg](estar-hall-teclas-ubicacion.jpg) | Teclas entre el hall y el estar: ubicación |
 | [estar-vista.jpg](estar-vista.jpg) | Estar: TV, salamandra y spots del techo |
 | [estar-apliques-pared.jpg](estar-apliques-pared.jpg) | Luces de pared del estar (apliques) |

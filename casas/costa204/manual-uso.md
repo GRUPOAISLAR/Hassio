@@ -378,6 +378,25 @@ Junto a la puerta, al lado del enchufe:
 > (verificado 11/11 11:28–11:29). Apagado automático:
 > `automation.extractor_bano_galeria_auto_off_15_min` (11/11/2026).
 
+### Hall de entrada (al entrar por la puerta principal, pared de la derecha)
+
+![Ubicación de las teclas del hall de entrada](fotos/hall-entrada-teclas-ubicacion.jpg)
+![Teclas del hall de entrada](fotos/hall-entrada-teclas.jpg)
+
+| Placa | Tecla | Qué maneja |
+|---|---|---|
+| Izquierda | Arriba | Spots del hall de acceso (*a confirmar*) |
+| Izquierda | Abajo | Luz del pasillo de acceso exterior (la misma que la tecla de afuera) |
+| Derecha (junto a la puerta) | Arriba | Luces del patio interno / perímetro exterior |
+| Derecha (junto a la puerta) | Abajo | *A confirmar* |
+
+> Nota interna (registro de HA, 11/11 11:32–11:34): pasillo de acceso =
+> `switch.sonoff_10013b00fb_1`; patio interno = `switch.sonoff_10013b0bb7_1` ("Patio y
+> perímetro · Patio interno"); hall = `light.luz_hall` (Shelly `34945471BC6C`: entrada 1 desde
+> acá, entrada 2 desde la placa entre hall y estar). **Ojo:** al probar estas teclas el sensor
+> de movimiento del placard del acceso peatonal disparó Alarmo (11:32:27) y mandó avisos a
+> todos los teléfonos: probar con la alarma desarmada.
+
 ### Entre el hall de acceso y el estar
 
 ![Ubicación de las teclas, pared del estar](fotos/estar-hall-teclas-ubicacion.jpg)
