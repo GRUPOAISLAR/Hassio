@@ -290,6 +290,15 @@ No desenchufarlos.
 >   sola 11/11 11:22: el evento llega pero no cambia ninguna luz (entrada suelta). Se puede
 >   asignar a algo con una automatización.
 > - Derecha (sola) = no llega a HA: cableada a algo no domotizado o suelta. Probar de noche.
+> - La salida del Dimmer "Comedor Galería" (`light.shellydimmer2_409151588222`) son los
+>   **spots del comedor de la galería** (verificado 11/11 prendiéndolo desde HA). Ninguna tecla
+>   probada los maneja: es probable que alguna de las 3 pendientes debiera hacerlo.
+>
+> **Pendientes (11/11): 3 teclas que no llegan a nada.** Vajillero derecha (sola), vajillero
+> medio-arriba (llega a la entrada 2 del Dimmer "Comedor Galería" sin efecto) y galería arriba
+> (junto a los jarrones). Sospecha: cable suelto en alguna caja. Revisar con el electricista;
+> mientras tanto, se puede hacer que medio-arriba maneje los spots del comedor con una
+> automatización.
 > - El NSPanel Pro es de embutir; hoy está apoyado en la isla con un soporte.
 
 ### Galería

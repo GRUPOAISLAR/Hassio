@@ -137,7 +137,9 @@ Registro de reparaciones (colector solar, etc.): [`mantenimiento.md`](mantenimie
 - Cocina (verificado 11/11 en el registro): spots de la mesada y del pasillo son la misma luz
   `light.luz_spots_cocina`; junto al vajillero, medio-abajo = colgante del comedor de la galería; medio-arriba
   llega a la entrada 2 del Shelly "Comedor Galería" sin efecto; la derecha y la de arriba de la
-  galería no llegan a HA (probar de noche).
+  galería no llegan a HA (probar de noche). Las tres quedaron pendientes de electricista
+  (¿cable suelto?). Los spots del comedor de la galería (`light.shellydimmer2_409151588222`)
+  hoy no tienen tecla.
 
 ### Manual de uso
 
