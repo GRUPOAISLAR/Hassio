@@ -603,6 +603,26 @@ Tres placas en la pared blanca, al pasar del hall al estar (de izquierda a derec
 > que está suelta. Se puede asignar con una automatización. La automatización de brillo
 > mínimo actuó con la luz del centro del estar (11:31:54).
 
+### Habitación de servicio
+
+![Puerta de la habitación de servicio](fotos/habitacion-servicio-puerta.jpg)
+![Teclas y botón de la cortina](fotos/habitacion-servicio-teclas.jpg)
+![Plafón](fotos/habitacion-servicio-plafon.jpg)
+
+Junto a la puerta, al entrar:
+
+| Qué | Qué maneja |
+|---|---|
+| Teclón (placa de la izquierda) | Luz del techo (plafón redondo) |
+| Botón redondo inalámbrico (arriba) | Cortina (un toque la mueve, otro la frena) |
+| Tecla tapada con cinta | Sin uso: no tocar |
+
+> Nota interna (11/11 11:49): luz = `switch.sonoff_10013b0692_2` ("Luz Habitación Servicio",
+> mismo Sonoff que la parrilla). La cortina tenía tecla cableada, pero al repararla no se
+> encontraron bien los cables: se dejó la tecla anulada con cinta y se puso un botón Zigbee
+> ("Timbre Redondo", ZHA) que dispara `automation.cortina_hab_servicio` sobre
+> `cover.sonoff_10013af1d0`. Depende de HA y de la pila del botón.
+
 ### Parrilla
 
 ![Ubicación de la tecla de la parrilla](fotos/galeria-parrilla-tecla-ubicacion.jpg)

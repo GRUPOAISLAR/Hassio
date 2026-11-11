@@ -120,6 +120,9 @@ Para pedir una foto, usá el nombre del archivo o el del [glosario](../glosario.
 
 | Foto | Qué muestra |
 |---|---|
+| [habitacion-servicio-puerta.jpg](habitacion-servicio-puerta.jpg) | Puerta de la habitación de servicio |
+| [habitacion-servicio-teclas.jpg](habitacion-servicio-teclas.jpg) | Teclas y botón inalámbrico de la cortina |
+| [habitacion-servicio-plafon.jpg](habitacion-servicio-plafon.jpg) | Plafón de la habitación de servicio |
 | [servicio-pasillo-teclas-reflectores.jpg](servicio-pasillo-teclas-reflectores.jpg) | Teclas de los reflectores, junto a la salida lateral |
 
 ## Habitación principal
