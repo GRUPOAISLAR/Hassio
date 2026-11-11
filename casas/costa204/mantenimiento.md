@@ -27,6 +27,12 @@ Ahí es más probable que aparezcan fisuras.
   ![Ubicación de la reparación](fotos/colector-reparacion-ubicacion-2026-11-11.jpg)
   ![Cinta autosoldable](fotos/colector-reparacion-cinta-2026-11-11.jpg)
 
+- Esa mañana el filtro se prendía y se cortaba cada 3 a 5 min, y el colector no arrancaba.
+  La causa: el **sensor de nivel del skimmer** (flotante Tuya, `switch.nivel_skimmer_switch_1`)
+  quedó **trabado físicamente** marcando "bajo". El nivel había bajado tanto que el flotante
+  se fue para atrás y no volvió solo. Se destrabó a mano y volvió a "con agua" a las 09:12.
+  Si el filtro cicla con el canal lleno, revisar primero ese flotante. La cámara
+  (`sensor.pileta_canal_skimmer`) sirve para comparar.
 - Revisar en la próxima visita: que la cinta siga sellando con el colector caliente, y una
   posible marca o agujero en un tubo del borde derecho de la foto de la cinta, a la altura del
   final del parche.
