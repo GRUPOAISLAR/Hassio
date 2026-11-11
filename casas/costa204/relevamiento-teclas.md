@@ -56,6 +56,19 @@ Resultado (11/11 tarde): todas las teclas del estar andan; vajillero derecha y g
 arriba siguen sin cablear. Teclas que podían empezar a andar por este cambio: galería junto a los jarrones (arriba,
 SW2 de galería living) y otras segundas teclas de la planilla de diseño. Volver a probarlas.
 
+## Pendientes para el electricista (11/11/2026)
+
+1. Vajillero, tecla sola de la derecha: sin cablear (prevista para la luz de la isla).
+2. Galería, junto a los jarrones, tecla de arriba: sin cablear (spots del comedor de la galería).
+3. Pasillo de servicio, tecla del medio: no llega al Sonoff de la luz perimetral del fondo.
+4. Hall de entrada, derecha abajo: spots de la reserva vehicular sin equipo.
+5. Habitación de servicio: **tecla física de la cortina** anulada con cinta (no se encontraron
+   bien los cables). Hoy se maneja con el botón inalámbrico; revisar hasta dónde llega el
+   cableado y reconectarla al Sonoff SONDUR3-11 (`cover.sonoff_10013af1d0`).
+6. Shelly SHDIM-11 (spots del comedor): fuera de servicio, reemplazar.
+7. Opcional: placa del medio entre hall y estar (llega a la SW2 del Shelly de la isla) y tecla
+   junto al panel del dormitorio 1 (canal sin carga; la tira LED nunca se instaló).
+
 ## Posibles nombres cruzados en HA (verificar de noche, a la vista)
 
 - Sonoff Dual R3 `10013b0bb7` (diseño: canal D = estacas del patio interno, canal E = apliques
