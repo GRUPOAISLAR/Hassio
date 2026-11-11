@@ -19,7 +19,7 @@ Reglas de este documento:
 | 3 | Luces y teclas, por ambiente | 🟡 (habitación principal) |
 | 4 | Climatización: calefacción, ventiladores, aire del estar | ⬜ |
 | 5 | Agua caliente (termotanques) y consumo eléctrico (limitador) | ⬜ |
-| 6 | Cortinas | 🟡 |
+| 6 | Cortinas (un toque mueve, otro frena) | 🟡 |
 | 7 | Pileta y jardín (riego automático) | ⬜ |
 | 8 | Cocina y electrodomésticos | ⬜ |
 | 9 | Basura y reciclaje | ⬜ |
@@ -67,7 +67,7 @@ Dos placas, de izquierda a derecha:
 |---|---|---|---|
 | Izquierda (doble) | Media tecla de arriba | Velador derecho | Push, dimerizable |
 | Izquierda (doble) | Media tecla de abajo | Luz del centro de la habitación | Push, dimerizable |
-| Derecha | Tecla grande | Cortina | Push |
+| Derecha | Tecla grande | Cortina | Push: un toque la mueve, otro toque la frena |
 
 #### Controles remotos (en la mesa de luz)
 
@@ -95,5 +95,6 @@ Fotos: 10/11/2026.
 
 - Fotos y mapa de teclas del resto de los ambientes (estar, cocina, comedor, galería,
   dormitorios 1 y 2, baños, hall, exterior).
-- Botones del control del ventilador; cómo se usa la tecla de la cortina (toque o mantener).
+- Botones del control del ventilador.
+- Cortinas: confirmar si el siguiente toque después de frenar la mueve en sentido contrario.
 - Secciones ⬜ del índice: datos que tiene que pasar el dueño.
