@@ -92,7 +92,10 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
   Con Google: `script.guia_de_la_casa` expuesto a Google Assistant (HA Cloud): "Ok Google,
   activá Guía de la casa" → resumen hablado en todos los parlantes. "Ok Google" no puede
   hacer preguntas libres a la guía (va al asistente de Google); solo frases armadas.
-  Al cambiar `manual-uso.md`, actualizar también el prompt del agente.
+  Al cambiar `manual-uso.md`, actualizar también el prompt del agente. Última actualización:
+  11/11/2026 tarde (toda la casa: entradas, lavadero, cocina, estar, galería, servicio, toilette,
+  habitaciones, red; regla "sos la casa, no el anfitrión"). Probada: responde la parrilla y
+  deriva Wi-Fi/alarma al anfitrión sin dar claves.
   Probada el 11/11/2026 (tras cargar crédito prepago en Google AI Studio): responde bien
   ubicación de teclas, se niega a dar claves/alarma y dice "no lo sé" ante lo que no está en
   el manual. Si vuelve el error 402, es falta de crédito en AI Studio (afecta también al
