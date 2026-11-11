@@ -89,6 +89,10 @@ Para pedir una foto, usá el nombre del archivo o el del [glosario](../glosario.
 | [dormitorio-2-vista.jpg](dormitorio-2-vista.jpg) | Dormitorio 2 |
 | [dormitorio-2-tecla-puerta.jpg](dormitorio-2-tecla-puerta.jpg) | Tecla junto a la puerta |
 | [dormitorio-2-nspanel-teclas.jpg](dormitorio-2-nspanel-teclas.jpg) | NSPanel y placa de 3 teclas |
+| [dormitorio-2-cortina-tecla.jpg](dormitorio-2-cortina-tecla.jpg) | Tecla de la cortina |
+| [dormitorio-2-parlante-control-ventilador.jpg](dormitorio-2-parlante-control-ventilador.jpg) | Google Mini y control del ventilador |
+| [dormitorio-2-comoda-espejo.jpg](dormitorio-2-comoda-espejo.jpg) | Cómoda con espejo |
+| [dormitorio-2-cama.jpg](dormitorio-2-cama.jpg) | Cama y mesas de luz |
 
 ## Dormitorio 1
 
