@@ -405,6 +405,21 @@ entrada).
 > Nota interna (11/11 11:38): `light.luz_hall`, entrada 1 del Shelly `34945471BC6C` (las dos
 > teclas están en paralelo en esa entrada).
 
+### Hall de los dormitorios
+
+![Pasillo hacia la habitación principal](fotos/hall-dormitorios-pasillo.jpg)
+![Teclas del hall de los dormitorios](fotos/hall-dormitorios-teclas.jpg)
+
+Hay dos teclas solas que prenden **la misma luz**: el techo del hall de los dormitorios y el
+pasillo que lleva a la habitación principal.
+
+- Entre el dormitorio 2 y el hall (la más cercana al hall).
+- Entre el baño de los dormitorios 1 y 2 y el dormitorio 1.
+
+> Nota interna (11/11 11:38–11:39): `light.luz_techo_hall_dormitorios` (Shelly "Hall
+> Dormitorios" `349454724683`); una tecla entra por la entrada 1 y la otra por la entrada 2,
+> las dos maniobran la luz.
+
 ### Estar, junto a la salamandra
 
 ![Ubicación de las teclas junto a la salamandra](fotos/estar-salamandra-teclas-ubicacion.jpg)
