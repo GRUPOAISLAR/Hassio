@@ -362,6 +362,22 @@ Placa junto a la puerta vidriada que sale al lateral:
 > medio no generó ningún evento (varios toques). Candidata a revisar: `switch.sonoff_10013aec78_1`
 > ("Luz Perimetral Fondo") todavía no tiene tecla identificada.
 
+### Toilette
+
+![Toilette](fotos/toilette-vista.jpg)
+![Teclas del toilette](fotos/toilette-teclas.jpg)
+
+Junto a la puerta, adentro:
+
+| Tecla | Qué maneja |
+|---|---|
+| Arriba | Luz del toilette (colgante sobre la bacha) |
+| Abajo | Extractor (se apaga solo a los 15 minutos) |
+
+> Nota interna (registro de HA, 11/11 11:37): arriba = `light.luz_techo_toilette` (Shelly
+> "Toilette"), abajo = `switch.extractor_toilette` (Shelly 1PM). Apagado automático:
+> `automation.extractor_toilette_auto_off_15_min`.
+
 ### Baño de la galería
 
 ![Baño de la galería](fotos/bano-galeria-vista.jpg)

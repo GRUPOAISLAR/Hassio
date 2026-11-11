@@ -14,6 +14,13 @@ Para pedir una foto, usá el nombre del archivo o el del [glosario](../glosario.
 | [lavadero-salida-teclas.jpg](lavadero-salida-teclas.jpg) | Teclas de afuera junto a la puerta lateral |
 | [puerta-lateral.jpg](puerta-lateral.jpg) | Puerta lateral (entra al lavadero) |
 
+## Toilette
+
+| Foto | Qué muestra |
+|---|---|
+| [toilette-vista.jpg](toilette-vista.jpg) | Toilette: bacha y colgante |
+| [toilette-teclas.jpg](toilette-teclas.jpg) | Teclas del toilette |
+
 ## Baño de la galería
 
 | Foto | Qué muestra |
