@@ -134,7 +134,9 @@ izquierda. Tomas: "termotanque y tomas del lavadero".
 
 ![Tablero 5](fotos/tablero-domotica-5-hall-toilette.jpg)
 
-Detrás de las tapas blancas de la pared del antetoilette (arriba de la tecla). Es el
+En el hall hay dos tableros, uno al lado del otro, detrás de tapas blancas en la pared del
+antetoilette. Este es el de la **derecha, el más cercano al placard de los dueños** (el que
+tiene el termostato con pantalla). Es el
 "TABLERO 5" de la planilla de diseño (estar, comedor, cocina):
 
 - Bornera de distribución, térmica **C10 bipolar** y **3 contactores BAW CM25** (calefacción
@@ -151,7 +153,7 @@ Detrás de las tapas blancas de la pared del antetoilette (arriba de la tecla). 
   estos Shelly no siempre se ve prendido: para saber si andan, mirar si están disponibles en
   HA (el 11/11 respondían todos menos SHDIM-11).
 
-## Tablero de domótica 7 (exterior; hall, a la izquierda del tablero 5)
+## Tablero de domótica 7 (exterior; hall, el de la izquierda, más lejos del placard)
 
 ![Tablero 7](fotos/tablero-domotica-7-exterior.jpg)
 
