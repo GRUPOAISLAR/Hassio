@@ -42,8 +42,8 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
   **Bienvenida hablada** (11/11/2026): generar el acceso del huésped deja
   `input_boolean.bienvenida_inquilino_pendiente` en on; la primera apertura con clave
   temporal (`event.puerta_principal_unlock_user_temporary`) dispara, 10 s después,
-  `script.bienvenida_inquilino` en Galería (`media_player.cobertizo`) y Estar Parlante, con el
-  nombre de `input_text.inquilino_nombre`. Así no salta cuando entra la inmobiliaria a revisar
+  `script.bienvenida_inquilino` en todos los parlantes disponibles (lista `parlantes` dentro
+  del script; sumar ahí los nuevos), con el nombre de `input_text.inquilino_nombre`. Así no salta cuando entra la inmobiliaria a revisar
   (a menos que use una clave temporal).
   Huella n.º 2 de la cerradura principal = el dueño (sirve para distinguir su llegada de la
   de un inquilino).
