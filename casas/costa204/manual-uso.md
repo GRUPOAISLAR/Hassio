@@ -69,6 +69,30 @@ Dos placas, de izquierda a derecha:
 | Izquierda (doble) | Media tecla de abajo | Luz del centro de la habitación | Push, dimerizable |
 | Derecha | Tecla grande | Cortina | Push: un toque la mueve, otro toque la frena |
 
+#### Botonera de la entrada (junto a la puerta del vestidor)
+
+![Ubicación de la botonera de la entrada](fotos/habitacion-principal-teclas-entrada-ubicacion.jpg)
+![Botonera de la entrada](fotos/habitacion-principal-teclas-entrada.jpg)
+
+| Posición | Qué maneja |
+|---|---|
+| Media tecla de arriba | Hall de acceso y spots izquierdos del acceso |
+| Cuarto de tecla del medio | Luz del centro de la habitación |
+| Cuarto de tecla de abajo | Vestidor |
+
+#### Baño de la habitación principal
+
+![Botonera del baño principal](fotos/bano-principal-teclas.jpg)
+
+| Posición | Qué maneja |
+|---|---|
+| Media tecla de arriba | Luz principal del baño |
+| Cuarto de tecla del medio | Vestidor |
+| Cuarto de tecla de abajo | Extractor (se apaga solo a los 15 minutos) |
+
+Sobre la mesada hay un **sensor de temperatura** (Shelly H&T, enchufado con su
+cargador): no desenchufarlo. Con él, en invierno, la calefacción mantiene el baño templado.
+
 #### Controles remotos (en la mesa de luz)
 
 **Control del televisor** (TCL, Google TV): encendido arriba a la derecha, volumen +/− en
@@ -88,6 +112,50 @@ botón.*
 > visible probablemente vino de acá.
 
 Fotos: 10/11/2026.
+
+## 4. Climatización 🟡
+
+### Paneles de calefacción con pantalla (NSPanel)
+
+Hay un panel táctil en la **habitación principal**, el **dormitorio 1**, el **dormitorio 2**
+y la **galería**. Cada uno:
+
+- Muestra el clima exterior, la hora y la **temperatura del ambiente** (el número con la
+  casita abajo de la hora).
+- Deslizando la pantalla se llega al **termostato**, para fijar la temperatura deseada.
+- Tiene **dos teclas** abajo que prenden y apagan la calefacción de cada zona.
+- Deslizando a la derecha aparecen **accesos directos** (luces, cortina) y el
+  **termostato**: interruptor de encendido, modo manual (mano) o automático (A), y la
+  temperatura deseada con − / + o la barra (de 4 a 35 °C).
+
+![Accesos directos del panel](fotos/habitacion-principal-nspanel-accesos.jpg)
+![Termostato del panel](fotos/habitacion-principal-nspanel-termostato.jpg)
+
+> Nota interna: en la habitación principal, los accesos "Centro…" y "Hall D…" son luces
+> **Shelly** y hoy no responden desde el panel (firmware de fábrica: solo maneja equipos
+> eWeLink). La cortina sí anda porque es Sonoff. Ver pendiente en `AGENTS.md`.
+
+Habitación principal: el panel está en la pared, pasando la columna, al lado del enchufe.
+
+![Ubicación del panel, habitación principal](fotos/habitacion-principal-nspanel-ubicacion.jpg)
+![Panel de la habitación principal](fotos/habitacion-principal-nspanel.jpg)
+
+Qué maneja cada tecla (según Home Assistant; *verificar que el canal 1 sea la tecla
+izquierda*):
+
+| Panel | Tecla izquierda (canal 1) | Tecla derecha (canal 2) |
+|---|---|---|
+| Habitación principal | Calefacción del baño de la habitación principal | Calefacción de la habitación principal |
+| Dormitorio 1 | Calefacción del dormitorio 1 | Calefacción del baño de los dormitorios 1 y 2 |
+| Dormitorio 2 | Calefacción del hall de los dormitorios | Calefacción del dormitorio 2 |
+| Galería | Calefacción de la galería | Sin uso |
+
+> Nota para el huésped: la calefacción es eléctrica. Si se prenden muchos equipos a la vez,
+> la casa apaga sola algunas zonas por unos minutos para no pasarse de la potencia
+> contratada, y después las vuelve a habilitar.
+
+> Nota interna: entidades `climate.sonoff_10017cb77f` (HP), `…cb765` (D1), `…cb728` (D2),
+> `…cb76e` (Galería); canales `switch.sonoff_<id>_1/_2`.
 
 ---
 

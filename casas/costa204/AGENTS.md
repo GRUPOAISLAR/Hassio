@@ -61,6 +61,16 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
   la alimentación PoE. Se apagó el 11/11/2026 (`switch.frente_patio_interno_white_light` en
   `off`). La visión nocturna infrarroja (`*_infrared_mode`) queda activa. No volver a
   encenderla; si la cámara la reenciende sola, agregar una automatización que la apague.
+- **Extractores con apagado automático a los 15 min**: toilette, baños de dormitorios y (desde
+  11/11/2026) baño principal (`automation.extractor_bano_principal_auto_off_15_min`). El del
+  baño de la galería (`switch.sonoff_10013afde4_1`) todavía no tiene.
+- **Sensor de temperatura del baño principal NO funciona (verificado 11/11/2026)**: es un
+  Shelly H&T gen1 (`sensor.sensor_temperatura_bano_habitacion_principal_temperatura`) que no
+  reporta; HA solo restaura 15,25 °C al reiniciar y a los ~20 min lo marca no disponible.
+  `climate.termostato_bano_principal` (YAML) queda en `idle` con ese valor viejo: el baño no
+  se está climatizando. Hay además un sensor ZHA viejo del mismo nombre, no disponible.
+- **NSPanel (firmware de fábrica)**: solo maneja equipos de la cuenta eWeLink. Las tarjetas
+  de luces Shelly ("Centro…", "Hall D…") no responden; la cortina (Sonoff) sí.
 - TTLock Puerta Lateral: pilas al 0 %, `unavailable` hasta cambiarlas. El gateway está online.
 - Cuenta Tuya compartida con Lote 101: aquí están deshabilitados los equipos de la otra casa.
 - Reparaciones abiertas en HA (11/2026): migración de `chat_id` de Telegram en varias
