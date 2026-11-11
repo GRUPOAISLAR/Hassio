@@ -186,6 +186,21 @@ lavadero). *Ubicación exacta: a completar.* Bornera ("caja 1"), térmica **C10 
 | Sonoff Dual R3 SONDUR3-11 "Hab. servicio CORT 11" | cortina de la habitación de servicio | `cover.sonoff_10013af1d0` |
 | Sonoff Dual R3 SONDUR3-12 "Galería" (EXT 1 / V) | extractor y luz del baño de la galería | `switch.sonoff_10013afde4_1/_2` |
 
+## Tablero de domótica 3 (dormitorio 2)
+
+![Tablero 3](fotos/tablero-domotica-3-dormitorio-2.jpg)
+
+"TABLERO 3" de la planilla (dormitorio 2 y hall de los dormitorios). *Ubicación exacta: a
+completar.* Bornera, térmica **C10 bipolar** y:
+
+| Equipo (rótulo) | Qué maneja | En HA |
+|---|---|---|
+| Shelly Dimmer 2 "DORM 2 SHDIM-6" | spots del dormitorio 2 | `light.luz_spots_dormitorio_2` |
+| Shelly Dimmer 2 (rótulo "…dormitorio…", SHDIM-7 según planilla) | techo del hall de los dormitorios | `light.luz_techo_hall_dormitorios` |
+| Sonoff Dual R3 "D2 SONDUR-20 CORT 7" | cortina (blackout) del dormitorio 2 | `cover.sonoff_100155bb02` "Cortina Dormitorio 2" |
+| 2 relés de estado sólido (rojos, LCDT-48D10AA, 10 A) | calefacción eléctrica (accionados por el NSPanel) | — |
+| Sonoff iFan "DORM 2 SOFUN-2 VENT 2" | ventilador de techo del dormitorio 2 (luz + velocidades) | `light.sonoff_10013f3c51_1` y su ventilador |
+
 ## Llaveros de acceso (huéspedes)
 
 Dos llaveros, cada uno con la **tarjeta de la cerradura principal** (rotulada con su número) y
