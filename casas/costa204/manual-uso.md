@@ -25,7 +25,22 @@ Dos placas, de izquierda a derecha:
 | Izquierda (doble) | Media tecla de abajo | Luz del centro de la habitación | Push, dimerizable |
 | Derecha | Tecla grande | Cortina | Push |
 
-En la mesa de luz: control remoto del TV y un control remoto blanco de 8 botones
-(Sonoff RF; *pendiente confirmar qué maneja*).
+### Controles remotos (en la mesa de luz)
+
+**Control del televisor** (TCL, Google TV): encendido arriba a la derecha, volumen +/− en
+el centro, accesos directos a Netflix, Prime Video, Disney+ y YouTube; botón de Google
+Assistant para buscar por voz.
+
+![Control del TV](fotos/habitacion-principal-control-tv.jpg)
+
+**Control del ventilador de techo** (Sonoff, por radio, 8 botones): luz y ventilador,
+encendido/apagado y velocidades. Funciona sin internet. *Pendiente confirmar qué hace cada
+botón.*
+
+![Control del ventilador](fotos/habitacion-principal-control-ventilador.jpg)
+
+> Nota interna: lo que se hace con este control **no** queda registrado como acción de Home
+> Assistant (sin usuario ni automatización). El encendido del ventilador del 10/11 22:23 sin
+> autor visible probablemente vino de acá.
 
 Foto: 10/11/2026. Guardada sin datos de ubicación.

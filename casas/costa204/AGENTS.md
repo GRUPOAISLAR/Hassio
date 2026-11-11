@@ -77,7 +77,8 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
 
 ## Manual de uso
 
-Borrador del manual para huéspedes: [`manual-uso.md`](manual-uso.md).
+Borrador del manual para huéspedes: [`manual-uso.md`](manual-uso.md), con fotos en `fotos/`
+(siempre sin metadatos EXIF/GPS, máx. 1600 px). Espejo en Notion: [📖 Manual de uso](https://app.notion.com/p/415825a110c3817a9abdcc4e998142be).
 
 ## Configuración versionada
 
