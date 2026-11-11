@@ -175,7 +175,8 @@ Detrás de las tapas blancas de la pared del antetoilette (arriba de la tecla). 
 ![Tablero 6](fotos/tablero-domotica-6-galeria.jpg)
 
 "TABLERO 6" de la planilla (galería, parrilla, baño de la galería, habitación de servicio,
-lavadero). *Ubicación exacta: a completar.* Bornera ("caja 1"), térmica **C10 bipolar** y:
+lavadero). **En el pasillo de servicio** (de la galería al baño y al dormitorio de servicio).
+Bornera ("caja 1"), térmica **C10 bipolar** y:
 
 | Equipo (rótulo) | Qué maneja | En HA |
 |---|---|---|
