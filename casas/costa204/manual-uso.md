@@ -487,6 +487,7 @@ frena).
 | Panel con pantalla, junto a la puerta | Calefacción del dormitorio 2 y del hall de los dormitorios |
 | Placa de 3 teclas al lado del panel | *A confirmar* (diseño: cortina blackout y cortina del dormitorio 2, y tira LED del placard) |
 | Tecla junto a la ventana, al lado de la mesa de luz | Cortina (un toque la mueve, otro la frena) |
+| Teclón más cercano a la mesa de luz junto a la ventana | Spots del techo del dormitorio (por automatización) |
 | Cómoda con espejo | Control remoto del ventilador de techo y parlante Google Mini de la habitación |
 
 ![Tecla de la cortina](fotos/dormitorio-2-cortina-tecla.jpg)
@@ -494,7 +495,8 @@ frena).
 
 > Nota interna (11/11 11:42:29–11:44:15): puerta = `light.luz_spots_dormitorio_2` (Shelly
 > `3494547290BB`, entrada 1). A las 11:44:15 llegó un toque a la **entrada 2** de ese Shelly sin
-> cambiar la luz (entrada suelta): probablemente una tecla de la placa junto al panel. Según la
+> cambiar la luz (SW2 suelta): es el teclón junto a la mesa de luz de la ventana. Desde el 11/11
+> lo maneja `automation.estar_teclas_junto_a_la_salamandra_entradas_2_sueltas`. Según la
 > planilla los spots del dormitorio 2 tienen dos teclas (cajas 24 y 25), así que conviene
 > asignarla con una automatización como en el estar. La cortina no aparece en el registro:
 > verificar si su Sonoff está en HA. Ventilador: `light.sonoff_10013f3c51_1`.

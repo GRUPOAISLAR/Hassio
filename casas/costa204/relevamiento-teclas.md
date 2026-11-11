@@ -23,6 +23,25 @@ arriba → R techo ventanal (`34945471BCDE`) y abajo → P spots estar (`3494547
 También: vajillero, media tecla de arriba de la placa del medio →
 circuito **T** (spots del comedor de la galería) por la entrada 2 de `409151588222`.
 
+## SW2 de los Shelly Dimmer 2 que no maniobran
+
+La instalación usa SW1 y SW2 de cada Shelly Dimmer 2 (dos puntos de tecla por luz). En estos
+Shelly el evento de SW2 llega a HA pero el dimmer **no** cambia la luz (11/11/2026):
+
+| Shelly | Luz | Tecla en SW2 | Estado |
+|---|---|---|---|
+| `34945471BCDE` | Estar techo ventanal | Estar, salamandra arriba | Cubierta por automatización |
+| `34945471CAED` | Spots estar | Estar, salamandra abajo | Cubierta por automatización |
+| `3494547290BB` | Spots dormitorio 2 | Dormitorio 2, teclón junto a la ventana | Cubierta por automatización |
+| `409151588222` | Spots comedor galería | Vajillero, medio arriba | Cubierta por automatización |
+| `34945471BC58` | Luz de la isla | Placa del medio entre hall y estar (2 teclas) | Sin cubrir: confirmar qué deben manejar |
+
+En cambio la SW2 sí maniobra en `244CAB402272` (centro estar), `34945471BC6C` (hall), "Hall
+Dormitorios" y "Colgante Comedor Galería". **Arreglo de fondo:** entrar a la web local de cada
+Shelly de la tabla y comparar la configuración de entradas (tipo de botón / modo de SW2,
+"inputs swap", "detached") con uno que anda; dejarlos iguales. Hecho eso, borrar las
+automatizaciones puente (las teclas vuelven a andar aunque HA esté caído).
+
 ## Posibles nombres cruzados en HA (verificar de noche, a la vista)
 
 - Sonoff Dual R3 `10013b0bb7` (diseño: canal D = estacas del patio interno, canal E = apliques
