@@ -433,10 +433,6 @@ pasillo que lleva a la habitación principal.
 | Tecla al lado del panel, al entrar | *En revisión* (ver nota) |
 | Panel con pantalla, al entrar | Calefacción del dormitorio 1 y del baño de los dormitorios |
 | Tecla junto a la ventana | Cortina (un toque la mueve, otro la frena) |
-
-> Nota interna: a las 11:41:37 la tecla de la cortina movió `cover.sonoff_10013af029`, que en
-> HA se llama **"Cortina Baño Dormitorios"**; en la planilla de diseño ese Sonoff es la
-> cortina del dormitorio 1 (AB23). Corregir el nombre en HA.
 | Mesa de luz | Control remoto del ventilador de techo y parlante Google Mini de la habitación |
 
 > Nota interna (registro de HA, 11/11 11:39–11:41): puerta = `light.centro_dormitorio_1`
@@ -469,7 +465,14 @@ Junto a la puerta:
 | Media tecla de arriba | Luz del baño |
 | Media tecla de abajo | Extractor (se apaga solo a los 15 minutos) |
 
-> Nota interna (11/11 11:41:51–11:42:00): luz = `switch.sonoff_10013b015e_2`, extractor =
+Junto a la ventana hay una **tecla sola: la cortina del baño** (un toque la mueve, otro la
+frena).
+
+![Tecla de la cortina del baño](fotos/bano-dormitorios-tecla-cortina.jpg)
+
+> Nota interna (11/11 11:41:37–11:42:00): cortina = `cover.sonoff_10013af029` ("Cortina Baño
+> Dormitorios"; en la planilla de diseño ese Sonoff figura como cortina del dormitorio 1:
+> verificar cuál es cuál): luz = `switch.sonoff_10013b015e_2`, extractor =
 > `switch.sonoff_10013b015e_1` (`automation.extractor_dormitorios_auto_off_15_min`).
 
 ### Estar, junto a la salamandra
