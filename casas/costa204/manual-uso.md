@@ -378,6 +378,32 @@ Junto a la puerta, al lado del enchufe:
 > (verificado 11/11 11:28–11:29). Apagado automático:
 > `automation.extractor_bano_galeria_auto_off_15_min` (11/11/2026).
 
+### Entre el hall de acceso y el estar
+
+![Ubicación de las teclas, pared del estar](fotos/estar-hall-teclas-ubicacion.jpg)
+![Teclas entre el hall y el estar](fotos/estar-hall-teclas.jpg)
+
+Tres placas en la pared blanca, al pasar del hall al estar (de izquierda a derecha):
+
+| Placa | Tecla | Qué maneja |
+|---|---|---|
+| Izquierda | Arriba | Colgante del comedor (comedor interno) |
+| Izquierda | Abajo | Spots del hall de acceso |
+| Del medio | Arriba y abajo | *Sin función por ahora* |
+| Derecha | Cuarto de arriba | Luces de pared del estar (apliques) |
+| Derecha | Del medio | Spots del comedor |
+| Derecha | Abajo | Luz del centro del estar |
+
+> Nota interna (registro de HA, 11/11 11:30–11:32): izq. arriba = `light.luz_centro_comedor`;
+> izq. abajo = `light.luz_hall` (Shelly `34945471BC6C`, entrada 2); der. arriba =
+> `light.luz_estar_pared` (`C45BBE5638BF`); der. medio = `light.luz_spots_estar` (`34945471CAED`)
+> — **el dueño ve que prende los spots del comedor**: revisar nombres, porque
+> `light.luz_spots_comedor` está no disponible (Shelly caído) y quizá los nombres están
+> cruzados; der. abajo = `light.luz_estar_centro` (`244CAB402272`). Placa del medio: los toques
+> llegan a la **entrada 2 del Shelly de la isla** (`34945471BC58`, el de `light.luz_barra_cocina`),
+> que está suelta. Se puede asignar con una automatización. La automatización de brillo
+> mínimo actuó con la luz del centro del estar (11:31:54).
+
 ### Parrilla
 
 ![Ubicación de la tecla de la parrilla](fotos/galeria-parrilla-tecla-ubicacion.jpg)
