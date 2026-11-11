@@ -256,7 +256,8 @@ Pendiente: alerta si se cae (por ejemplo, ping externo/Nabu Casa) y ordenar cabl
 
 ## Tablero del nicho de la entrada de luz (tablero 8: riego)
 
-En el nicho del frente donde entra la luz de la casa. *Foto: pendiente.*
+En el pilar de ladrillo del frente, donde entra la luz y el gas (gabinete gris con cerradura,
+junto al medidor). *Foto del interior: pendiente.*
 
 | Equipo | Qué maneja | En HA |
 |---|---|---|
@@ -266,7 +267,23 @@ En el nicho del frente donde entra la luz de la casa. *Foto: pendiente.*
 
 ## Tablero del nicho de la pileta
 
-En el nicho de la pileta. *Foto: pendiente.*
+En el nicho de la pileta, junto al filtro.
+
+![Gabinete del nicho: tapa con pulsadores](fotos/nicho-pileta-gabinete-frente.jpg)
+![Tablero interior](fotos/nicho-pileta-tablero.jpg)
+![Interior de la tapa: toma y fuente 12 V](fotos/nicho-pileta-gabinete-tapa.jpg)
+![Cañerías y válvulas del filtro](fotos/nicho-pileta-canerias-filtro.jpg)
+
+- **Tapa**: 4 luces piloto y pulsadores rotulados a mano "Bomba" y "Toma" (encendido manual
+  de la bomba del filtro y del tomacorriente), más un pulsador grande. Por dentro: un
+  **tomacorriente** y una **fuente de 12 V** (probable alimentación de las luces RGB).
+- **Tablero**: disyuntor **Eaton 16 A, 10 mA** (protección de personas, por el agua) y térmica
+  **C10 bipolar rotulada "Bomba"**; abajo, el controlador Wi-Fi de 4 canales, un Sonoff, un
+  módulo amarillo y un módulo "Mini Smart 1 canal" (Gisfeel). *Confirmar qué es cada módulo
+  pequeño.*
+- **Filtro**: multiválvula de 6 vías (filtrar, retrolavar, enjuagar, circular…). Válvulas
+  naranjas y roja sobre el caño hacia el colector solar: no cambiarlas sin saber el circuito.
+- Si salta el disyuntor de 10 mA: suele ser humedad en el nicho o en las luces de la pileta.
 
 | Equipo | Qué maneja | En HA |
 |---|---|---|

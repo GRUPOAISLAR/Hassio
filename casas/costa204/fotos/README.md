@@ -166,6 +166,10 @@ Para pedir una foto, usá el nombre del archivo o el del [glosario](../glosario.
 | [tablero-domotica-2-dormitorio-1.jpg](tablero-domotica-2-dormitorio-1.jpg) | Tablero de domótica 2 (dormitorio 1) |
 | [tablero-domotica-3-dormitorio-2.jpg](tablero-domotica-3-dormitorio-2.jpg) | Tablero de domótica 3 (dormitorio 2) |
 | [red-placard-dormitorio-2.jpg](red-placard-dormitorio-2.jpg) | Router, switch y Raspberry (placard del dormitorio 2) |
+| [nicho-pileta-gabinete-frente.jpg](nicho-pileta-gabinete-frente.jpg) | Nicho de la pileta: gabinete con pulsadores |
+| [nicho-pileta-tablero.jpg](nicho-pileta-tablero.jpg) | Nicho de la pileta: tablero |
+| [nicho-pileta-gabinete-tapa.jpg](nicho-pileta-gabinete-tapa.jpg) | Nicho de la pileta: tapa por dentro |
+| [nicho-pileta-canerias-filtro.jpg](nicho-pileta-canerias-filtro.jpg) | Nicho de la pileta: cañerías y filtro |
 | [medidor-tension-fases.jpg](medidor-tension-fases.jpg) | Medidor de tensión por fase |
 | [tablero-electrico-derecho.jpg](tablero-electrico-derecho.jpg) | Tablero eléctrico derecho |
 | [tablero-electrico-izquierdo.jpg](tablero-electrico-izquierdo.jpg) | Tablero eléctrico izquierdo |

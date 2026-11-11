@@ -53,8 +53,8 @@ huéspedes, el manual interno, Home Assistant, la guía con IA y los mensajes. C
 | Tablero de domótica 2 | Shelly, Sonoffs, relés de calefacción y control del ventilador del dormitorio 1, antebaño y baño | Dormitorio 1, detrás de la puerta | [foto](fotos/tablero-domotica-2-dormitorio-1.jpg) | 🔒 no tocar |
 | Tablero de domótica 3 | Shellys, Sonoffs, relés de calefacción y control del ventilador del dormitorio 2 y hall de dormitorios | Dormitorio 2, detrás de la puerta | [foto](fotos/tablero-domotica-3-dormitorio-2.jpg) | 🔒 no tocar |
 | Equipos de red (router, switch, Raspberry) | Internet, Wi-Fi y Home Assistant | Placard del dormitorio 2, estante de arriba | [foto](fotos/red-placard-dormitorio-2.jpg) | ✅ no tocar ni desenchufar |
-| Tablero del nicho de entrada de luz | Riego (4 circuitos), bomba sumergible, llenado de pileta, estacas del frente | Nicho del frente, donde entra la luz | — | 🔒 |
-| Tablero del nicho de la pileta | Filtro, ionizador, luces RGB, sensores de temperatura y skimmer | Nicho de la pileta | — | 🔒 |
+| Tablero del nicho de entrada de luz | Riego (4 circuitos), bomba sumergible, llenado de pileta, estacas del frente | Pilar de ladrillo del frente (entrada de luz y gas) | — | 🔒 |
+| Tablero del nicho de la pileta | Filtro, ionizador, luces RGB, sensores de temperatura y skimmer | Nicho de la pileta, junto al filtro | [foto](fotos/nicho-pileta-tablero.jpg) | 🔒 |
 | Placard de los dueños | Placard de dos puertas, uso privado, con sensor de movimiento | Hall, junto al antetoilette | [foto](fotos/placard-duenos-cerrado.jpg) | 🔒 cerrado |
 | Colector solar de la pileta | Paños de manguera negra | Techo | [foto](fotos/colector-vista-general.jpg) | 🔒 |
 | Flotante del skimmer | Sensor de nivel del agua de la pileta | Skimmer de la pileta | — | 🔒 |
