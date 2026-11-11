@@ -24,7 +24,14 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
 - **Cortes de luz**: bloqueo de dispositivos durante el corte y restauración de estado previo.
 - **Aire York del estar** ("AC Estar"): único aire de la casa, trifásico. **No** tiene entidad
   `climate`: solo medición de consumo (`sensor.ac_estar_consumo`, `sensor.ac_estar_energy`).
-  En las habitaciones hay ventiladores. Ver la página de Notion del York (receptor IR,
+  En las habitaciones hay ventiladores.
+  **Medición inferida, no directa**: el powermeter mide toda la casa; `binary_sensor.ac_estar_prendido`
+  se deducía de "fase T > 1500 W" y `sensor.ac_estar_consumo` restaba bases a las tres fases.
+  Eso da falsos positivos con calefacción/termotanques en la fase T.
+  **Desde el 11/11/2026 el York está desconectado** (controlador retirado, placa en
+  reparación): el binario quedó fijo en `false` (la fórmula original está comentada dentro del
+  helper). Al volver el equipo, detectarlo como carga trifásica (subida simultánea y pareja en
+  R, S y T), no por una sola fase. Ver la página de Notion del York (receptor IR,
   extensión de cable y opción de módulo ESPHome si es fabricación Midea).
 - **Pileta**: filtrado programado, protección del filtro sin agua en el skimmer, llenado con
   verificación, ionizador.
@@ -32,6 +39,8 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
 - **Accesos**: cerradura principal Tuya vía Xtend Tuya (desde 20/10/2026; la TTLock
   "Puerta Principal" vieja está rota y deshabilitada). TTLock "Puerta Lateral" con gateway.
   Script "Huésped: generar acceso (puertas y app)" y datos de inquilino.
+  Huella n.º 2 de la cerradura principal = el dueño (sirve para distinguir su llegada de la
+  de un inquilino).
 - **Seguridad**: Alarmo (sirena), 5 cámaras (Foscam: Frente_Patio_Interno, Frente_izquierda,
   Fondo_Izquierdo, Lateral_Derecho; más Camara Entrada), modo casa (Presente/Ausente) con sugerencia
   automática si todos están fuera más de 1 h.
