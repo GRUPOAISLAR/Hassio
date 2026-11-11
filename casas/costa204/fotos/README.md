@@ -9,7 +9,7 @@ Para pedir una foto, usá el nombre del archivo o el del [glosario](../glosario.
 | Foto | Qué muestra |
 |---|---|
 | [fachada-frente.jpg](fachada-frente.jpg) | Frente de la casa desde la calle |
-| [frente-semicubierto-estacionamiento.jpg](frente-semicubierto-estacionamiento.jpg) | Semicubierto del frente: lugar para estacionar |
+| [frente-semicubierto-estacionamiento.jpg](frente-semicubierto-estacionamiento.jpg) | Frente: se estaciona sobre las piedras, bajo la pérgola y en la rampa |
 | [acceso-pasillo-puerta-principal.jpg](acceso-pasillo-puerta-principal.jpg) | Pasillo de acceso con la puerta principal al fondo |
 | [acceso-patio-puerta-principal.jpg](acceso-patio-puerta-principal.jpg) | Patio de acceso, banco y puerta principal |
 | [puerta-principal.jpg](puerta-principal.jpg) | Puerta principal con la cerradura electrónica en el picaporte |
