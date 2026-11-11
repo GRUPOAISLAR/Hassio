@@ -58,6 +58,8 @@ SW2 de galería living) y otras segundas teclas de la planilla de diseño. Volve
 
 ## Pendientes para el electricista (11/11/2026)
 
+Página con fotos para pasarle: [🛠️ Trabajos para el electricista](https://app.notion.com/p/415825a110c3812189b9ce004c148bf3).
+
 1. Vajillero, tecla sola de la derecha: sin cablear (prevista para la luz de la isla).
 2. Galería, junto a los jarrones, tecla de arriba: sin cablear (spots del comedor de la galería).
 3. Pasillo de servicio, tecla del medio: no llega al Sonoff de la luz perimetral del fondo.
