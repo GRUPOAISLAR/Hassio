@@ -133,6 +133,8 @@ Registro de reparaciones (colector solar, etc.): [`mantenimiento.md`](mantenimie
   Usar esos nombres en todo (manuales, HA, guía con IA, mensajes).
 - [`manual-interno.md`](manual-interno.md): propietarios. Tableros y térmicas, medidor de
   tensión, inversores y baterías, tablero solar, sensor de corte, termotanque, ablandador.
+- [`relevamiento-teclas.md`](relevamiento-teclas.md): cruce entre la planilla de diseño de la
+  domótica (Google Sheets "EJEMPLO DOMOTICA COSTA 204") y lo verificado tecla por tecla.
 - [`fotos/README.md`](fotos/README.md): índice de todas las fotos por lugar. Al sumar una foto,
   agregarla ahí.
 - Cocina (verificado 11/11 en el registro): spots de la mesada y del pasillo son la misma luz
