@@ -69,16 +69,15 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
   reporta; HA solo restaura 15,25 °C al reiniciar y a los ~20 min lo marca no disponible.
   `climate.termostato_bano_principal` (YAML) queda en `idle` con ese valor viejo: el baño no
   se está climatizando. Hay además un sensor ZHA viejo del mismo nombre, no disponible.
-- **NSPanel (firmware de fábrica)**: solo maneja equipos de la cuenta eWeLink. Para mostrar
-  equipos de HA (p. ej. luces Shelly) se usa el complemento **eWeLink Smart Home** (CoolKit,
-  `f4f71350_ewelink_smart_home_slug`, web en el puerto 3000 / panel lateral): sincroniza
-  entidades de HA hacia la cuenta eWeLink y después se eligen como tarjetas del panel en la
-  app eWeLink. Requiere las entidades plantilla `ewelink_virtual_*` (ya están).
-  El 11/11/2026 estaba **en error** (por eso las tarjetas Shelly "Centro…" y "Hall D…" no
-  respondían); se arrancó y a los ~2 min volvió a fallar: `SyntaxError: Unexpected end of JSON
-  input` en `getDataSync` (archivo de datos dañado). Es el complemento viejo; el log menciona
-  uno nuevo de CoolKit. Pendiente: migrar al nuevo o reinstalar. Alternativa de fondo si esto no alcanza:
-  reflashear con ESPHome + NSPanel Easy (probar primero en el panel de la galería).
+- **NSPanel (firmware de fábrica)**: solo maneja equipos de la cuenta eWeLink (Sonoff) y su
+  propia calefacción. El complemento **eWeLink Smart Home** (CoolKit, legado) que subía
+  entidades de HA a eWeLink —así aparecían las luces Shelly en el panel— fallaba (archivo de
+  datos dañado) y el 11/11/2026 se **desinstaló para reinstalarlo, pero ya no compila**: el
+  repo `CoolKit-Technologies/ha-addon` está archivado desde el 24/02/2026. El complemento
+  nuevo (`iHost-Open-Source-Project/hassio-ihost-addon`) no sube equipos de HA a eWeLink.
+  Las entidades plantilla `ewelink_virtual_*` quedaron sin uso. Camino elegido para manejar
+  todo desde los paneles: **NSPanel Easy (ESPHome)**, piloto en el panel de la galería. El
+  repositorio de ESPHome ya está en la tienda de complementos.
 - **Guía para huéspedes con IA (11/11/2026)**: agente `conversation.guia_costa_204` (Gemini,
   subentrada de Google Generative AI) con el manual como instrucciones y **sin control de
   dispositivos** (`llm_hass_api` vacío: no abre cerraduras ni toca la alarma). Pipeline de
