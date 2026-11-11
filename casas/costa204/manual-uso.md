@@ -420,6 +420,25 @@ pasillo que lleva a la habitación principal.
 > Dormitorios" `349454724683`); una tecla entra por la entrada 1 y la otra por la entrada 2,
 > las dos maniobran la luz.
 
+### Dormitorio 1
+
+![Panel y tecla del dormitorio 1](fotos/dormitorio-1-nspanel-tecla.jpg)
+![Tecla junto a la puerta](fotos/dormitorio-1-tecla-puerta.jpg)
+
+Al entrar, en la pared de la izquierda: el **panel de calefacción** (ver "Paneles de
+calefacción con pantalla") y al lado una tecla. Otra tecla sola junto a la puerta que da al
+antebaño de los dormitorios.
+
+| Tecla | Qué maneja |
+|---|---|
+| Junto al panel | *A confirmar* |
+| Junto a la puerta del antebaño | Spots del antebaño de los dormitorios (*a confirmar*) |
+
+> Nota interna (11/11 11:39:52–55): se apagó y prendió `switch.sonoff_10015f67ee_2`
+> ("Antebaño Dormitorios"). Diseño: circuito k (antebaño, caja 35, 1 tecla) y centro del
+> dormitorio 1 = circuito j (Shelly `34945471C5DB`, cajas 33 y 34). El NSPanel del dormitorio 1
+> está en el plan de NSPanel Easy (`nspanel.md`).
+
 ### Estar, junto a la salamandra
 
 ![Ubicación de las teclas junto a la salamandra](fotos/estar-salamandra-teclas-ubicacion.jpg)

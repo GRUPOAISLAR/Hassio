@@ -82,6 +82,13 @@ Para pedir una foto, usá el nombre del archivo o el del [glosario](../glosario.
 | [galeria-teclas-nspanel.jpg](galeria-teclas-nspanel.jpg) | Teclas y NSPanel de la galería, de cerca |
 | [galeria-teclas-nspanel-jarrones.jpg](galeria-teclas-nspanel-jarrones.jpg) | Teclas y NSPanel detrás de los jarrones |
 
+## Dormitorio 1
+
+| Foto | Qué muestra |
+|---|---|
+| [dormitorio-1-nspanel-tecla.jpg](dormitorio-1-nspanel-tecla.jpg) | NSPanel y tecla del dormitorio 1 |
+| [dormitorio-1-tecla-puerta.jpg](dormitorio-1-tecla-puerta.jpg) | Tecla junto a la puerta del antebaño |
+
 ## Pasillo de servicio
 
 | Foto | Qué muestra |
