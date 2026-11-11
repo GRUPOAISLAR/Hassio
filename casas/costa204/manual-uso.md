@@ -524,6 +524,11 @@ frena).
   frena).
 - Sobre el mueble bajo del televisor está el **sensor de temperatura y humedad del estar**
   (pantallita blanca): no moverlo ni guardarlo.
+- **Control del televisor** (Hitachi, Google TV): en la mesa ratona. Encendido arriba a la
+  derecha, volumen +/−, accesos directos a Netflix, Prime Video, Disney+ y YouTube, y botón de
+  Google Assistant para buscar por voz.
+
+![Control del TV del estar](fotos/estar-control-tv.jpg)
 
 > Nota interna (11/11 11:47): la tecla movió `cover.sonoff_10013b0576` ("Cortina Estar
 > Ventanal"; diseño CORT 8, caja 42).
