@@ -76,6 +76,8 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
   dispositivos** (`llm_hass_api` vacío: no abre cerraduras ni toca la alarma). Pipeline de
   Assist "Guía Costa 204 (huéspedes)" (STT/TTS Home Assistant Cloud es-AR) y
   `script.guia_responder_en_parlantes` (pregunta → respuesta hablada en los parlantes).
+  Acceso del huésped: botón **"Preguntale a la casa"** en el panel `huespedes-costa` (vista Casa),
+  que abre Assist con ese pipeline y empieza a escuchar (usuario `inquilino`, app de HA).
   Al cambiar `manual-uso.md`, actualizar también el prompt del agente.
   **Bloqueo al 11/11/2026**: el proyecto de Google AI Studio está sin crédito prepago
   (error 402): no anda ni la guía ni el pipeline "Google IA", que es el preferido de la casa.
