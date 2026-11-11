@@ -39,6 +39,12 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
 - **Accesos**: cerradura principal Tuya vía Xtend Tuya (desde 20/10/2026; la TTLock
   "Puerta Principal" vieja está rota y deshabilitada). TTLock "Puerta Lateral" con gateway.
   Script "Huésped: generar acceso (puertas y app)" y datos de inquilino.
+  **Bienvenida hablada** (11/11/2026): generar el acceso del huésped deja
+  `input_boolean.bienvenida_inquilino_pendiente` en on; la primera apertura con clave
+  temporal (`event.puerta_principal_unlock_user_temporary`) dispara, 10 s después,
+  `script.bienvenida_inquilino` en Galería (`media_player.cobertizo`) y Estar Parlante, con el
+  nombre de `input_text.inquilino_nombre`. Así no salta cuando entra la inmobiliaria a revisar
+  (a menos que use una clave temporal).
   Huella n.º 2 de la cerradura principal = el dueño (sirve para distinguir su llegada de la
   de un inquilino).
 - **Seguridad**: Alarmo (sirena), 5 cámaras (Foscam: Frente_Patio_Interno, Frente_izquierda,
