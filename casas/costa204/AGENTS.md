@@ -49,6 +49,15 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
   de un inquilino). Tarjetas n.º 102 y 103 = llaveros de huéspedes (cada llavero trae además
   su tarjeta TTLock de la puerta lateral: "Inquilino 2" = 102, "inquilino" = 103); el aviso de
   Telegram los nombra "el huésped (llavero 102/103)". Ver `manual-interno.md`.
+- **Reservas de Airbnb (11/11/2026)**: `calendar.reservas_airbnb` (integración Remote Calendar con
+  el iCal de exportación de Airbnb; el link es secreto: solo en la integración, nunca en el repo ni en
+  Notion). Eventos "Reserved" = reservas; "Airbnb (Not available)" = bloqueos.
+  `automation.huesped_airbnb_generar_acceso_el_dia_antes_de_la_llegada` (10:00 del día anterior):
+  carga entrada 12:00 / salida 11:00 y corre `script.huesped_generar_acceso`, que ahora también
+  cambia la contraseña del usuario `inquilino` (`pyscript.inquilino_cambiar_password`,
+  `pyscript/inquilino_password.py`) y manda por Telegram el mensaje listo para pegar en el chat
+  de la plataforma. `automation.huesped_airbnb_cerrar_acceso_a_la_app_al_irse` (día de salida
+  11:00): contraseña al azar, salvo que ese día entre otra reserva. HomeExchange: pendiente.
 - **Seguridad**: Alarmo (sirena), 5 cámaras (Foscam: Frente_Patio_Interno, Frente_izquierda,
   Fondo_Izquierdo, Lateral_Derecho; más Camara Entrada), modo casa (Presente/Ausente) con sugerencia
   automática si todos están fuera más de 1 h.
