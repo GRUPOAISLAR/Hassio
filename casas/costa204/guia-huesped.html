@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="es">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guía de la casa Costa 204</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,650&family=Figtree:wght@400;500;600&display=swap">
+<style>
+/* Layout: una columna de lectura (guía de bolsillo), índice fijo en escritorio, fichas por ambiente con foto + tabla de teclas */
+:root{
+  --bg:#f5f7f5; --surface:#ffffff; --ink:#1d2a2b; --muted:#5d6b6b; --line:#d9e1df;
+  --sea:#1f6f78; --sea-soft:#e1efee; --sand:#c7a46a; --warn:#9a4b1f; --warn-soft:#f6e9df;
+  --display:"Fraunces", Georgia, "Times New Roman", serif;
+  --body:"Figtree", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111a1b; --surface:#182325; --ink:#e3ecea; --muted:#9db0ad; --line:#2b3b3d;
+  --sea:#6cc2c7; --sea-soft:#1c3437; --sand:#d9b97f; --warn:#f0a978; --warn-soft:#3a2619; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111a1b; --surface:#182325; --ink:#e3ecea; --muted:#9db0ad; --line:#2b3b3d;
+  --sea:#6cc2c7; --sea-soft:#1c3437; --sand:#d9b97f; --warn:#f0a978; --warn-soft:#3a2619; color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font:400 16px/1.6 var(--body);
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 64px}
+.wrap{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:220px minmax(0,1fr);gap:48px}
+@media (max-width:860px){.wrap{grid-template-columns:minmax(0,1fr);gap:0}}
+nav.toc{position:sticky;top:env(safe-area-inset-top,0px);align-self:start;padding-top:40px}
+nav.toc ol{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+nav.toc a{display:block;padding:5px 10px;border-radius:6px;color:var(--muted);text-decoration:none;font-size:14px}
+nav.toc a:hover,nav.toc a:focus-visible{background:var(--sea-soft);color:var(--ink);outline:none}
+nav.toc .t{font:600 12px/1 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--sea);margin:0 0 12px 10px}
+@media (max-width:860px){nav.toc{position:static;padding-top:24px}
+  nav.toc ol{display:flex;flex-wrap:wrap;gap:6px}
+  nav.toc a{border:1px solid var(--line);padding:4px 10px;font-size:13px}}
+main{min-width:0}
+header.hero{padding:40px 0 8px}
+.eyebrow{font:600 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--sea)}
+h1{font:650 clamp(34px,6vw,54px)/1.05 var(--display);margin:12px 0 14px;text-wrap:balance}
+h2{font:650 28px/1.15 var(--display);margin:0 0 6px;text-wrap:balance}
+h3{font:600 17px/1.3 var(--body);margin:0 0 8px}
+p{margin:0 0 12px;max-width:65ch}
+.lead{font-size:18px;color:var(--muted);max-width:60ch}
+.heroimg{margin:24px 0 0;border-radius:14px;overflow:hidden;aspect-ratio:16/9;max-width:100%}
+.heroimg img{width:100%;height:100%;object-fit:cover;display:block}
+section{padding-top:48px;scroll-margin-top:16px}
+section > .sub{color:var(--muted);margin-bottom:20px}
+.rooms{display:grid;gap:20px}
+.room{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:20px;align-items:start;padding:18px;background:var(--surface);border:1px solid var(--line);border-radius:12px}
+@media (max-width:640px){.room{grid-template-columns:minmax(0,1fr)}}
+.room img{width:100%;border-radius:8px;display:block;max-width:100%}
+.room .pics{display:grid;gap:8px}
+.room .pics.two{grid-template-columns:1fr 1fr}
+table{width:100%;border-collapse:collapse;font-size:15px}
+th,td{text-align:left;padding:7px 8px 7px 0;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-weight:600;color:var(--muted);font-size:12px;letter-spacing:.06em;text-transform:uppercase}
+td:first-child{white-space:nowrap;color:var(--sea);font-weight:600;padding-right:14px}
+.tip{display:flex;gap:10px;padding:12px 14px;border-radius:10px;background:var(--sea-soft);margin:12px 0;max-width:65ch}
+.tip.warn{background:var(--warn-soft)}
+.tip b{color:var(--sea)} .tip.warn b{color:var(--warn)}
+.how{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+@media (max-width:640px){.how{grid-template-columns:minmax(0,1fr)}}
+.how div{padding:14px;border-top:3px solid var(--sand);background:var(--surface);border-radius:0 0 10px 10px}
+.how strong{display:block;margin-bottom:4px}
+.dont{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.dont div{padding:12px 14px;border:1px solid var(--line);border-radius:10px;background:var(--surface);font-size:15px}
+.dont strong{display:block;color:var(--warn)}
+.pending{color:var(--muted);font-style:italic}
+ul.check{list-style:none;padding:0;margin:0;display:grid;gap:6px;max-width:65ch}
+ul.check li{padding-left:28px;position:relative}
+ul.check li::before{content:"";position:absolute;left:4px;top:.45em;width:12px;height:12px;border:2px solid var(--sea);border-radius:3px}
+footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--line);color:var(--muted);font-size:14px}
+a{color:var(--sea)}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+</style>
+
+<div class="wrap">
+<nav class="toc" aria-label="Índice">
+  <p class="t">En esta guía</p>
+  <ol>
+    <li><a href="#llegada">Llegada</a></li>
+    <li><a href="#teclas">Cómo se usan las teclas</a></li>
+    <li><a href="#planta-baja">Planta baja</a></li>
+    <li><a href="#galeria">Galería y parrilla</a></li>
+    <li><a href="#habitaciones">Habitaciones</a></li>
+    <li><a href="#clima">Calefacción y ventiladores</a></li>
+    <li><a href="#wifi">Wi-Fi, TV y parlantes</a></li>
+    <li><a href="#pileta">Pileta y jardín</a></li>
+    <li><a href="#no-tocar">Qué no tocar</a></li>
+    <li><a href="#casa">Preguntale a la casa</a></li>
+    <li><a href="#reglas">Reglas y salida</a></li>
+    <li><a href="#ayuda">Ayuda y emergencias</a></li>
+  </ol>
+</nav>
+
+<main>
+<header class="hero">
+  <span class="eyebrow">Guía para huéspedes</span>
+  <h1>Bienvenidos a Costa 204</h1>
+  <p class="lead">Esta guía explica cómo funciona la casa ambiente por ambiente, con fotos de cada tecla. Casi todo es automático: las luces se prenden con teclas de pulsar, los extractores se apagan solos y la casa avisa si algo necesita atención.</p>
+  <div class="heroimg"><img src="fotos/estar-vista.jpg" alt="El estar de la casa con el sillón, la salamandra y el televisor"></div>
+</header>
+
+<section id="llegada">
+  <h2>Llegada</h2>
+  <p class="sub">Dirección, claves y horarios te los envía el anfitrión por el chat de la reserva.</p>
+  <div class="rooms">
+    <article class="room">
+      <div class="pics two">
+        <img src="fotos/acceso-pasillo-vista.jpg" alt="Pasillo exterior de acceso">
+        <img src="fotos/acceso-tecla-pasillo.jpg" alt="Tecla del pasillo de acceso en la pared de madera">
+      </div>
+      <div>
+        <h3>Pasillo de acceso y puerta principal</h3>
+        <p>En la pared de madera, al entrar, hay una tecla sola que prende las luces bajas del pasillo. A veces hay que tocarla dos veces.</p>
+        <p>La puerta principal tiene cerradura electrónica: se abre con la clave que te envían o con la tarjeta del llavero.</p>
+      </div>
+    </article>
+    <article class="room">
+      <div class="pics"><img src="fotos/hall-entrada-teclas.jpg" alt="Teclas del hall de entrada"></div>
+      <div>
+        <h3>Hall de entrada</h3>
+        <p>Al entrar, en la pared de la derecha, hay dos placas.</p>
+        <table><tr><th>Tecla</th><th>Qué prende</th></tr>
+          <tr><td>Izquierda, arriba</td><td>Spots del hall</td></tr>
+          <tr><td>Izquierda, abajo</td><td>Luz del pasillo de acceso (afuera)</td></tr>
+          <tr><td>Derecha, arriba</td><td>Luces del perímetro y del patio</td></tr>
+        </table>
+      </div>
+    </article>
+    <article class="room">
+      <div class="pics"><img src="fotos/puerta-lateral.jpg" alt="Puerta lateral vidriada que entra al lavadero"></div>
+      <div>
+        <h3>Puerta lateral (por el lavadero)</h3>
+        <p>Puerta vidriada con cerradura electrónica. Se traba sola a los pocos segundos de cerrarla.</p>
+        <p>Cada llavero trae <b>dos tarjetas</b>: una para la puerta principal y otra para la lateral.</p>
+        <table><tr><th>Tecla de afuera</th><th>Qué prende</th></tr>
+          <tr><td>Arriba</td><td>Perímetro del frente</td></tr>
+          <tr><td>Abajo</td><td>Luz de la entrada lateral</td></tr>
+        </table>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="teclas">
+  <h2>Cómo se usan las teclas</h2>
+  <p class="sub">Valen para toda la casa.</p>
+  <div class="how">
+    <div><strong>Un toque</strong>Las teclas son de pulsar: se aprietan y vuelven solas. Un toque corto prende o apaga.</div>
+    <div><strong>Mantener apretada</strong>En las luces que regulan, mantener una tecla sube el brillo y la otra tecla de la misma luz lo baja. Si queda casi en cero, la casa la sube sola.</div>
+    <div><strong>Cortinas</strong>Un toque la mueve, otro la frena y el siguiente la mueve para el otro lado.</div>
+  </div>
+  <div class="tip"><b>Ojo</b><span>Algunas teclas todavía no tienen función (por ejemplo, la tecla sola de la derecha junto al vajillero y la de arriba junto a los jarrones de la galería). No es que estén rotas.</span></div>
+</section>
+
+<section id="planta-baja">
+  <h2>Planta baja</h2>
+  <p class="sub">Cocina, lavadero, estar, comedor y toilette.</p>
+  <div class="rooms">
+    <article class="room">
+      <div class="pics two">
+        <img src="fotos/cocina-vista.jpg" alt="Vista de la cocina">
+        <img src="fotos/cocina-teclas-mesada.jpg" alt="Teclas sobre la mesada de la cocina">
+      </div>
+      <div>
+        <h3>Cocina</h3>
+        <table><tr><th>Tecla</th><th>Qué prende</th></tr>
+          <tr><td>Mesada, izquierda</td><td>Colgantes negros sobre la mesada</td></tr>
+          <tr><td>Mesada, derecha</td><td>Luz de la isla</td></tr>
+        </table>
+        <p>Equipos: anafe a gas con campana, horno empotrado, lavavajillas (debajo de la mesada, junto a la puerta), horno eléctrico tipo air fryer, tostadora y pava eléctrica.</p>
+      </div>
+    </article>
+    <article class="room">
+      <div class="pics"><img src="fotos/cocina-vajillero-teclas.jpg" alt="Teclas junto al vajillero"></div>
+      <div>
+        <h3>Teclas junto al vajillero</h3>
+        <table><tr><th>Tecla</th><th>Qué prende</th></tr>
+          <tr><td>Izquierda, arriba</td><td>Spots del pasillo de la cocina</td></tr>
+          <tr><td>Izquierda, abajo</td><td>Spots de cocina, estar y comedor del lado de la galería</td></tr>
+          <tr><td>Medio, arriba</td><td>Spots del comedor de la galería</td></tr>
+          <tr><td>Medio, abajo</td><td>Colgante del comedor de la galería</td></tr>
+        </table>
+      </div>
+    </article>
+    <article class="room">
+      <div class="pics two">
+        <img src="fotos/cocina-isla-nspanel-pro-parlante.jpg" alt="Pantalla de la casa y parlante sobre la isla">
+        <img src="fotos/cocina-lavavajillas-horno.jpg" alt="Lavavajillas y horno air fryer">
+      </div>
+      <div>
+        <h3>Sobre la isla</h3>
+        <p>La pantalla es el panel de la casa: luces, calefacción, música y el botón <b>Preguntale a la casa</b>. Al lado está el parlante de Google, que también es repetidor de Wi-Fi. Por favor, no desenchufarlos.</p>
+      </div>
+    </article>
+    <article class="room">
+      <div class="pics two">
+        <img src="fotos/lavadero-lavarropas-bacha.jpg" alt="Lavadero con lavarropas y bacha">
+        <img src="fotos/lavadero-acceso-interior-teclas.jpg" alt="Teclas en la entrada del lavadero">
+      </div>
+      <div>
+        <h3>Lavadero</h3>
+        <p>Lavarropas de carga frontal debajo de la mesada y bacha para lavar.</p>
+        <table><tr><th>Tecla (entrando desde la casa)</th><th>Qué prende</th></tr>
+          <tr><td>Izquierda</td><td>Luz del lavadero</td></tr>
+          <tr><td>Derecha</td><td>Spots de la mesada de la cocina</td></tr>
+        </table>
+        <div class="tip warn"><b>No tocar</b><span>En el lavadero están los tableros eléctricos, las baterías y el termotanque.</span></div>
+      </div>
+    </article>
+    <article class="room">
+      <div class="pics two">
+        <img src="fotos/estar-hall-teclas.jpg" alt="Placas de teclas entre el hall y el estar">
+        <img src="fotos/estar-salamandra-teclas.jpg" alt="Teclas junto a la salamandra">
+      </div>
+      <div>
+        <h3>Estar y comedor</h3>
+        <table><tr><th>Tecla</th><th>Qué prende</th></tr>
+          <tr><td>Hall→estar, izq. arriba</td><td>Colgante del comedor</td></tr>
+          <tr><td>Hall→estar, izq. abajo</td><td>Spots del hall</td></tr>
+          <tr><td>Hall→estar, der. arriba</td><td>Luces de pared del estar</td></tr>
+          <tr><td>Hall→estar, der. medio</td><td>Spots</td></tr>
+          <tr><td>Hall→estar, der. abajo</td><td>Luz del centro del estar</td></tr>
+          <tr><td>Salamandra, arriba</td><td>Spots del lado del ventanal</td></tr>
+          <tr><td>Salamandra, medio</td><td>Luz del centro del estar</td></tr>
+          <tr><td>Salamandra, abajo</td><td>Spots del estar</td></tr>
+        </table>
+      </div>
+    </article>
+    <article class="room">
+      <div class="pics"><img src="fotos/estar-control-tv.jpg" alt="Control del televisor del estar"></div>
+      <div>
+        <h3>Televisor del estar</h3>
+        <p>El control (Google TV) está en la mesa ratona: encendido arriba a la derecha, volumen +/− y accesos directos a Netflix, Prime Video, Disney+ y YouTube.</p>
+        <p>Sobre el mueble del televisor hay un sensor de temperatura: no moverlo.</p>
+      </div>
+    </article>
+    <article class="room">
+      <div class="pics"><img src="fotos/toilette-teclas.jpg" alt="Teclas del toilette"></div>
+      <div>
+        <h3>Toilette</h3>
+        <table><tr><th>Tecla</th><th>Qué prende</th></tr>
+          <tr><td>Arriba</td><td>Luz</td></tr>
+          <tr><td>Abajo</td><td>Extractor (se apaga solo a los 15 min)</td></tr>
+        </table>
+        <p>El placard de madera de dos puertas del paso al toilette es de uso privado de los dueños.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="galeria">
+  <h2>Galería y parrilla</h2>
+  <div class="rooms">
+    <article class="room">
+      <div class="pics two">
+        <img src="fotos/galeria-vista.jpg" alt="La galería">
+        <img src="fotos/galeria-pasillo-teclas.jpg" alt="Teclas del pasillo de la galería">
+      </div>
+      <div>
+        <h3>Pasillo de la galería</h3>
+        <table><tr><th>Tecla</th><th>Qué prende</th></tr>
+          <tr><td>Izquierda, arriba</td><td>Colgante de la barra de la parrilla</td></tr>
+          <tr><td>Izquierda, abajo</td><td>Spots entre la parrilla y el horno</td></tr>
+          <tr><td>Derecha, arriba</td><td>Spots del comedor de la galería</td></tr>
+          <tr><td>Derecha, abajo</td><td>Colgante del comedor de la galería</td></tr>
+        </table>
+        <p>Junto a los jarrones: la tecla de abajo prende los spots del sector living. Al lado está el panel de calefacción de la galería.</p>
+      </div>
+    </article>
+    <article class="room">
+      <div class="pics two">
+        <img src="fotos/galeria-parrilla-tecla.jpg" alt="Tecla de la parrilla al lado del asador">
+        <img src="fotos/bano-galeria-teclas.jpg" alt="Teclas del baño de la galería">
+      </div>
+      <div>
+        <h3>Parrilla y baño de la galería</h3>
+        <p><b>Parrilla:</b> tecla sola al lado del asador. Si queda prendida con el resto de la galería apagada, se apaga sola a la hora.</p>
+        <p><b>Baño de la galería:</b> media tecla de arriba, la luz; la de abajo, el extractor (se apaga solo a los 15 min).</p>
+        <p><b>Habitación de servicio:</b> el teclón prende la luz y el botón redondo de arriba mueve la cortina. La tecla tapada con cinta no se usa.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="habitaciones">
+  <h2>Habitaciones</h2>
+  <div class="rooms">
+    <article class="room">
+      <div class="pics two">
+        <img src="fotos/habitacion-principal-teclas-cama-derecha.jpg" alt="Teclas junto a la cama, lado derecho">
+        <img src="fotos/habitacion-principal-teclas-cama-izquierda.jpg" alt="Teclas junto a la cama, lado izquierdo">
+      </div>
+      <div>
+        <h3>Habitación principal, junto a la cama</h3>
+        <table><tr><th>Tecla</th><th>Qué prende</th></tr>
+          <tr><td>Derecha, placa izq. arriba</td><td>Velador derecho</td></tr>
+          <tr><td>Derecha, placa izq. abajo</td><td>Luz del centro</td></tr>
+          <tr><td>Derecha, tecla grande</td><td>Cortina blackout</td></tr>
+          <tr><td>Izquierda, arriba</td><td>Hall y spots del lado izquierdo</td></tr>
+          <tr><td>Izquierda, medio</td><td>Luz del centro</td></tr>
+          <tr><td>Izquierda, abajo</td><td>Velador colgante izquierdo</td></tr>
+        </table>
+      </div>
+    </article>
+    <article class="room">
+      <div class="pics two">
+        <img src="fotos/habitacion-principal-teclas-entrada.jpg" alt="Teclas de la entrada de la habitación principal">
+        <img src="fotos/bano-principal-teclas.jpg" alt="Teclas del baño principal">
+      </div>
+      <div>
+        <h3>Entrada y baño de la habitación principal</h3>
+        <table><tr><th>Tecla</th><th>Qué prende</th></tr>
+          <tr><td>Entrada, arriba</td><td>Hall de acceso</td></tr>
+          <tr><td>Entrada, medio</td><td>Luz del centro</td></tr>
+          <tr><td>Entrada, abajo</td><td>Vestidor</td></tr>
+          <tr><td>Baño, arriba</td><td>Luz principal del baño</td></tr>
+          <tr><td>Baño, medio</td><td>Vestidor</td></tr>
+          <tr><td>Baño, abajo</td><td>Extractor (se apaga solo)</td></tr>
+        </table>
+        <p>Junto a la ventana del baño, una tecla sola mueve la cortina. El sensor de temperatura de la mesada no se desenchufa.</p>
+      </div>
+    </article>
+    <article class="room">
+      <div class="pics two">
+        <img src="fotos/habitacion-principal-control-tv.jpg" alt="Control del televisor de la habitación principal">
+        <img src="fotos/habitacion-principal-control-ventilador.jpg" alt="Control del ventilador de techo">
+      </div>
+      <div>
+        <h3>Controles de la mesa de luz</h3>
+        <p>El negro es del televisor (Google TV). El blanco chico es del ventilador de techo: prende la luz y el ventilador y cambia la velocidad.</p>
+        <div class="tip"><b>Wi-Fi</b><span>El aparato blanco redondo de la mesita junto a la ventana es el repetidor de Wi-Fi y parlante. En la mesa de luz hay además un repetidor chico enchufado. No moverlos.</span></div>
+      </div>
+    </article>
+    <article class="room">
+      <div class="pics two">
+        <img src="fotos/dormitorio-1-tecla-puerta.jpg" alt="Tecla junto a la puerta del dormitorio 1">
+        <img src="fotos/dormitorio-2-tecla-puerta.jpg" alt="Tecla junto a la puerta del dormitorio 2">
+      </div>
+      <div>
+        <h3>Dormitorios 1 y 2</h3>
+        <p><b>Dormitorio 1:</b> la tecla junto a la puerta prende los spots; junto a la ventana, la tecla de la cortina; en la mesa de luz, el control del ventilador y un parlante Google Mini.</p>
+        <p><b>Dormitorio 2:</b> la tecla junto a la puerta y el teclón junto a la ventana prenden los spots; junto a la ventana, la tecla de la cortina; en la cómoda, el control del ventilador y un Google Mini.</p>
+        <p><b>Hall de los dormitorios:</b> dos teclas prenden la misma luz del hall y del pasillo a la habitación principal.</p>
+      </div>
+    </article>
+    <article class="room">
+      <div class="pics"><img src="fotos/bano-dormitorios-teclas.jpg" alt="Teclas del baño de los dormitorios"></div>
+      <div>
+        <h3>Antebaño y baño de los dormitorios</h3>
+        <p>Antebaño: tecla junto a la puerta, luz del antebaño.</p>
+        <table><tr><th>Tecla del baño</th><th>Qué prende</th></tr>
+          <tr><td>Arriba</td><td>Luz</td></tr>
+          <tr><td>Abajo</td><td>Extractor (se apaga solo)</td></tr>
+          <tr><td>Junto a la ventana</td><td>Cortina</td></tr>
+        </table>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="clima">
+  <h2>Calefacción y ventiladores</h2>
+  <div class="rooms">
+    <article class="room">
+      <div class="pics"><img src="fotos/habitacion-principal-nspanel-termostato.jpg" alt="Panel de calefacción con el termostato"></div>
+      <div>
+        <p>La calefacción es eléctrica por zonas. Hay un panel con pantalla en la habitación principal, los dormitorios 1 y 2 y la galería. Muestra la hora y la temperatura; deslizando la pantalla aparece el termostato para elegir la temperatura.</p>
+        <p>Si se prenden muchas cosas a la vez, la casa apaga sola alguna zona unos minutos para no pasarse de la potencia, y después la vuelve a habilitar.</p>
+        <p>En verano la calefacción está desactivada. Las habitaciones tienen ventilador de techo con control remoto. El aire acondicionado del estar está en reparación.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section id="wifi">
+  <h2>Wi-Fi, TV y parlantes</h2>
+  <p>Nombre de la red y clave: te los envía el anfitrión por el chat de la reserva.</p>
+  <p>Hay parlantes de Google en la habitación principal, los dormitorios y la isla de la cocina. Al llegar por primera vez con tu clave, la casa te da la bienvenida por los parlantes.</p>
+  <div class="tip warn"><b>Internet</b><span>Los equipos de internet están en el estante de arriba del placard del dormitorio 2. No desenchufarlos ni moverlos. Si se corta el Wi-Fi, avisale al anfitrión.</span></div>
+</section>
+
+<section id="pileta">
+  <h2>Pileta y jardín</h2>
+  <p>El filtrado y la limpieza de la pileta, el colector solar que la calienta y el riego del jardín son automáticos. No hace falta prender ni apagar nada.</p>
+  <p class="pending">Horarios y reglas de uso de la pileta: los confirma el anfitrión por el chat de la reserva.</p>
+</section>
+
+<section id="no-tocar">
+  <h2>Qué no tocar</h2>
+  <div class="dont">
+    <div><strong>Tableros eléctricos</strong>Lavadero, hall y detrás de las puertas de las habitaciones.</div>
+    <div><strong>Baterías y termotanque</strong>En el lavadero.</div>
+    <div><strong>Equipos de internet</strong>Placard del dormitorio 2.</div>
+    <div><strong>Repetidores y parlantes</strong>Habitación principal e isla de la cocina.</div>
+    <div><strong>Sensores de temperatura</strong>Baño principal y mueble del televisor.</div>
+    <div><strong>Placard de los dueños</strong>Paso al toilette. Uso privado.</div>
+  </div>
+  <p style="margin-top:14px">Si se corta la luz en una parte de la casa, avisale al anfitrión antes de tocar nada.</p>
+</section>
+
+<section id="casa">
+  <h2>Preguntale a la casa</h2>
+  <p>En la pantalla de la cocina y en la app de la casa hay un botón <b>Preguntale a la casa</b>. Le podés preguntar con la voz cosas como “¿cómo prendo la luz de la parrilla?” o “¿dónde está la tecla de la cortina?”, y te contesta por el parlante.</p>
+  <p>No da claves ni maneja la alarma: para eso, el chat de la reserva.</p>
+</section>
+
+<section id="reglas">
+  <h2>Reglas de la casa y salida</h2>
+  <p class="pending">Horarios de entrada y salida, cantidad de personas, mascotas, fumar, fiestas y ruidos: según lo publicado en tu reserva (Airbnb o Home Exchange). Ante cualquier duda, el chat de la reserva.</p>
+  <h3 style="margin-top:20px">Durante la estadía</h3>
+  <table>
+    <tr><th>Tema</th><th>Cómo es</th></tr>
+    <tr><td>Despensa y alacenas</td><td class="pending">Qué estantes y qué productos podés usar: te lo confirma el anfitrión.</td></tr>
+    <tr><td>Sábanas y toallas</td><td class="pending">Dónde están las de repuesto: te lo confirma el anfitrión.</td></tr>
+    <tr><td>Plantas y jardín</td><td>El riego es automático. No hace falta regar.</td></tr>
+    <tr><td>Basura</td><td class="pending">Separación, dónde se deja y qué días pasan: te lo confirma el anfitrión.</td></tr>
+    <tr><td>Correspondencia</td><td class="pending">Qué hacer si llega algo: te lo confirma el anfitrión.</td></tr>
+  </table>
+  <h3 style="margin-top:20px">Antes de irte</h3>
+  <ul class="check">
+    <li>Apagá las luces (las teclas de cada ambiente o el botón “Apagar luces” de la pantalla de la cocina).</li>
+    <li>Cerrá las cortinas y las ventanas.</li>
+    <li>Dejá la vajilla lavada o en el lavavajillas.</li>
+    <li>Sacá la basura.</li>
+    <li>Cerrá la puerta principal y la lateral: se traban solas.</li>
+    <li>Sábanas y toallas usadas: como te indique el anfitrión (en el lavarropas o junto a la cama).</li>
+    <li>Dejá la casa como la encontraste.</li>
+    <li>Dejá los llaveros donde te indique el anfitrión.</li>
+  </ul>
+</section>
+
+<section id="ayuda">
+  <h2>Ayuda y emergencias</h2>
+  <p>Para cualquier problema con la casa, escribile al anfitrión por el chat de la reserva.</p>
+  <table>
+    <tr><th>Servicio</th><th>Número (Argentina)</th></tr>
+    <tr><td>Emergencias y policía</td><td>911</td></tr>
+    <tr><td>Ambulancia (SAME)</td><td>107</td></tr>
+    <tr><td>Bomberos</td><td>100</td></tr>
+  </table>
+  <p style="margin-top:12px">Si se corta la luz, la casa tiene baterías y sigue funcionando un rato. Si el corte sigue, avisale al anfitrión.</p>
+  <p class="pending">Guardia del barrio, médico o clínica cercana, dónde comer, dónde comprar y qué hacer en la zona: los envía el anfitrión.</p>
+</section>
+
+<footer>Guía de la casa Costa 204 · actualizada en noviembre de 2026. Las claves, la dirección exacta y los contactos se envían aparte.</footer>
+</main>
+</div>
+</html>

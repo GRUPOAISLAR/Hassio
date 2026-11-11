@@ -158,6 +158,8 @@ Registro de reparaciones (colector solar, etc.): [`mantenimiento.md`](mantenimie
 
 ### Manual de uso
 
+**Guía para huéspedes (página web, limpia de notas internas, sin claves)**: [`guia-huesped.html`](guia-huesped.html), publicada en https://claude.ai/artifact/Lwtm4mZLvVhNVKVYvFRPFy (privada; se comparte desde el menú Compartir). Secciones según la plantilla "Our home manual template" de HomeExchange. Al cambiar teclas o reglas, actualizar el manual, esta página y el prompt de la guía con IA. Datos pendientes del dueño: horarios, reglas, despensa, ropa blanca, basura, correspondencia, llaves al irse, pileta, guardia y recomendaciones.
+
 Borrador del manual para huéspedes: [`manual-uso.md`](manual-uso.md), con fotos en `fotos/`
 (siempre sin metadatos EXIF/GPS, máx. 1600 px). Espejo en Notion: [📖 Manual de uso](https://app.notion.com/p/415825a110c3817a9abdcc4e998142be).
 
