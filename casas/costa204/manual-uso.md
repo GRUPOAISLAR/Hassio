@@ -653,7 +653,9 @@ a la lista del disparador.
   dormitorio 1. Detalle en `relevamiento-teclas.md`.
 - Spots del comedor: Shelly SHDIM-11 fuera de servicio (ver `mantenimiento.md`).
 - Botones del control del ventilador.
-- Cortinas: confirmar cuál `cover` es cada una (dormitorio 1, baño de los dormitorios, baño
-  principal) y si el toque después de frenar invierte el sentido.
+- Cortinas: dormitorio 1 y baño de los dormitorios verificadas. Suite: la tecla movió
+  `cover.sonoff_10013b0fa3`, que en HA se llama "Cortina Baño Dorm Principal": confirmar si es
+  la de la habitación o la del baño y corregir el nombre. Verificado (11/11 14:38): después de
+  frenar, el siguiente toque la mueve en el sentido contrario.
 - Secciones ⬜ del índice: datos que tiene que pasar el dueño (llegada, reglas, salida,
   emergencias, recomendaciones de la zona).
