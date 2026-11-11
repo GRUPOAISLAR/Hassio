@@ -60,7 +60,16 @@ Proyecto: <https://github.com/edwardtfn/NSPanel-Easy> (sucesor de NSPanel_HA_Blu
 3. Pasar a los paneles de los dormitorios solo cuando #636 y #735 estén confirmados como
    resueltos.
 
-## NSPanel Pro (si se compra o se usa)
+## NSPanel Pro de la cocina (ya instalado)
+
+- Hay un **NSPanel Pro en la cocina**. En HA hoy figura solo como **router Zigbee** de ZHA
+  ("SONOFF NSPanelP-Router"): no muestra ningún panel de HA.
+- Plan: actualizar su firmware (≥ 4.0; la última relevada es 4.6.0), instalar la **app oficial
+  de Home Assistant desde el menú Apps / F-Droid**, entrar con un usuario no administrador y
+  dejar como inicio el panel **Huéspedes** (con "Preguntale a la casa"). Según Sonoff, las
+  funciones originales (incluido el router Zigbee) siguen andando.
+
+## NSPanel Pro (en general)
 
 - Desde el firmware V4.0.0 (09/2025) se instala la **app oficial de Home Assistant desde
   F-Droid, sin root**. Las funciones originales siguen andando.
