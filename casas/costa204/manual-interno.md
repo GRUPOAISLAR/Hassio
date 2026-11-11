@@ -130,6 +130,27 @@ izquierda. Tomas: "termotanque y tomas del lavadero".
 
 ---
 
+## Tablero de domótica 5 (hall, pasillo del toilette)
+
+![Tablero 5](fotos/tablero-domotica-5-hall-toilette.jpg)
+
+Detrás de las tapas blancas de la pared del antetoilette (arriba de la tecla). Es el
+"TABLERO 5" de la planilla de diseño (estar, comedor, cocina):
+
+- Bornera de distribución, térmica **C10 bipolar** y **3 contactores BAW CM25** (calefacción
+  eléctrica de estar / cocina-comedor).
+- **Sonoff THR316D** "SONTHRD16F-1 / CAL 5": termostato del estar (muestra temperatura y
+  humedad).
+- **Sonoff Dual R3** "SONDUR3-18 / CORT 8": cortina del ventanal del estar
+  (`cover.sonoff_10013b0576`).
+- **Sonoff Dual R3** rotulado "CORT 9", re-rotulado a mano **"CALEF"**: hoy se usa para
+  calefacción, no para la cortina 9.
+- Fila de **Shelly Dimmer 2** (SHDIM-8 a 16): pasillo y barra de la cocina, mesada, spots y
+  colgante del comedor, pared, spots, centro y techo del ventanal del estar.
+  **SHDIM-11 (spots del comedor) está fuera de servicio** (ver `mantenimiento.md`). El LED de
+  estos Shelly no siempre se ve prendido: para saber si andan, mirar si están disponibles en
+  HA (el 11/11 respondían todos menos SHDIM-11).
+
 ## Llaveros de acceso (huéspedes)
 
 Dos llaveros, cada uno con la **tarjeta de la cerradura principal** (rotulada con su número) y

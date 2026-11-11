@@ -158,6 +158,8 @@ Para pedir una foto, usá el nombre del archivo o el del [glosario](../glosario.
 | [ablandador-agua.jpg](ablandador-agua.jpg) | Ablandador de agua y tanque de sal |
 | [ablandador-placard-puerta.jpg](ablandador-placard-puerta.jpg) | Placard del ablandador de agua |
 | [inversores-baterias.jpg](inversores-baterias.jpg) | Inversores QMAX, unidades de comando y baterías Brensolma |
+| [tablero-domotica-5-hall-toilette.jpg](tablero-domotica-5-hall-toilette.jpg) | Tablero de domótica 5 (hall, pasillo del toilette) |
+| [shelly-shdim-11-comedor-apagado.jpg](shelly-shdim-11-comedor-apagado.jpg) | Shelly SHDIM-11 (spots comedor) sin LED |
 | [medidor-tension-fases.jpg](medidor-tension-fases.jpg) | Medidor de tensión por fase |
 | [tablero-electrico-derecho.jpg](tablero-electrico-derecho.jpg) | Tablero eléctrico derecho |
 | [tablero-electrico-izquierdo.jpg](tablero-electrico-izquierdo.jpg) | Tablero eléctrico izquierdo |
