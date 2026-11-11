@@ -516,6 +516,18 @@ frena).
 > asignarla con una automatización como en el estar. La cortina no aparece en el registro:
 > verificar si su Sonoff está en HA. Ventilador: `light.sonoff_10013f3c51_1`.
 
+### Estar, junto al ventanal (en línea con el televisor)
+
+![Tecla de la cortina y sensor de temperatura del estar](fotos/estar-sensor-temperatura-tecla-ventana.jpg)
+
+- Tecla sola en la pared blanca: **cortina del ventanal del estar** (un toque la mueve, otro la
+  frena).
+- Sobre el mueble bajo del televisor está el **sensor de temperatura y humedad del estar**
+  (pantallita blanca): no moverlo ni guardarlo.
+
+> Nota interna (11/11 11:47): la tecla movió `cover.sonoff_10013b0576` ("Cortina Estar
+> Ventanal"; diseño CORT 8, caja 42).
+
 ### Estar, junto a la salamandra
 
 ![Ubicación de las teclas junto a la salamandra](fotos/estar-salamandra-teclas-ubicacion.jpg)

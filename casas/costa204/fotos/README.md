@@ -68,6 +68,7 @@ Para pedir una foto, usá el nombre del archivo o el del [glosario](../glosario.
 | [estar-hall-teclas-ubicacion.jpg](estar-hall-teclas-ubicacion.jpg) | Teclas entre el hall y el estar: ubicación |
 | [estar-salamandra-teclas-ubicacion.jpg](estar-salamandra-teclas-ubicacion.jpg) | Teclas junto a la salamandra: ubicación |
 | [estar-salamandra-teclas.jpg](estar-salamandra-teclas.jpg) | Teclas junto a la salamandra |
+| [estar-sensor-temperatura-tecla-ventana.jpg](estar-sensor-temperatura-tecla-ventana.jpg) | Tecla de la cortina del ventanal y sensor de temperatura del estar |
 | [estar-vista.jpg](estar-vista.jpg) | Estar: TV, salamandra y spots del techo |
 | [estar-apliques-pared.jpg](estar-apliques-pared.jpg) | Luces de pared del estar (apliques) |
 | [estar-hall-teclas.jpg](estar-hall-teclas.jpg) | Teclas entre el hall y el estar (3 placas) |
