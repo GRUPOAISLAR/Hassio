@@ -654,8 +654,9 @@ a la lista del disparador.
 - Spots del comedor: Shelly SHDIM-11 fuera de servicio (ver `mantenimiento.md`).
 - Botones del control del ventilador.
 - Cortinas: dormitorio 1 y baño de los dormitorios verificadas. Baño de la suite:
-  `cover.sonoff_10013b0fa3` ("Cortina Baño Dorm Principal", nombre correcto). Falta probar la
-  cortina corrediza de la habitación principal (tecla grande de la mesa de luz derecha). Verificado (11/11 14:38): después de
+  `cover.sonoff_10013b0fa3` ("Cortina Baño Dorm Principal", nombre correcto).
+  Cortina corrediza (blackout) de la habitación principal: `cover.sonoff_1001d8d39c`, verificada
+  11/11 14:40. **Todas las cortinas probadas quedan verificadas.** Verificado (11/11 14:38): después de
   frenar, el siguiente toque la mueve en el sentido contrario.
 - Secciones ⬜ del índice: datos que tiene que pasar el dueño (llegada, reglas, salida,
   emergencias, recomendaciones de la zona).

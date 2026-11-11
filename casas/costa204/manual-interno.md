@@ -203,7 +203,7 @@ de los dormitorios 1 y 2). Bornera, térmica **C10 bipolar** y:
 | 5 Shelly Dimmer 2 (SHDIM-1 a 4 y 21 de la planilla) | pasillo/hall de la habitación, centro, mesas de luz izq. y der., vestidor | `light.luz_pasillo_habitacion_prinicipal`, `light.luz_centro_habitacion_principal`, `light.mesa_de_luz_izquierda_habitaci`, `light.mesa_de_luz_derecha_habitacion_prinicipal`, `light.luz_vestidor_suite` |
 | 2 relés de estado sólido (rojos, 10 A) | calefacción de la habitación y del baño (NSPanel) | `climate.sonoff_10017cb77f` |
 | Sonoff Dual R3 "Baño dorm ppal SONDUR3-4" (EXT 4 / m) | extractor y luz del baño principal | `switch.sonoff_100155b613_1` (extractor) |
-| Sonoff Dual R3 "Dorm ppal SONDUR3-1 CORT 1" | cortina blackout de la habitación | *verificar `cover`* |
+| Sonoff Dual R3 "Dorm ppal SONDUR3-1 CORT 1" | cortina blackout de la habitación | `cover.sonoff_1001d8d39c` (verificado 11/11) |
 | Sonoff Dual R3 "Baño dorm ppal SONDUR3-3 CORT 3" | cortina del baño principal | `cover.sonoff_10013b0fa3` (verificado 11/11) |
 | Sonoff iFan "DORM PPAL SOFUN-1 VENT 4" | ventilador de techo | `light.sonoff_10013f3f5e_1` y su ventilador |
 
