@@ -75,6 +75,10 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
 - [Estado conocido y diagnóstico — Home Assistant](https://app.notion.com/p/403825a110c3819988bce5eefcd1c6d2)
   → sección "Costa 204 — conocido".
 
+## Manual de uso
+
+Borrador del manual para huéspedes: [`manual-uso.md`](manual-uso.md).
+
 ## Configuración versionada
 
 Los archivos de configuración de esta casa que se versionen van en `casas/costa204/`
