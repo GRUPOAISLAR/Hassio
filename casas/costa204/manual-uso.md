@@ -382,6 +382,8 @@ Junto a la puerta, al lado del enchufe:
 
 ![Ubicación de las teclas, pared del estar](fotos/estar-hall-teclas-ubicacion.jpg)
 ![Teclas entre el hall y el estar](fotos/estar-hall-teclas.jpg)
+![Estar](fotos/estar-vista.jpg)
+![Luces de pared del estar](fotos/estar-apliques-pared.jpg)
 
 Tres placas en la pared blanca, al pasar del hall al estar (de izquierda a derecha):
 
