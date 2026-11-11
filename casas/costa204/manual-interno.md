@@ -151,6 +151,25 @@ Detrás de las tapas blancas de la pared del antetoilette (arriba de la tecla). 
   estos Shelly no siempre se ve prendido: para saber si andan, mirar si están disponibles en
   HA (el 11/11 respondían todos menos SHDIM-11).
 
+## Tablero de domótica 7 (exterior; hall, a la izquierda del tablero 5)
+
+![Tablero 7](fotos/tablero-domotica-7-exterior.jpg)
+
+"TABLERO 7" de la planilla: luces exteriores. Bornera, térmica **C10 bipolar** y:
+
+| Equipo (rótulo) | Canales (rótulo en la tapa) | En HA |
+|---|---|---|
+| Sonoff Dual R3 SONDUR3-13 "Semicubierto lateral" (F/G) | techo del semicubierto / placard (pasillo de acceso) | `switch.sonoff_10013b00fb_1/_2` |
+| Sonoff Dual R3 SONDUR3-15 "Perímetro (a) / Lavadero (H)" | perímetro fondo, luz del lavadero | `switch.sonoff_10013aec78_1/_2` |
+| Sonoff Dual R3 SONDUR3-25 "Patio interno (D) / Perímetro (E)" | estacas del patio interno, apliques del perímetro frente | `switch.sonoff_10013b0bb7_1/_2` |
+| Sonoff Dual R3 SONDUR3-24 "Parque REF 1 / REF 2" | reflectores del fondo | `switch.sonoff_10013b1377_1/_2` |
+| 3 módulos chicos (abajo a la izquierda) y un módulo rotulado "5" | *a identificar* | — |
+
+> Ojo, SONDUR3-25: el rótulo pone **Perímetro (E)** del lado de la salida 1 y **Patio
+> interno (D)** del lado de la salida 2, pero en HA `_1` se llama "Patio interno" y `_2`
+> "Perímetro frente". Coincide con lo que se vio con las teclas: **los nombres en HA están
+> invertidos**. Corregirlos verificando a la vista de noche.
+
 ## Llaveros de acceso (huéspedes)
 
 Dos llaveros, cada uno con la **tarjeta de la cerradura principal** (rotulada con su número) y
