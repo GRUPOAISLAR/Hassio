@@ -85,8 +85,10 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
   Acceso del huésped: botón **"Preguntale a la casa"** en el panel `huespedes-costa` (vista Casa),
   que abre Assist con ese pipeline y empieza a escuchar (usuario `inquilino`, app de HA).
   Al cambiar `manual-uso.md`, actualizar también el prompt del agente.
-  **Bloqueo al 11/11/2026**: el proyecto de Google AI Studio está sin crédito prepago
-  (error 402): no anda ni la guía ni el pipeline "Google IA", que es el preferido de la casa.
+  Probada el 11/11/2026 (tras cargar crédito prepago en Google AI Studio): responde bien
+  ubicación de teclas, se niega a dar claves/alarma y dice "no lo sé" ante lo que no está en
+  el manual. Si vuelve el error 402, es falta de crédito en AI Studio (afecta también al
+  pipeline "Google IA", el preferido de la casa).
 - TTLock Puerta Lateral: pilas al 0 %, `unavailable` hasta cambiarlas. El gateway está online.
 - Cuenta Tuya compartida con Lote 101: aquí están deshabilitados los equipos de la otra casa.
 - Reparaciones abiertas en HA (11/2026): migración de `chat_id` de Telegram en varias
