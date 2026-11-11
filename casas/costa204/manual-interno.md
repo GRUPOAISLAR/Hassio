@@ -130,6 +130,28 @@ izquierda. Tomas: "termotanque y tomas del lavadero".
 
 ---
 
+## Agua: llaves de paso y bomba presurizadora (salida del lavadero)
+
+En el cuartito con puerta vidriada de la **salida del lavadero** están el colector de agua con
+las llaves de paso y la **bomba presurizadora** (bomba azul con tanque hidroneumático rojo).
+Fotos de obra; falta una foto actual.
+
+![Llaves de paso](fotos/agua-llaves-de-paso-colector.jpg)
+
+| Llave (de izquierda a derecha) | Corta el agua de |
+|---|---|
+| 1 | Cocina y lavadero |
+| 2 | Baños de los dormitorios |
+| 3 | Termotanque solar |
+| 4 | Baño y toilette |
+
+Las dos llaves esféricas de abajo a la derecha están sobre la entrada general al colector.
+
+![Cuarto de la presurizadora](fotos/agua-cuarto-presurizadora.jpg)
+
+Ante una pérdida en un baño o en la cocina, cerrar solo la llave de ese sector; el resto de la
+casa sigue con agua. La presurizadora necesita luz: en un corte largo baja la presión.
+
 ## Tablero de domótica 5 (hall, pasillo del toilette)
 
 ![Tablero 5](fotos/tablero-domotica-5-hall-toilette.jpg)

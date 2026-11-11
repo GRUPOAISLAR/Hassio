@@ -161,6 +161,8 @@ Para pedir una foto, usá el nombre del archivo o el del [glosario](../glosario.
 
 | Foto | Qué muestra |
 |---|---|
+| [agua-llaves-de-paso-colector.jpg](agua-llaves-de-paso-colector.jpg) | Llaves de paso del colector de agua (salida del lavadero), rotuladas |
+| [agua-cuarto-presurizadora.jpg](agua-cuarto-presurizadora.jpg) | Cuarto de la salida del lavadero: colector y bomba presurizadora (foto de obra) |
 | [ablandador-agua.jpg](ablandador-agua.jpg) | Ablandador de agua y tanque de sal |
 | [ablandador-placard-puerta.jpg](ablandador-placard-puerta.jpg) | Placard del ablandador de agua |
 | [inversores-baterias.jpg](inversores-baterias.jpg) | Inversores QMAX, unidades de comando y baterías Brensolma |
