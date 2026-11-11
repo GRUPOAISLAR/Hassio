@@ -33,6 +33,11 @@ Ahí es más probable que aparezcan fisuras.
   se fue para atrás y no volvió solo. Se destrabó a mano y volvió a "con agua" a las 09:12.
   Si el filtro cicla con el canal lleno, revisar primero ese flotante. La cámara
   (`sensor.pileta_canal_skimmer`) sirve para comparar.
+- Medición de la pérdida con el parche puesto: recipiente debajo del parche, **900 ml**
+  juntados hasta las ~14:10 del 11/11. La bomba anduvo sin cortes desde las 09:12, así que son
+  ≈ 4,5–5 h de circulación → **≈ 180–200 ml/h** (≈ 1,5–2 L por día de colector). La cinta
+  redujo el chorrito a goteo pero **no sella del todo**. Hora exacta en que se puso el
+  recipiente: a confirmar.
 - Revisar en la próxima visita: que la cinta siga sellando con el colector caliente, y una
   posible marca o agujero en un tubo del borde derecho de la foto de la cinta, a la altura del
   final del parche.
