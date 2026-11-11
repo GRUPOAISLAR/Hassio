@@ -185,3 +185,46 @@ Para pedir una foto, usá el nombre del archivo o el del [glosario](../glosario.
 | [colector-reparacion-cinta-2026-11-11.jpg](colector-reparacion-cinta-2026-11-11.jpg) | Parche con cinta autosoldable |
 | [colector-reparacion-ubicacion-2026-11-11.jpg](colector-reparacion-ubicacion-2026-11-11.jpg) | Ubicación del parche |
 | [colector-vista-general.jpg](colector-vista-general.jpg) | Colector solar de la pileta |
+
+## Pileta, nivel y colector (fotos de octubre–noviembre)
+
+| Foto | Qué muestra |
+|---|---|
+| [pileta-borde-canal-marcado-2026-10-27.jpg](pileta-borde-canal-marcado-2026-10-27.jpg) | Pileta: borde térmico y canal de desborde (marcado en rojo) |
+| [pileta-canal-desborde-2026-10-27.jpg](pileta-canal-desborde-2026-10-27.jpg) | Canal de desborde con agua |
+| [pileta-vista-escalones-2026-10-27.jpg](pileta-vista-escalones-2026-10-27.jpg) | Pileta: escalones y playa |
+| [pileta-vista-canal-2026-10-27.jpg](pileta-vista-canal-2026-10-27.jpg) | Pileta: canal de desborde a lo largo |
+| [pileta-canal-skimmer-vacio-2026-10-27.jpg](pileta-canal-skimmer-vacio-2026-10-27.jpg) | Canal del skimmer vacío (se vació en 6 min con el filtro prendido) |
+| [pileta-camara-compensacion-flotante-2026-10-27.jpg](pileta-camara-compensacion-flotante-2026-10-27.jpg) | Cámara de compensación con el flotante de nivel |
+| [pileta-flotante-nivel-detalle-2026-10-27.jpg](pileta-flotante-nivel-detalle-2026-10-27.jpg) | Flotante de nivel, de cerca |
+| [pileta-cable-sensor-nivel-2026-10-27.jpg](pileta-cable-sensor-nivel-2026-10-27.jpg) | Cable del sensor de nivel saliendo por el borde |
+| [pileta-shelly-nivel-skimmer-2026-10-27.jpg](pileta-shelly-nivel-skimmer-2026-10-27.jpg) | Shelly del sensor de nivel en la caja |
+| [pileta-switch-tuya-nivel-skimmer-2026-10-27.jpg](pileta-switch-tuya-nivel-skimmer-2026-10-27.jpg) | Switch Tuya GSF-W-W0001 (nivel del skimmer) |
+| [nicho-pileta-filtro-valvulas-2026-10-27.jpg](nicho-pileta-filtro-valvulas-2026-10-27.jpg) | Nicho de la pileta: filtro y válvulas (antes de las reparaciones) |
+| [nicho-pileta-canerias-colector-2026-10-27.jpg](nicho-pileta-canerias-colector-2026-10-27.jpg) | Nicho de la pileta: cañerías y paso al colector |
+| [nicho-pileta-tablero-bomba-2026-10-27.jpg](nicho-pileta-tablero-bomba-2026-10-27.jpg) | Nicho de la pileta: tablero, bomba y filtro |
+| [colector-recipiente-perdida-1-2026-11-11.jpg](colector-recipiente-perdida-1-2026-11-11.jpg) | Medición de la pérdida al pie de los caños del colector (primer intento) |
+| [colector-recipiente-perdida-2-2026-11-11.jpg](colector-recipiente-perdida-2-2026-11-11.jpg) | Medición de la pérdida al pie de los caños del colector (900 ml en 38 min, después del parche) |
+
+## Aire York del estar (placa, receptor IR y conectores, 27/10/2026)
+
+| Foto | Qué muestra |
+|---|---|
+| [aire-york-receptor-ir-frente.jpg](aire-york-receptor-ir-frente.jpg) | Aire York del estar: receptor IR / display |
+| [aire-york-receptor-ir-placa.jpg](aire-york-receptor-ir-placa.jpg) | Aire York: placa del receptor IR con su cable plano |
+| [aire-york-cable-receptor.jpg](aire-york-cable-receptor.jpg) | Aire York: cable del receptor |
+| [aire-york-cable-plano-10-pines.jpg](aire-york-cable-plano-10-pines.jpg) | Aire York: cable plano de 10 pines |
+| [aire-york-conector-10-pines.jpg](aire-york-conector-10-pines.jpg) | Aire York: conector de 10 pines |
+| [aire-york-conector-10-pines-conexion.jpg](aire-york-conector-10-pines-conexion.jpg) | Aire York: cómo queda conectado el conector de 10 pines |
+| [aire-york-etiqueta-modulo.jpg](aire-york-etiqueta-modulo.jpg) | Aire York: etiqueta del módulo |
+| [aire-york-diagrama-electrico.jpg](aire-york-diagrama-electrico.jpg) | Aire York: diagrama eléctrico y tabla de códigos de error de la unidad interior |
+| [aire-york-placa-interior-1.jpg](aire-york-placa-interior-1.jpg) | Aire York: placa de la unidad interior |
+| [aire-york-placa-interior-2.jpg](aire-york-placa-interior-2.jpg) | Aire York: placa de la unidad interior con el LED encendido |
+| [aire-york-placa-interior-3.jpg](aire-york-placa-interior-3.jpg) | Aire York: placa de la unidad interior (otro ángulo) |
+| [aire-york-placa-interior-4.jpg](aire-york-placa-interior-4.jpg) | Aire York: placa y cableado de la unidad interior |
+| [aire-york-placa-conectores-marcados.jpg](aire-york-placa-conectores-marcados.jpg) | Aire York: conectores marcados en la placa (verde y azul) |
+| [aire-york-placa-conector-wifi-1.jpg](aire-york-placa-conector-wifi-1.jpg) | Aire York: zona del conector Wi-Fi/CN de la placa |
+| [aire-york-placa-conector-wifi-2.jpg](aire-york-placa-conector-wifi-2.jpg) | Aire York: conector de la placa (de cerca) |
+| [aire-york-placa-conector-wifi-3.jpg](aire-york-placa-conector-wifi-3.jpg) | Aire York: conector de la placa (otro ángulo) |
+| [aire-york-placa-conector-wifi-4.jpg](aire-york-placa-conector-wifi-4.jpg) | Aire York: conectores CN de la placa, serigrafía |
+| [aire-york-placa-conector-wifi-5.jpg](aire-york-placa-conector-wifi-5.jpg) | Aire York: conector de 4 pines, serigrafía |
