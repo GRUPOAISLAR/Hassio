@@ -261,9 +261,9 @@ Entrando al lavadero desde la casa, en la pared junto a la puerta, hay dos tecla
 |---|---|---|
 | Izquierda (doble) | Arriba | Spots del pasillo de la cocina, entre la mesada y la isla |
 | Izquierda (doble) | Abajo | Spots del techo de cocina, estar y comedor del lado de la galería |
-| Del medio (doble) | Arriba | *En revisión* |
+| Del medio (doble) | Arriba | *Sin función por ahora* |
 | Del medio (doble) | Abajo | Colgante de la mesa del comedor de la galería |
-| Derecha (sola, la más cercana al vajillero) | — | *En revisión* |
+| Derecha (sola, la más cercana al vajillero) | — | *Sin función identificada* |
 
 ![Spots del lado de la galería](fotos/cocina-spots-galeria.jpg)
 
@@ -286,9 +286,10 @@ No desenchufarlos.
 > - Vajillero abajo-izquierda = `light.luz_estar_techo_ventanal`.
 > - Vajillero medio-abajo = `light.luz_colagante_comedor_galeria` (Shelly "Colgante Comedor
 >   Galería", entrada 2), confirmado a la vista.
-> - De medio-arriba y derecha, una manda la entrada 2 del Shelly Dimmer 2 "Comedor Galería"
->   (`409151588222`) sin cambiar ninguna luz (entrada suelta) y la otra no llega a HA. Falta
->   tocarlas por separado para saber cuál es cuál.
+> - Medio-arriba = entrada 2 del Shelly Dimmer 2 "Comedor Galería" (`409151588222`), probada
+>   sola 11/11 11:22: el evento llega pero no cambia ninguna luz (entrada suelta). Se puede
+>   asignar a algo con una automatización.
+> - Derecha (sola) = no llega a HA: cableada a algo no domotizado o suelta. Probar de noche.
 > - El NSPanel Pro es de embutir; hoy está apoyado en la isla con un soporte.
 
 ### Galería

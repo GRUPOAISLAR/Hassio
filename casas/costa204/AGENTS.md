@@ -135,9 +135,9 @@ Registro de reparaciones (colector solar, etc.): [`mantenimiento.md`](mantenimie
 - [`fotos/README.md`](fotos/README.md): índice de todas las fotos por lugar. Al sumar una foto,
   agregarla ahí.
 - Cocina (verificado 11/11 en el registro): spots de la mesada y del pasillo son la misma luz
-  `light.luz_spots_cocina`; junto al vajillero, medio-abajo = colgante del comedor de la galería; de
-  medio-arriba y la derecha, una llega a la entrada 2 del Shelly "Comedor Galería" sin efecto y
-  la otra no llega a HA.
+  `light.luz_spots_cocina`; junto al vajillero, medio-abajo = colgante del comedor de la galería; medio-arriba
+  llega a la entrada 2 del Shelly "Comedor Galería" sin efecto; la derecha y la de arriba de la
+  galería no llegan a HA (probar de noche).
 
 ### Manual de uso
 
