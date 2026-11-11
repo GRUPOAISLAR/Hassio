@@ -475,6 +475,22 @@ frena).
 > verificar cuál es cuál): luz = `switch.sonoff_10013b015e_2`, extractor =
 > `switch.sonoff_10013b015e_1` (`automation.extractor_dormitorios_auto_off_15_min`).
 
+### Dormitorio 2
+
+![Dormitorio 2](fotos/dormitorio-2-vista.jpg)
+![Tecla junto a la puerta](fotos/dormitorio-2-tecla-puerta.jpg)
+![Panel y teclas junto a la puerta](fotos/dormitorio-2-nspanel-teclas.jpg)
+
+| Dónde | Qué maneja |
+|---|---|
+| Tecla junto a la puerta | Spots del techo del dormitorio |
+| Panel con pantalla, junto a la puerta | Calefacción del dormitorio 2 y del hall de los dormitorios |
+| Placa de 3 teclas al lado del panel | *A confirmar* (diseño: cortina blackout y cortina del dormitorio 2, y tira LED del placard) |
+| Mesa de luz | Control remoto del ventilador de techo |
+
+> Nota interna (11/11 11:42:29–57): puerta = `light.luz_spots_dormitorio_2` (Shelly
+> `3494547290BB`, entrada 1). Quedó prendida. Ventilador: `light.sonoff_10013f3c51_1`.
+
 ### Estar, junto a la salamandra
 
 ![Ubicación de las teclas junto a la salamandra](fotos/estar-salamandra-teclas-ubicacion.jpg)
