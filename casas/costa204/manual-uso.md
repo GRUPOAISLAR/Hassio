@@ -385,10 +385,10 @@ Junto a la puerta, al lado del enchufe:
 
 | Placa | Tecla | Qué maneja |
 |---|---|---|
-| Izquierda | Arriba | Spots del hall de acceso (*a confirmar*) |
+| Izquierda | Arriba | Spots del hall de acceso |
 | Izquierda | Abajo | Luz del pasillo de acceso exterior (la misma que la tecla de afuera) |
 | Derecha (junto a la puerta) | Arriba | Luces del patio interno / perímetro exterior |
-| Derecha (junto a la puerta) | Abajo | *A confirmar* |
+| Derecha (junto a la puerta) | Abajo | *Sin función identificada* |
 
 > Nota interna (registro de HA, 11/11 11:32–11:34): pasillo de acceso =
 > `switch.sonoff_10013b00fb_1`; patio interno = `switch.sonoff_10013b0bb7_1` ("Patio y
@@ -396,6 +396,8 @@ Junto a la puerta, al lado del enchufe:
 > acá, entrada 2 desde la placa entre hall y estar). **Ojo:** al probar estas teclas el sensor
 > de movimiento del placard del acceso peatonal disparó Alarmo (11:32:27) y mandó avisos a
 > todos los teléfonos: probar con la alarma desarmada.
+> Derecha abajo: no generó cambios visibles. Sospecha del dueño: maneja los spots del comedor,
+> cuyo Shelly (`light.luz_spots_comedor`) está no disponible. Revisar cuando vuelva ese Shelly.
 
 ### Entre el hall de acceso y el estar
 
