@@ -47,12 +47,14 @@ huéspedes, el manual interno, Home Assistant, la guía con IA y los mensajes. C
 | Repetidor Wi-Fi y parlante | Aparato blanco redondo | Habitación principal, mesita junto al ventanal | [foto](fotos/habitacion-principal-repetidor-wifi.jpg) | ✅ no mover |
 | Sensor de temperatura del baño | Shelly H&T | Baño de la habitación principal, sobre la mesada | — | ✅ no desenchufar |
 | Tablero de domótica 5 | Shellys, Sonoffs y contactores de estar, comedor y cocina | Hall, pasillo del toilette: el de la derecha, más cerca del placard (tiene el termostato con pantalla) | [foto](fotos/tablero-domotica-5-hall-toilette.jpg) | 🔒 no tocar |
-| Tablero de domótica 7 | Sonoffs de las luces exteriores (perímetro, patio, reflectores, semicubierto) | Hall, pasillo del toilette: el de la izquierda, más lejos del placard | [foto](fotos/tablero-domotica-7-exterior.jpg) | 🔒 no tocar |
+| Tablero de domótica 4 y 7 | Sonoffs de las luces exteriores y módulos del hall de planta baja y toilette (extractor del toilette) | Hall, pasillo del toilette: el de la izquierda, más lejos del placard | [foto](fotos/tablero-domotica-7-exterior.jpg) | 🔒 no tocar |
 | Tablero de domótica 6 | Shellys, Sonoffs y contactores de galería, parrilla, baño de galería, servicio y lavadero | Pasillo de servicio (de la galería al baño y dormitorio de servicio) | [foto](fotos/tablero-domotica-6-galeria.jpg) | 🔒 no tocar |
 | Tablero de domótica 1 | Shellys, Sonoffs, relés de calefacción y control del ventilador de la habitación principal y su baño | Habitación principal, detrás de la puerta | [foto](fotos/tablero-domotica-1-habitacion-principal.jpg) | 🔒 no tocar |
 | Tablero de domótica 2 | Shelly, Sonoffs, relés de calefacción y control del ventilador del dormitorio 1, antebaño y baño | Dormitorio 1, detrás de la puerta | [foto](fotos/tablero-domotica-2-dormitorio-1.jpg) | 🔒 no tocar |
 | Tablero de domótica 3 | Shellys, Sonoffs, relés de calefacción y control del ventilador del dormitorio 2 y hall de dormitorios | Dormitorio 2, detrás de la puerta | [foto](fotos/tablero-domotica-3-dormitorio-2.jpg) | 🔒 no tocar |
 | Equipos de red (router, switch, Raspberry) | Internet, Wi-Fi y Home Assistant | Placard del dormitorio 2, estante de arriba | [foto](fotos/red-placard-dormitorio-2.jpg) | ✅ no tocar ni desenchufar |
+| Tablero del nicho de entrada de luz | Riego (4 circuitos), bomba sumergible, llenado de pileta, estacas del frente | Nicho del frente, donde entra la luz | — | 🔒 |
+| Tablero del nicho de la pileta | Filtro, ionizador, luces RGB, sensores de temperatura y skimmer | Nicho de la pileta | — | 🔒 |
 | Placard de los dueños | Placard de dos puertas, uso privado, con sensor de movimiento | Hall, junto al antetoilette | [foto](fotos/placard-duenos-cerrado.jpg) | 🔒 cerrado |
 | Colector solar de la pileta | Paños de manguera negra | Techo | [foto](fotos/colector-vista-general.jpg) | 🔒 |
 | Flotante del skimmer | Sensor de nivel del agua de la pileta | Skimmer de la pileta | — | 🔒 |

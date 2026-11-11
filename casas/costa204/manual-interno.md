@@ -153,11 +153,12 @@ tiene el termostato con pantalla). Es el
   estos Shelly no siempre se ve prendido: para saber si andan, mirar si están disponibles en
   HA (el 11/11 respondían todos menos SHDIM-11).
 
-## Tablero de domótica 7 (exterior; hall, el de la izquierda, más lejos del placard)
+## Tableros de domótica 4 y 7 (hall, el de la izquierda, más lejos del placard)
 
 ![Tablero 7](fotos/tablero-domotica-7-exterior.jpg)
 
-"TABLERO 7" de la planilla: luces exteriores. Bornera, térmica **C10 bipolar** y:
+Reúne el "TABLERO 7" de la planilla (luces exteriores) y el "TABLERO 4" (hall de planta baja y
+toilette). Bornera, térmica **C10 bipolar** y:
 
 | Equipo (rótulo) | Canales (rótulo en la tapa) | En HA |
 |---|---|---|
@@ -165,7 +166,8 @@ tiene el termostato con pantalla). Es el
 | Sonoff Dual R3 SONDUR3-15 "Perímetro (a) / Lavadero (H)" | perímetro fondo, luz del lavadero | `switch.sonoff_10013aec78_1/_2` |
 | Sonoff Dual R3 SONDUR3-25 "Patio interno (D) / Perímetro (E)" | estacas del patio interno, apliques del perímetro frente | `switch.sonoff_10013b0bb7_1/_2` |
 | Sonoff Dual R3 SONDUR3-24 "Parque REF 1 / REF 2" | reflectores del fondo | `switch.sonoff_10013b1377_1/_2` |
-| 3 módulos chicos (abajo a la izquierda) y un módulo rotulado "5" | *a identificar* | — |
+| Módulos chicos abajo a la izquierda (tablero 4 de la planilla: hall de planta baja y toilette) | entre ellos el **Shelly 1PM del extractor del toilette** (LED rojo); según la planilla también el dimmer del hall (SHDIM-19, `34945471bc6c`) y el del techo del toilette (SHDIM-22, `c45bbe6a84ef`) | `switch.extractor_toilette`, `light.luz_hall`, `light.luz_techo_toilette` |
+| Módulo rotulado "5" | *a identificar* | — |
 
 > Ojo, SONDUR3-25: el rótulo pone **Perímetro (E)** del lado de la salida 1 y **Patio
 > interno (D)** del lado de la salida 2, pero en HA `_1` se llama "Patio interno" y `_2`
@@ -251,6 +253,27 @@ del dormitorio 2. Es el corazón de la casa: sin esto no hay Wi-Fi, ni Home Assi
 cerraduras por app, ni avisos. **No desenchufar** ni mover cables. *A completar: qué equipo
 corre Home Assistant (Raspberry o notebook) y para qué está la notebook.*
 Pendiente: alerta si se cae (por ejemplo, ping externo/Nabu Casa) y ordenar cables.
+
+## Tablero del nicho de la entrada de luz (tablero 8: riego)
+
+En el nicho del frente donde entra la luz de la casa. *Foto: pendiente.*
+
+| Equipo | Qué maneja | En HA |
+|---|---|---|
+| Sonoff 4CH R3 | 4 circuitos de riego (1 frente derecha, 2 frente, 3 lateral izquierdo, 4 fondo derecha) | `switch.sonoff_100187166b_1` a `_4` |
+| Sonoff TH16 R2 | bomba sumergible del riego | (ver `sensor.bomba_riego_*`) |
+| Sonoff Dual R3 | llenado de la pileta y estacas de luz del frente | `switch.sonoff_1001d8d053_1` ("Llenado Pileta") / `_2` ("Estacas frente") |
+
+## Tablero del nicho de la pileta
+
+En el nicho de la pileta. *Foto: pendiente.*
+
+| Equipo | Qué maneja | En HA |
+|---|---|---|
+| Controlador Tuya de 4 canales ("Controlador Nicho Pileta") | 1 filtro (bomba), 2 ionizador, 3 y 4 libres | `switch.psw_4ch_cbu_switch_1` a `_4` |
+| Shelly RGBW2 | luces RGB de la pileta | `light.luz_rgb_pileta` |
+| Sensor de temperatura pegado al caño | temperatura del agua con circulación | `sensor.sonoff_10022162b2_temperature` |
+| Sensor de nivel del skimmer (flotante Tuya) | nivel de agua del skimmer | `switch.nivel_skimmer_switch_1` |
 
 ## Llaveros de acceso (huéspedes)
 
