@@ -394,6 +394,17 @@ Junto a la puerta, al lado del enchufe:
 > (verificado 11/11 11:28–11:29). Apagado automático:
 > `automation.extractor_bano_galeria_auto_off_15_min` (11/11/2026).
 
+### Hall, pasando hacia el pasillo de los dormitorios
+
+![Tecla del hall junto al paso a los dormitorios](fotos/hall-pasillo-dormitorios-tecla.jpg)
+
+Tecla sola en la pared, al lado del vano que lleva al pasillo de los dormitorios: prende los
+**spots del hall de acceso** (los mismos que la tecla de arriba a la izquierda del hall de
+entrada).
+
+> Nota interna (11/11 11:38): `light.luz_hall`, entrada 1 del Shelly `34945471BC6C` (las dos
+> teclas están en paralelo en esa entrada).
+
 ### Estar, junto a la salamandra
 
 ![Ubicación de las teclas junto a la salamandra](fotos/estar-salamandra-teclas-ubicacion.jpg)
