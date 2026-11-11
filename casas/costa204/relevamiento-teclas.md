@@ -18,7 +18,9 @@ por `409151588222`). Las IP de la planilla no se copian acá.
 | Hall de entrada, derecha abajo (caja 2) | Circuito **C**: spots del techo de la reserva vehicular | Diseño: Sonoff `1001d8d053` (reasignado) | Hoy sin equipo para ese circuito; hay una automatización "Luz Acceso y Reserva con Sensor" (apagada) |
 | Placa del medio entre hall y estar (2 teclas) | Diseño: caja 5 (repite spots y centro del estar) o caja 6 (estar techo ventanal + galería living) | — | Llegan a la entrada 2 del Shelly de la isla (`34945471BC58`): cable cruzado o reasignado |
 
-Ya resuelta con automatización: vajillero, media tecla de arriba de la placa del medio →
+Resueltas con automatización (entradas 2 sueltas de los Shelly): estar junto a la salamandra,
+arriba → R techo ventanal (`34945471BCDE`) y abajo → P spots estar (`34945471CAED`).
+También: vajillero, media tecla de arriba de la placa del medio →
 circuito **T** (spots del comedor de la galería) por la entrada 2 de `409151588222`.
 
 ## Posibles nombres cruzados en HA (verificar de noche, a la vista)

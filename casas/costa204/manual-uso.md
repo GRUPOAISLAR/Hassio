@@ -378,6 +378,27 @@ Junto a la puerta, al lado del enchufe:
 > (verificado 11/11 11:28–11:29). Apagado automático:
 > `automation.extractor_bano_galeria_auto_off_15_min` (11/11/2026).
 
+### Estar, junto a la salamandra
+
+![Ubicación de las teclas junto a la salamandra](fotos/estar-salamandra-teclas-ubicacion.jpg)
+![Teclas junto a la salamandra](fotos/estar-salamandra-teclas.jpg)
+
+Placa de tres teclas en la pared blanca, al lado de la salamandra (la placa de al lado está
+vacía):
+
+| Tecla | Qué maneja |
+|---|---|
+| Cuarto de arriba | Spots del techo del estar del lado del ventanal |
+| Del medio | Luz del centro del estar |
+| Cuarto de abajo | Spots del techo del estar |
+
+> Nota interna (registro de HA, 11/11 11:35–11:37): arriba = entrada 2 del Shelly
+> `34945471BCDE` (`light.luz_estar_techo_ventanal`), medio = entrada 2 de `244CAB402272`
+> (`light.luz_estar_centro`, anda directo), abajo = entrada 2 de `34945471CAED`
+> (`light.luz_spots_estar`). Arriba y abajo no maniobraban la luz (entradas sueltas); desde el
+> 11/11 las maneja `automation.estar_teclas_junto_a_la_salamandra_entradas_2_sueltas`, según la
+> planilla de diseño (circuitos R y P). Si se cae HA, esas dos no andan.
+
 ### Hall de entrada (al entrar por la puerta principal, pared de la derecha)
 
 ![Ubicación de las teclas del hall de entrada](fotos/hall-entrada-teclas-ubicacion.jpg)
