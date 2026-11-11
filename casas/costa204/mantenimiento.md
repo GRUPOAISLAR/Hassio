@@ -72,3 +72,19 @@ con algo de retraso. Con la bomba parada mide el nicho. Por eso:
 **A analizar**: arranques/día, horas/día, kWh y $ por día, °C ganados por día en la pileta,
 °C por kWh, relación con la producción FV, la nubosidad, el viento y la temperatura exterior, y
 si el apagado corta mientras todavía hay ganancia.
+
+## Pendiente: prueba de pérdida de la pileta (balde)
+
+Para hacer en otra visita. Antes de empezar, **pausar el llenado automático** (automatización
+"Pileta: llenado por cámara + sensor Tuya") y reactivarlo al terminar.
+
+1. Balde en el primer escalón, lleno con agua de la pileta al mismo nivel que la pileta.
+   Marcar nivel adentro del balde y afuera (pileta).
+2. 24 h con el filtro funcionando normal: medir cuánto bajó cada uno (mm). Si la pileta baja
+   ≥ 3 mm/día más que el balde, hay pérdida.
+3. Repetir 24 h con el filtro apagado. Si la diferencia desaparece, la pérdida está en el lado
+   de presión (caños, filtro, **colector solar**); si sigue, en el vaso o la succión (skimmer,
+   retornos, luz).
+4. Caudal del llenado: cronometrar cuánto tarda en llenar un balde de volumen conocido
+   (L/min), para traducir el tiempo de llenado automático a litros/día.
+5. Pasar mm a litros: superficie de la pileta (m²) × mm = litros. Falta registrar largo y ancho.
