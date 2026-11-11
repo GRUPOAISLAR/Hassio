@@ -76,7 +76,8 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
   repo `CoolKit-Technologies/ha-addon` está archivado desde el 24/02/2026. El complemento
   nuevo (`iHost-Open-Source-Project/hassio-ihost-addon`) no sube equipos de HA a eWeLink.
   Las entidades plantilla `ewelink_virtual_*` quedaron sin uso. Camino elegido para manejar
-  todo desde los paneles: **NSPanel Easy (ESPHome)**, piloto en el panel de la galería. El
+  todo desde los paneles: **NSPanel Easy (ESPHome)**, piloto en el panel de la galería (plan y
+  riesgos en [`nspanel.md`](nspanel.md)). El
   repositorio de ESPHome ya está en la tienda de complementos.
 - **Guía para huéspedes con IA (11/11/2026)**: agente `conversation.guia_costa_204` (Gemini,
   subentrada de Google Generative AI) con el manual como instrucciones y **sin control de
