@@ -110,6 +110,13 @@ otro toque la frena).
 Sobre la mesada hay un **sensor de temperatura** (Shelly H&T, enchufado con su
 cargador): no desenchufarlo. Con él, en invierno, la calefacción mantiene el baño templado.
 
+#### Repetidor Wi-Fi y parlante (mesita redonda junto a la ventana)
+
+![Repetidor Wi-Fi y parlante](fotos/habitacion-principal-repetidor-wifi.jpg)
+
+El aparato blanco redondo sobre la mesita negra es el **repetidor de Wi-Fi y parlante** de la
+habitación. **No moverlo ni desenchufarlo**: si se mueve, se cae el Wi-Fi de esa zona.
+
 #### Controles remotos (en la mesa de luz)
 
 **Control del televisor** (TCL, Google TV): encendido arriba a la derecha, volumen +/− en
