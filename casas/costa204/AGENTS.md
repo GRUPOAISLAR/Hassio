@@ -135,6 +135,9 @@ Registro de reparaciones (colector solar, etc.): [`mantenimiento.md`](mantenimie
   Usar esos nombres en todo (manuales, HA, guía con IA, mensajes).
 - [`manual-interno.md`](manual-interno.md): propietarios. Tableros y térmicas, medidor de
   tensión, inversores y baterías, tablero solar, sensor de corte, termotanque, ablandador.
+- **Shelly Dimmer 2: entradas en `dual_button`** (11/11/2026). Con `one_button` el dimmer
+  ignora SW2 y la segunda tecla de cada luz no anda. Si aparece un Shelly nuevo o reseteado,
+  revisar ese ajuste. Detalle en `relevamiento-teclas.md`.
 - [`relevamiento-teclas.md`](relevamiento-teclas.md): cruce entre la planilla de diseño de la
   domótica (Google Sheets "EJEMPLO DOMOTICA COSTA 204") y lo verificado tecla por tecla.
 - [`fotos/README.md`](fotos/README.md): índice de todas las fotos por lugar. Al sumar una foto,

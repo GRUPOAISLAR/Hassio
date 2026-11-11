@@ -23,24 +23,37 @@ arriba → R techo ventanal (`34945471BCDE`) y abajo → P spots estar (`3494547
 También: vajillero, media tecla de arriba de la placa del medio →
 circuito **T** (spots del comedor de la galería) por la entrada 2 de `409151588222`.
 
-## SW2 de los Shelly Dimmer 2 que no maniobran
+## SW2 de los Shelly Dimmer 2: corregido el 11/11/2026
 
-La instalación usa SW1 y SW2 de cada Shelly Dimmer 2 (dos puntos de tecla por luz). En estos
-Shelly el evento de SW2 llega a HA pero el dimmer **no** cambia la luz (11/11/2026):
+Causa: varios Shelly Dimmer 2 tenían `btn_type = one_button` (el dimmer ignora SW2). Los que
+andaban tenían `dual_button` (SW1 y SW2 conmutan; mantener apretado SW1 sube y SW2 baja el
+brillo). El 11/11/2026 se cambiaron a `dual_button` (vía Node-RED, abierto temporalmente y
+vuelto a cerrar):
 
-| Shelly | Luz | Tecla en SW2 | Estado |
-|---|---|---|---|
-| `34945471BCDE` | Estar techo ventanal | Estar, salamandra arriba | Cubierta por automatización |
-| `34945471CAED` | Spots estar | Estar, salamandra abajo | Cubierta por automatización |
-| `3494547290BB` | Spots dormitorio 2 | Dormitorio 2, teclón junto a la ventana | Cubierta por automatización |
-| `409151588222` | Spots comedor galería | Vajillero, medio arriba | Cubierta por automatización |
-| `34945471BC58` | Luz de la isla | Placa del medio entre hall y estar (2 teclas) | Sin cubrir: confirmar qué deben manejar |
+| IP final | Shelly | Luz |
+|---|---|---|
+| .31 | `34945471be06` | Barra galería (colgante de la barra de la parrilla) |
+| .37 | `c45bbe5638bf` | Estar pared |
+| .41 | `34945471caed` | Spots estar |
+| .54 | `ec64c9c4db9d` | Pasillo galería (spots parrilla–horno) |
+| .55 | `3494547290bb` | Spots dormitorio 2 |
+| .139 | `244cab40220a` | Galería living |
+| .144 | `c45bbe6a84ef` | Techo toilette |
+| .201 | `3494547227d7` | Mesa de luz izquierda (habitación principal) |
+| .220 | `409151588222` | Spots comedor galería |
+| .232 | `349454723b28` | Mesada cocina (colgantes) |
+| .235 | `34945471bcde` | Estar techo ventanal |
 
-En cambio la SW2 sí maniobra en `244CAB402272` (centro estar), `34945471BC6C` (hall), "Hall
-Dormitorios" y "Colgante Comedor Galería". **Arreglo de fondo:** entrar a la web local de cada
-Shelly de la tabla y comparar la configuración de entradas (tipo de botón / modo de SW2,
-"inputs swap", "detached") con uno que anda; dejarlos iguales. Hecho eso, borrar las
-automatizaciones puente (las teclas vuelven a andar aunque HA esté caído).
+**Sin cambiar a propósito:** `.234` `34945471bc58` (luz de la isla): su SW2 recibe las dos
+teclas del medio entre hall y estar; decidir antes qué deben manejar. `.145`
+`349454729610` (spots comedor) está desconectado: revisar al volver.
+Ya estaban en `dual_button`: .36, .38, .43, .83, .148, .165, .181, .188, .189, .233, .248.
+
+Las automatizaciones puente (`automation.estar_teclas_junto_a_la_salamandra_entradas_2_sueltas`
+y `automation.cocina_tecla_del_vajillero_medio_arriba_prende_spots_del_comedor_de_la_galeria`)
+quedaron **desactivadas**; borrarlas cuando se confirme a la vista que las teclas andan.
+Teclas que podrían empezar a andar por este cambio: galería junto a los jarrones (arriba,
+SW2 de galería living) y otras segundas teclas de la planilla de diseño. Volver a probarlas.
 
 ## Posibles nombres cruzados en HA (verificar de noche, a la vista)
 
