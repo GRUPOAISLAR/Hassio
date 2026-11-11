@@ -205,6 +205,15 @@ aparte). Se traba sola a los pocos segundos de cerrarla.
 | Tecla de arriba | Luces del perímetro del frente |
 | Tecla de abajo | Luz de la entrada lateral (techo del semicubierto lateral) |
 
+**Adentro del lavadero**, junto a la puerta lateral, hay otras dos teclas:
+
+![Teclas dentro del lavadero](fotos/lavadero-teclas-interior.jpg)
+
+| Posición | Qué maneja |
+|---|---|
+| Tecla de arriba | Luz de la salida del lavadero (semicubierto de afuera) |
+| Tecla de abajo | Luz del lavadero |
+
 > Nota interna: arriba `switch.sonoff_10013b0bb7_2` ("Patio y perímetro · Perímetro frente");
 > abajo `switch.sonoff_10013b00fb_2` ("Semi cubierto Lateral Techo"). La tecla del acceso es
 > `switch.sonoff_10013b00fb_1`. Placa sin terminar: faltan las tapas de las teclas.
