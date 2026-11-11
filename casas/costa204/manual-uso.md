@@ -444,7 +444,7 @@ pasillo que lleva a la habitación principal.
 | Dónde | Qué maneja |
 |---|---|
 | Tecla junto a la puerta (entrada/salida) | Spots del techo del dormitorio |
-| Tecla al lado del panel, al entrar | *En revisión* (ver nota) |
+| Tecla al lado del panel, al entrar | Tira de luz LED del placard (*en revisión*) |
 | Panel con pantalla, al entrar | Calefacción del dormitorio 1 y del baño de los dormitorios |
 | Tecla junto a la ventana | Cortina (un toque la mueve, otro la frena) |
 | Mesa de luz | Control remoto del ventilador de techo y parlante Google Mini de la habitación |
