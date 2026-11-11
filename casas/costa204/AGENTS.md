@@ -75,7 +75,9 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
   entidades de HA hacia la cuenta eWeLink y después se eligen como tarjetas del panel en la
   app eWeLink. Requiere las entidades plantilla `ewelink_virtual_*` (ya están).
   El 11/11/2026 estaba **en error** (por eso las tarjetas Shelly "Centro…" y "Hall D…" no
-  respondían); se arrancó y quedó corriendo. Alternativa de fondo si esto no alcanza:
+  respondían); se arrancó y a los ~2 min volvió a fallar: `SyntaxError: Unexpected end of JSON
+  input` en `getDataSync` (archivo de datos dañado). Es el complemento viejo; el log menciona
+  uno nuevo de CoolKit. Pendiente: migrar al nuevo o reinstalar. Alternativa de fondo si esto no alcanza:
   reflashear con ESPHome + NSPanel Easy (probar primero en el panel de la galería).
 - **Guía para huéspedes con IA (11/11/2026)**: agente `conversation.guia_costa_204` (Gemini,
   subentrada de Google Generative AI) con el manual como instrucciones y **sin control de
@@ -84,6 +86,9 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
   `script.guia_responder_en_parlantes` (pregunta → respuesta hablada en los parlantes).
   Acceso del huésped: botón **"Preguntale a la casa"** en el panel `huespedes-costa` (vista Casa),
   que abre Assist con ese pipeline y empieza a escuchar (usuario `inquilino`, app de HA).
+  Con Google: `script.guia_de_la_casa` expuesto a Google Assistant (HA Cloud): "Ok Google,
+  activá Guía de la casa" → resumen hablado en todos los parlantes. "Ok Google" no puede
+  hacer preguntas libres a la guía (va al asistente de Google); solo frases armadas.
   Al cambiar `manual-uso.md`, actualizar también el prompt del agente.
   Probada el 11/11/2026 (tras cargar crédito prepago en Google AI Studio): responde bien
   ubicación de teclas, se niega a dar claves/alarma y dice "no lo sé" ante lo que no está en
