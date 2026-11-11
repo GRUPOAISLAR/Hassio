@@ -219,15 +219,15 @@ de los dormitorios 1 y 2). Bornera, térmica **C10 bipolar** y:
 | Shelly Dimmer 2 "DORM 1 SHDIM-5" | spots del centro del dormitorio 1 | `light.centro_dormitorio_1` |
 | Sonoff Dual R3 "Baño D1 y D2 SONDUR3-7" (EXT 3 / n) | extractor y luz del baño de los dormitorios | `switch.sonoff_10013b015e_1/_2` |
 | Sonoff Dual R3 "Antebaño D1 D2 (k) / Dorm 1 (p) placard SONDUR3-8" | luz del antebaño y **tira LED del placard del dormitorio 1** | `switch.sonoff_10015f67ee_1` (antebaño) / `_2` |
-| Sonoff Dual R3 "Baño D1 y D2 SONDUR3-6 CORT 6" | cortina del baño de los dormitorios | *verificar cuál `cover`* |
-| Sonoff Dual R3 "Dorm 1 SONDUR3-5 CORT 4" (a mano "D1") | cortina del dormitorio 1 | *verificar cuál `cover`* |
+| Sonoff Dual R3 "Baño D1 y D2 SONDUR3-6 CORT 6" | cortina del baño de los dormitorios | `cover.sonoff_10013af029` (verificado 11/11) |
+| Sonoff Dual R3 "Dorm 1 SONDUR3-5 CORT 4" (a mano "D1") | cortina del dormitorio 1 | `cover.sonoff_100155bd91` (verificado 11/11) |
 | Térmica **C6** (Sassin) + 2 relés de estado sólido (LCDK / CHFU, 10 A) | calefacción eléctrica (accionada por el NSPanel) | — |
 | Sonoff iFan "DORM 1 SOFUN-3 VENT 3" | ventilador de techo del dormitorio 1 | `light.sonoff_1001589bec_1` y su ventilador |
 
-> Con el rótulo de SONDUR3-8 se explica la tecla junto al panel del dormitorio 1: su canal 2
-> es la **tira LED del placard del dormitorio 1** (en HA se llama "Antebaño Dormitorios", nombre
-> equivocado). Ese canal se apaga y prende en 0,2 s con cada toque: revisar el modo de entrada
-> en eWeLink y renombrarlo "Placard dormitorio 1".
+> SONDUR3-8 canal 2 (`switch.sonoff_10015f67ee_2`, en HA "Antebaño Dormitorios") es la tecla
+> junto al panel del dormitorio 1. Estaba prevista para una tira LED del placard que **nunca se
+> instaló**: el relé conmuta (verificado 11/11 14:37) pero no tiene carga. Se puede reasignar
+> con una automatización si se quiere darle uso.
 
 ## Tablero de domótica 3 (dormitorio 2)
 

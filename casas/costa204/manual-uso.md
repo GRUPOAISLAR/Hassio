@@ -444,7 +444,7 @@ pasillo que lleva a la habitación principal.
 | Dónde | Qué maneja |
 |---|---|
 | Tecla junto a la puerta (entrada/salida) | Spots del techo del dormitorio |
-| Tecla al lado del panel, al entrar | Tira de luz LED del placard (*en revisión*) |
+| Tecla al lado del panel, al entrar | *Sin uso* (estaba prevista para una tira LED del placard que nunca se instaló) |
 | Panel con pantalla, al entrar | Calefacción del dormitorio 1 y del baño de los dormitorios |
 | Tecla junto a la ventana | Cortina (un toque la mueve, otro la frena) |
 | Mesa de luz | Control remoto del ventilador de techo y parlante Google Mini de la habitación |
@@ -485,8 +485,7 @@ frena).
 ![Tecla de la cortina del baño](fotos/bano-dormitorios-tecla-cortina.jpg)
 
 > Nota interna (11/11 11:41:37–11:42:00): cortina = `cover.sonoff_10013af029` ("Cortina Baño
-> Dormitorios"; en la planilla de diseño ese Sonoff figura como cortina del dormitorio 1:
-> verificar cuál es cuál): luz = `switch.sonoff_10013b015e_2`, extractor =
+> Dormitorios", confirmado 14:37; la cortina del dormitorio 1 es `cover.sonoff_100155bd91`): luz = `switch.sonoff_10013b015e_2`, extractor =
 > `switch.sonoff_10013b015e_1` (`automation.extractor_dormitorios_auto_off_15_min`).
 
 ### Dormitorio 2
@@ -499,7 +498,7 @@ frena).
 |---|---|
 | Tecla junto a la puerta | Spots del techo del dormitorio |
 | Panel con pantalla, junto a la puerta | Calefacción del dormitorio 2 y del hall de los dormitorios |
-| Placa de 3 teclas al lado del panel | *A confirmar* (diseño: cortina blackout y cortina del dormitorio 2, y tira LED del placard) |
+| Placa de 3 teclas al lado del panel | *A confirmar* (diseño: cortinas del dormitorio 2; la tira LED del placard no se instaló) |
 | Tecla junto a la ventana, al lado de la mesa de luz | Cortina (un toque la mueve, otro la frena) |
 | Teclón más cercano a la mesa de luz junto a la ventana | Spots del techo del dormitorio |
 | Cómoda con espejo | Control remoto del ventilador de techo y parlante Google Mini de la habitación |
