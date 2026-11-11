@@ -190,15 +190,20 @@ izquierda*):
 Tecla sola en la pared de madera, al entrar: prende las **luces del pasillo de acceso** (los
 apliques bajos de la pared). A veces hay que tocarla dos veces.
 
-### Salida del lavadero
+### Puerta de acceso lateral (entrada por el lavadero)
 
-![Ubicación de las teclas, salida del lavadero](fotos/lavadero-salida-teclas-ubicacion.jpg)
+![Puerta de acceso lateral](fotos/puerta-lateral.jpg)
+
+Puerta vidriada al lavadero con **cerradura electrónica** (huella, clave o app; la clave se envía
+aparte). Se traba sola a los pocos segundos de cerrarla.
+
+![Ubicación de las teclas, junto a la puerta lateral](fotos/lavadero-salida-teclas-ubicacion.jpg)
 ![Teclas de la salida del lavadero](fotos/lavadero-salida-teclas.jpg)
 
 | Posición | Qué maneja |
 |---|---|
 | Tecla de arriba | Luces del perímetro del frente |
-| Tecla de abajo | Luz de la salida del lavadero (techo del semicubierto lateral) |
+| Tecla de abajo | Luz de la entrada lateral (techo del semicubierto lateral) |
 
 > Nota interna: arriba `switch.sonoff_10013b0bb7_2` ("Patio y perímetro · Perímetro frente");
 > abajo `switch.sonoff_10013b00fb_2` ("Semi cubierto Lateral Techo"). La tecla del acceso es
