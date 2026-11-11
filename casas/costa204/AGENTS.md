@@ -115,6 +115,10 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
 - [Estado conocido y diagnóstico — Home Assistant](https://app.notion.com/p/403825a110c3819988bce5eefcd1c6d2)
   → sección "Costa 204 — conocido".
 
+## Mantenimiento
+
+Registro de reparaciones (colector solar, etc.): [`mantenimiento.md`](mantenimiento.md).
+
 ## Manual de uso
 
 Borrador del manual para huéspedes: [`manual-uso.md`](manual-uso.md), con fotos en `fotos/`
