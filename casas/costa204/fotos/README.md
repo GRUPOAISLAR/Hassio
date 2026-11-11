@@ -95,6 +95,7 @@ Para pedir una foto, usá el nombre del archivo o el del [glosario](../glosario.
 
 | Foto | Qué muestra |
 |---|---|
+| [bano-dormitorios-teclas.jpg](bano-dormitorios-teclas.jpg) | Baño de los dormitorios 1 y 2: teclas |
 | [antebano-dormitorios-tecla.jpg](antebano-dormitorios-tecla.jpg) | Antebaño y su tecla |
 
 ## Pasillo de servicio
