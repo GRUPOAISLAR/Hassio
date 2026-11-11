@@ -302,10 +302,21 @@ calefacción** de la galería (ver "Paneles de calefacción con pantalla").
 
 | Tecla | Qué maneja |
 |---|---|
-| Arriba / abajo | Spots del techo de la galería (*confirmar si las dos hacen lo mismo*) |
+| Arriba | *En revisión* |
+| Abajo | Spots del techo de la galería (sector living) |
+
+![Teclas y panel de la galería, de cerca](fotos/galeria-teclas-nspanel.jpg)
 
 > Nota interna (registro de HA, 11/11 11:16): las pulsaciones llegaron todas a la entrada 1 del
-> Shelly Dimmer 2 `244CAB40220A` → `light.luz_galeria_living`. De día casi no se nota.
+> Shelly Dimmer 2 `244CAB40220A` → `light.luz_galeria_living` (tecla de abajo, confirmado).
+> Estaba al 1 % y parecía apagada.
+
+### Brillo mínimo de las luces dimerizables
+
+`automation.luces_brillo_minimo_que_no_parezcan_apagadas` (11/11/2026): si una luz dimerizable
+queda prendida con brillo < 8 % durante 3 s, la sube al 40 %. Así una luz que quedó en 1 % no
+parece apagada (pasó con la del living de la galería). Al sumar luces dimerizables, agregarlas
+a la lista del disparador.
 
 ---
 
