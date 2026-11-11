@@ -262,7 +262,7 @@ Entrando al lavadero desde la casa, en la pared junto a la puerta, hay dos tecla
 | Izquierda (doble) | Arriba | Spots del pasillo de la cocina, entre la mesada y la isla |
 | Izquierda (doble) | Abajo | Spots del techo de cocina, estar y comedor del lado de la galería |
 | Del medio (doble) | — | *En revisión: no prende nada por ahora* |
-| Derecha (sola) | — | Colgante de la mesa del comedor de la galería |
+| Derecha (sola) | — | Colgante de la mesa del comedor de la galería (dimerizable; a confirmar a la vista) |
 
 ![Spots del lado de la galería](fotos/cocina-spots-galeria.jpg)
 
@@ -289,6 +289,22 @@ No desenchufarlos.
 >   (`409151588222`): el evento llega pero no cambia ninguna luz (entrada suelta). Falta
 >   probar la otra mitad de esa placa y decidir qué debería manejar.
 > - El NSPanel Pro es de embutir; hoy está apoyado en la isla con un soporte.
+
+### Galería
+
+![Galería](fotos/galeria-vista.jpg)
+
+En la pared de madera, detrás de los jarrones, hay una placa de dos teclas y el **panel de
+calefacción** de la galería (ver "Paneles de calefacción con pantalla").
+
+![Teclas y panel de la galería](fotos/galeria-teclas-nspanel-jarrones.jpg)
+
+| Tecla | Qué maneja |
+|---|---|
+| Arriba / abajo | Spots del techo de la galería (*confirmar si las dos hacen lo mismo*) |
+
+> Nota interna (registro de HA, 11/11 11:16): las pulsaciones llegaron todas a la entrada 1 del
+> Shelly Dimmer 2 `244CAB40220A` → `light.luz_galeria_living`. De día casi no se nota.
 
 ---
 

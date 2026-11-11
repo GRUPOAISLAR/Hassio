@@ -39,6 +39,13 @@ Para pedir una foto, usá el nombre del archivo o el del [glosario](../glosario.
 |---|---|
 | [cocina-spots-galeria.jpg](cocina-spots-galeria.jpg) | Spots del techo del lado de la galería |
 
+## Galería
+
+| Foto | Qué muestra |
+|---|---|
+| [galeria-vista.jpg](galeria-vista.jpg) | Vista de la galería |
+| [galeria-teclas-nspanel-jarrones.jpg](galeria-teclas-nspanel-jarrones.jpg) | Teclas y NSPanel detrás de los jarrones |
+
 ## Habitación principal
 
 | Foto | Qué muestra |
