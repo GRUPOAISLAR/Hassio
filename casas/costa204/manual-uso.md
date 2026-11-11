@@ -662,3 +662,24 @@ a la lista del disparador.
   frenar, el siguiente toque la mueve en el sentido contrario.
 - Secciones ⬜ del índice: datos que tiene que pasar el dueño (llegada, reglas, salida,
   emergencias, recomendaciones de la zona).
+
+## Reglas, salida y condiciones (de las publicaciones de Airbnb y HomeExchange, 11/11/2026)
+
+- Hasta 8 personas. Estadía mínima en HomeExchange: 2 noches. Se permite 1 mascota como máximo.
+- No se permite fumar ni vapear. No se permiten fiestas ni eventos. Silencio de 1:00 a 7:00.
+- Luz medida: la estadía incluye 40 kWh por día; el excedente (sobre el total de la estadía) se
+  cobra a USD 0,20/kWh según la lectura del medidor al ingreso y al egreso, con foto.
+- Limpieza final en HomeExchange: USD 100.
+- Pileta templada por colector solar, aprox. de noviembre a marzo.
+- Corte de luz: sin grupo electrógeno; baterías para 5–6 h si no se usan termotanques, aires ni
+  bombas de la pileta.
+- Antes del check-out (pedido del anfitrión): apagar salamandra y parrilla; apagar calefacción y
+  aire; cerrar ventanas y puertas; entrar sillas y ropa tendida (puede haber zorros); avisar si
+  se rompió algo.
+- Cámaras exteriores declaradas en Airbnb: patio trasero, lateral derecho y frente.
+- **Diferencias entre las publicaciones y la casa (para corregir en los anuncios):** dicen
+  "calefacción central por losa radiante" y "aire acondicionado central" (el aire del estar está
+  en reparación); HomeExchange dice 4 dormitorios y 3 baños completos + toilette. Airbnb no
+  indica detector de humo ni de monóxido de carbono.
+- Pendiente del dueño: horarios de entrada y salida, despensa, ropa blanca, basura,
+  correspondencia, dónde dejar los llaveros, reglas de la pileta, guardia del barrio.
