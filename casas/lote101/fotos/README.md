@@ -20,4 +20,4 @@ Todas sin datos de ubicación (EXIF/GPS) y con un máximo de 1600 px. Agrupadas 
 |---|---|
 | [tablero-planta-baja-powermeter.jpg](tablero-planta-baja-powermeter.jpg) | Tablero de planta baja con el cableado del medidor por fase |
 | [pileta-valvula-bypass-colector.jpg](pileta-valvula-bypass-colector.jpg) | Válvula del bypass del colector solar de la pileta |
-| [tablero-placa-reles-botonera.jpg](tablero-placa-reles-botonera.jpg) | Placa de relés y botonera en el tablero (pin blanco = botonera) |
+| [tablero-kincony-reles-botonera.jpg](tablero-kincony-reles-botonera.jpg) | Placa de relés Kincony en el tablero (el pin blanco es la botonera) |
