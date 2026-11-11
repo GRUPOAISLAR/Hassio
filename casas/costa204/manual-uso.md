@@ -261,8 +261,9 @@ Entrando al lavadero desde la casa, en la pared junto a la puerta, hay dos tecla
 |---|---|---|
 | Izquierda (doble) | Arriba | Spots del pasillo de la cocina, entre la mesada y la isla |
 | Izquierda (doble) | Abajo | Spots del techo de cocina, estar y comedor del lado de la galería |
-| Del medio (doble) | — | *En revisión: no prende nada por ahora* |
-| Derecha (sola) | — | Colgante de la mesa del comedor de la galería (dimerizable; a confirmar a la vista) |
+| Del medio (doble) | Arriba | *En revisión* |
+| Del medio (doble) | Abajo | Colgante de la mesa del comedor de la galería |
+| Derecha (sola, la más cercana al vajillero) | — | *En revisión* |
 
 ![Spots del lado de la galería](fotos/cocina-spots-galeria.jpg)
 
@@ -283,11 +284,11 @@ No desenchufarlos.
 > - Spots de la mesada y spots del pasillo = la **misma** luz, `light.luz_spots_cocina`
 >   (Shelly Dimmer 2 `3494547A34BB`: entrada 2 desde el lavadero, entrada 1 desde el vajillero).
 > - Vajillero abajo-izquierda = `light.luz_estar_techo_ventanal`.
-> - Vajillero derecha = `light.luz_colagante_comedor_galeria` (Shelly "Colgante Comedor
->   Galería", entrada 2).
-> - Vajillero del medio = entrada 2 del Shelly Dimmer 2 "Comedor Galería"
->   (`409151588222`): el evento llega pero no cambia ninguna luz (entrada suelta). Falta
->   probar la otra mitad de esa placa y decidir qué debería manejar.
+> - Vajillero medio-abajo = `light.luz_colagante_comedor_galeria` (Shelly "Colgante Comedor
+>   Galería", entrada 2), confirmado a la vista.
+> - De medio-arriba y derecha, una manda la entrada 2 del Shelly Dimmer 2 "Comedor Galería"
+>   (`409151588222`) sin cambiar ninguna luz (entrada suelta) y la otra no llega a HA. Falta
+>   tocarlas por separado para saber cuál es cuál.
 > - El NSPanel Pro es de embutir; hoy está apoyado en la isla con un soporte.
 
 ### Galería
