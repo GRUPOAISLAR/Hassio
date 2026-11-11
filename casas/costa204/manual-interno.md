@@ -138,11 +138,12 @@ guarda** (se ven los cortes de las llaves mecánicas).
 
 | Llavero | Principal (Tuya) | Lateral (TTLock): nombre en la app hoy | Verificado |
 |---|---|---|---|
-| 102 | tarjeta 102 | "Inquilino 2" | 11/11 11:48:37, `sensor.puerta_lateral_last_operator` |
-| 103 | tarjeta 103 | "inquilino" | 11/11 11:49:00 |
+| 102 | tarjeta n.º 102 (`event.puerta_principal_unlock_user_card`, value 102) | "Inquilino 2" | Principal 11/11 11:50:55; lateral 11:48:37 |
+| 103 | tarjeta n.º 103 (value 103) | "inquilino" | Principal 11/11 11:51:09; lateral 11:49:00 |
 
-Sugerido: renombrar las tarjetas en la app TTLock como "Llavero 102" y "Llavero 103"; el aviso
-de Telegram usa ese nombre tal cual.
+El aviso de Telegram (`automation.cerradura_puerta_principal_avisos_por_telegram`) traduce
+las dos puertas a "el huésped (llavero 102/103)" (variables `tarjetas` y `operadores_lateral`).
+Si se renombran las tarjetas en la app TTLock, actualizar `operadores_lateral`.
 
 ## Placard de los dueños (hall, junto al antetoilette)
 

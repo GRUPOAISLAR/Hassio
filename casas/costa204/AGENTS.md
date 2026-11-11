@@ -46,7 +46,9 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
   del script; sumar ahí los nuevos), con el nombre de `input_text.inquilino_nombre`. Así no salta cuando entra la inmobiliaria a revisar
   (a menos que use una clave temporal).
   Huella n.º 2 de la cerradura principal = el dueño (sirve para distinguir su llegada de la
-  de un inquilino).
+  de un inquilino). Tarjetas n.º 102 y 103 = llaveros de huéspedes (cada llavero trae además
+  su tarjeta TTLock de la puerta lateral: "Inquilino 2" = 102, "inquilino" = 103); el aviso de
+  Telegram los nombra "el huésped (llavero 102/103)". Ver `manual-interno.md`.
 - **Seguridad**: Alarmo (sirena), 5 cámaras (Foscam: Frente_Patio_Interno, Frente_izquierda,
   Fondo_Izquierdo, Lateral_Derecho; más Camara Entrada), modo casa (Presente/Ausente) con sugerencia
   automática si todos están fuera más de 1 h.
