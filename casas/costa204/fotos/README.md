@@ -52,6 +52,12 @@ Para pedir una foto, usá el nombre del archivo o el del [glosario](../glosario.
 | [galeria-teclas-nspanel.jpg](galeria-teclas-nspanel.jpg) | Teclas y NSPanel de la galería, de cerca |
 | [galeria-teclas-nspanel-jarrones.jpg](galeria-teclas-nspanel-jarrones.jpg) | Teclas y NSPanel detrás de los jarrones |
 
+## Pasillo de servicio
+
+| Foto | Qué muestra |
+|---|---|
+| [servicio-pasillo-teclas-reflectores.jpg](servicio-pasillo-teclas-reflectores.jpg) | Teclas de los reflectores, junto a la salida lateral |
+
 ## Habitación principal
 
 | Foto | Qué muestra |

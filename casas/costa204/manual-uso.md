@@ -294,9 +294,9 @@ No desenchufarlos.
 >   **spots del comedor de la galería**. Su tecla está en el pasillo de la galería (placa
 >   derecha, arriba); la entrada 2 (vajillero medio-arriba) es la que no hace nada.
 >
-> **Pendientes (11/11): 3 teclas que no llegan a nada.** Vajillero derecha (sola), vajillero
-> medio-arriba (llega a la entrada 2 del Dimmer "Comedor Galería" sin efecto) y galería arriba
-> (junto a los jarrones). Sospecha: cable suelto en alguna caja. Revisar con el electricista;
+> **Pendientes (11/11): 4 teclas que no llegan a nada.** Vajillero derecha (sola), vajillero
+> medio-arriba (llega a la entrada 2 del Dimmer "Comedor Galería" sin efecto), galería arriba
+> (junto a los jarrones) y la del medio del pasillo de servicio (reflectores). Sospecha: cable suelto en alguna caja. Revisar con el electricista;
 > mientras tanto, se puede hacer que medio-arriba maneje los spots del comedor con una
 > automatización.
 > - El NSPanel Pro es de embutir; hoy está apoyado en la isla con un soporte.
@@ -343,6 +343,23 @@ Dos placas dobles en la pared, junto al ventanal:
 > arriba = `light.shellydimmer2_409151588222` (entrada 1); der. abajo =
 > `light.luz_colagante_comedor_galeria` (entrada 1 del Shelly "Colgante Comedor Galería"; la
 > entrada 2 es la del vajillero).
+
+### Pasillo de servicio (baño y dormitorio de servicio, salida al lateral)
+
+![Teclas de los reflectores](fotos/servicio-pasillo-teclas-reflectores.jpg)
+
+Placa junto a la puerta vidriada que sale al lateral:
+
+| Tecla | Qué maneja |
+|---|---|
+| Arriba (media tecla) | Reflector derecho del fondo |
+| Del medio | *Sin función identificada* |
+| Abajo | Reflector izquierdo del fondo |
+
+> Nota interna (registro de HA, 11/11 11:26–11:27): arriba = `switch.sonoff_10013b1377_2`
+> ("Reflector derecho"), abajo = `switch.sonoff_10013b1377_1` ("Reflector izquierdo"). La del
+> medio no generó ningún evento (varios toques). Candidata a revisar: `switch.sonoff_10013aec78_1`
+> ("Luz Perimetral Fondo") todavía no tiene tecla identificada.
 
 ### Parrilla
 
