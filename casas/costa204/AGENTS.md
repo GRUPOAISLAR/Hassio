@@ -32,7 +32,8 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
 - **Accesos**: cerradura principal Tuya vía Xtend Tuya (desde 20/10/2026; la TTLock
   "Puerta Principal" vieja está rota y deshabilitada). TTLock "Puerta Lateral" con gateway.
   Script "Huésped: generar acceso (puertas y app)" y datos de inquilino.
-- **Seguridad**: Alarmo (sirena), 5 cámaras, modo casa (Presente/Ausente) con sugerencia
+- **Seguridad**: Alarmo (sirena), 5 cámaras (Foscam: Frente_Patio_Interno, Frente_izquierda,
+  Fondo_Izquierdo, Lateral_Derecho; más Camara Entrada), modo casa (Presente/Ausente) con sugerencia
   automática si todos están fuera más de 1 h.
 - **Cortinas** (8, incluida blackout de la habitación principal) y ventiladores de techo.
 - **Integraciones/complementos**: eWeLink y Sonoff LAN, Shelly, Tuya, Node-RED, Mosquitto,
@@ -40,6 +41,11 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
 
 ## Conocido / pendientes
 
+- **Luz blanca de las cámaras Foscam: apagada a propósito.** La de `Frente_Patio_Interno`
+  (frente, da al garage) estaba siempre prendida: no cumple función, queda fea y consume de
+  la alimentación PoE. Se apagó el 11/11/2026 (`switch.frente_patio_interno_white_light` en
+  `off`). La visión nocturna infrarroja (`*_infrared_mode`) queda activa. No volver a
+  encenderla; si la cámara la reenciende sola, agregar una automatización que la apague.
 - TTLock Puerta Lateral: pilas al 0 %, `unavailable` hasta cambiarlas. El gateway está online.
 - Cuenta Tuya compartida con Lote 101: aquí están deshabilitados los equipos de la otra casa.
 - Reparaciones abiertas en HA (11/2026): migración de `chat_id` de Telegram en varias
