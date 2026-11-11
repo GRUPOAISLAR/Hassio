@@ -126,7 +126,19 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
 
 Registro de reparaciones (colector solar, etc.): [`mantenimiento.md`](mantenimiento.md).
 
-## Manual de uso
+## Manuales, glosario y fotos
+
+- [`glosario.md`](glosario.md): nombre fijo de cada ambiente y equipo, dónde está y su foto.
+  Usar esos nombres en todo (manuales, HA, guía con IA, mensajes).
+- [`manual-interno.md`](manual-interno.md): propietarios. Tableros y térmicas, medidor de
+  tensión, inversores y baterías, tablero solar, sensor de corte, termotanque, ablandador.
+- [`fotos/README.md`](fotos/README.md): índice de todas las fotos por lugar. Al sumar una foto,
+  agregarla ahí.
+- Cocina (verificado 11/11 en el registro): spots de la mesada y del pasillo son la misma luz
+  `light.luz_spots_cocina`; la tecla del medio-arriba del vajillero llega a la entrada 2 del
+  Shelly "Comedor Galería" sin efecto, y la del medio-abajo no llega a HA.
+
+### Manual de uso
 
 Borrador del manual para huéspedes: [`manual-uso.md`](manual-uso.md), con fotos en `fotos/`
 (siempre sin metadatos EXIF/GPS, máx. 1600 px). Espejo en Notion: [📖 Manual de uso](https://app.notion.com/p/415825a110c3817a9abdcc4e998142be).

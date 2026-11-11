@@ -2,7 +2,8 @@
 
 Manual para huéspedes de **Home Exchange** y **Airbnb**. Es la base del instructivo impreso,
 del mensaje de bienvenida de las plataformas y del asistente que responde preguntas.
-Solo Costa 204. Espejo en Notion: [📖 Manual de uso](https://app.notion.com/p/415825a110c3817a9abdcc4e998142be).
+Solo Costa 204. Nombres y ubicaciones: [glosario](glosario.md). Lo técnico (tableros,
+baterías, ablandador) está en el [manual interno](manual-interno.md). Espejo en Notion: [📖 Manual de uso](https://app.notion.com/p/415825a110c3817a9abdcc4e998142be).
 
 Reglas de este documento:
 - **Nada de claves en el repo** (Wi-Fi, alarma, cerraduras): se ponen como `‹se entrega aparte›`
@@ -16,12 +17,12 @@ Reglas de este documento:
 |---|---|---|
 | 1 | Llegada y acceso (cerradura, horario, estacionamiento) | ⬜ |
 | 2 | Wi-Fi, TV y parlantes | 🟡 |
-| 3 | Luces y teclas, por ambiente | 🟡 (habitación principal) |
+| 3 | Luces y teclas, por ambiente | 🟡 (habitación principal, accesos, lavadero, cocina) |
 | 4 | Climatización: calefacción, ventiladores, aire del estar | ⬜ |
 | 5 | Agua caliente (termotanques) y consumo eléctrico (limitador) | ⬜ |
 | 6 | Cortinas (un toque mueve, otro frena) | 🟡 |
 | 7 | Pileta y jardín (riego automático) | ⬜ |
-| 8 | Cocina y electrodomésticos | ⬜ |
+| 8 | Cocina y electrodomésticos | 🟡 |
 | 9 | Basura y reciclaje | ⬜ |
 | 10 | Seguridad: alarma, cámaras exteriores, qué hacer si suena | ⬜ |
 | 11 | Reglas de la casa (Airbnb) / acuerdos del intercambio (Home Exchange) | ⬜ |
@@ -217,12 +218,83 @@ aparte). Se traba sola a los pocos segundos de cerrarla.
 > Nota interna: arriba `switch.sonoff_10013b0bb7_2` ("Patio y perímetro · Perímetro frente");
 > abajo `switch.sonoff_10013b00fb_2` ("Semi cubierto Lateral Techo"). La tecla del acceso es
 > `switch.sonoff_10013b00fb_1`. Placa sin terminar: faltan las tapas de las teclas.
+> Adentro: abajo = `switch.sonoff_10013aec78_2` (luz del lavadero), verificado 11/11.
+
+### Lavadero
+
+![Lavadero: bacha y lavarropas](fotos/lavadero-lavarropas-bacha.jpg)
+
+- **Lavarropas** Whirlpool de carga frontal (10 kg), debajo de la mesada, y bacha para lavar.
+- En el lavadero también están los **tableros eléctricos** (arriba a la derecha), los equipos
+  de la batería y el termotanque: **por favor no tocarlos**. Si se corta la luz en una parte de
+  la casa, avisar al anfitrión antes de tocar las térmicas.
+
+Entrando al lavadero desde la casa, en la pared junto a la puerta, hay dos teclas:
+
+![Teclas en la entrada del lavadero](fotos/lavadero-acceso-interior-teclas-ubicacion.jpg)
+![Teclas en la entrada del lavadero, de cerca](fotos/lavadero-acceso-interior-teclas.jpg)
+
+| Tecla | Qué maneja |
+|---|---|
+| Izquierda (la más cercana a la puerta) | Luz del lavadero |
+| Derecha | Spots de la cocina sobre la mesada (bacha y anafe) |
+
+### Cocina
+
+![Cocina](fotos/cocina-vista.jpg)
+
+**Teclas sobre la mesada** (entre el anafe y la bacha, al lado del enchufe):
+
+![Teclas de la mesada](fotos/cocina-teclas-mesada.jpg)
+
+| Tecla | Qué maneja |
+|---|---|
+| Izquierda | Colgantes negros sobre la mesada |
+| Derecha | Luz de la isla (colgante largo de madera) |
+
+**Teclas junto al vajillero** (pared al lado del vajillero vidriado, cerca de la galería):
+
+![Ubicación de las teclas junto al vajillero](fotos/cocina-vajillero-teclas-ubicacion.jpg)
+![Teclas junto al vajillero](fotos/cocina-vajillero-teclas.jpg)
+
+| Placa | Tecla | Qué maneja |
+|---|---|---|
+| Izquierda (doble) | Arriba | Spots del pasillo de la cocina, entre la mesada y la isla |
+| Izquierda (doble) | Abajo | Spots del techo de cocina, estar y comedor del lado de la galería |
+| Del medio (doble) | — | *En revisión: no prende nada por ahora* |
+| Derecha (sola) | — | Colgante de la mesa del comedor de la galería |
+
+![Spots del lado de la galería](fotos/cocina-spots-galeria.jpg)
+
+**Equipos de la cocina**: anafe a gas de 4 hornallas con campana, horno empotrado en la
+columna de madera, lavavajillas (debajo de la mesada, junto a la puerta), horno eléctrico tipo
+air fryer, tostadora y pava eléctrica.
+
+![Lavavajillas y horno air fryer](fotos/cocina-lavavajillas-horno.jpg)
+
+**Sobre la isla**: una pantalla táctil (panel de la casa: luces, calefacción, música y
+"Preguntale a la casa") y el parlante de Google "Estar", que también es repetidor de Wi-Fi.
+No desenchufarlos.
+
+![Pantalla y parlante sobre la isla](fotos/cocina-isla-nspanel-pro-parlante.jpg)
+
+> Nota interna (verificado en el registro de HA, 11/11/2026):
+> - Mesada izquierda = `light.luz_mesada_cocina`; derecha = `light.luz_barra_cocina`.
+> - Spots de la mesada y spots del pasillo = la **misma** luz, `light.luz_spots_cocina`
+>   (Shelly Dimmer 2 `3494547A34BB`: entrada 2 desde el lavadero, entrada 1 desde el vajillero).
+> - Vajillero abajo-izquierda = `light.luz_estar_techo_ventanal`.
+> - Vajillero derecha = `light.luz_colagante_comedor_galeria` (Shelly "Colgante Comedor
+>   Galería", entrada 2).
+> - Vajillero del medio = entrada 2 del Shelly Dimmer 2 "Comedor Galería"
+>   (`409151588222`): el evento llega pero no cambia ninguna luz (entrada suelta). Falta
+>   probar la otra mitad de esa placa y decidir qué debería manejar.
+> - El NSPanel Pro es de embutir; hoy está apoyado en la isla con un soporte.
 
 ---
 
 ## Pendientes para completar
 
-- Fotos y mapa de teclas del resto de los ambientes (estar, cocina, comedor, galería,
+- Fotos y mapa de teclas del resto de los ambientes (estar, comedor, galería,
   dormitorios 1 y 2, baños, hall, exterior).
 - Botones del control del ventilador.
 - Cortinas: confirmar si el siguiente toque después de frenar la mueve en sentido contrario.
