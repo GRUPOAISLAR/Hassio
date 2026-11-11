@@ -170,6 +170,7 @@ Para pedir una foto, usá el nombre del archivo o el del [glosario](../glosario.
 | [nicho-pileta-tablero.jpg](nicho-pileta-tablero.jpg) | Nicho de la pileta: tablero |
 | [nicho-pileta-gabinete-tapa.jpg](nicho-pileta-gabinete-tapa.jpg) | Nicho de la pileta: tapa por dentro |
 | [nicho-pileta-canerias-filtro.jpg](nicho-pileta-canerias-filtro.jpg) | Nicho de la pileta: cañerías y filtro |
+| [tablero-riego-frente.jpg](tablero-riego-frente.jpg) | Tablero de riego (pilar del frente) |
 | [medidor-tension-fases.jpg](medidor-tension-fases.jpg) | Medidor de tensión por fase |
 | [tablero-electrico-derecho.jpg](tablero-electrico-derecho.jpg) | Tablero eléctrico derecho |
 | [tablero-electrico-izquierdo.jpg](tablero-electrico-izquierdo.jpg) | Tablero eléctrico izquierdo |

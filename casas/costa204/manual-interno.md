@@ -254,16 +254,23 @@ cerraduras por app, ni avisos. **No desenchufar** ni mover cables. *A completar:
 corre Home Assistant (Raspberry o notebook) y para qué está la notebook.*
 Pendiente: alerta si se cae (por ejemplo, ping externo/Nabu Casa) y ordenar cables.
 
-## Tablero del nicho de la entrada de luz (tablero 8: riego)
+## Tablero de riego (tablero 8, pilar del frente)
 
-En el pilar de ladrillo del frente, donde entra la luz y el gas (gabinete gris con cerradura,
-junto al medidor). *Foto del interior: pendiente.*
+![Tablero de riego](fotos/tablero-riego-frente.jpg)
 
-| Equipo | Qué maneja | En HA |
+En el pilar de ladrillo del frente, donde entran la luz y el gas (gabinete gris con cerradura,
+junto al medidor).
+
+| Equipo (rótulo) | Qué maneja | En HA |
 |---|---|---|
-| Sonoff 4CH R3 | 4 circuitos de riego (1 frente derecha, 2 frente, 3 lateral izquierdo, 4 fondo derecha) | `switch.sonoff_100187166b_1` a `_4` |
-| Sonoff TH16 R2 | bomba sumergible del riego | (ver `sensor.bomba_riego_*`) |
-| Sonoff Dual R3 | llenado de la pileta y estacas de luz del frente | `switch.sonoff_1001d8d053_1` ("Llenado Pileta") / `_2` ("Estacas frente") |
+| Térmica **C20 bipolar** | entrada del tablero | — |
+| Sonoff **4CH R3** "RIEGO 4CHR3-1" (L1 a L4) | las 4 zonas de riego (1 frente derecha, 2 frente, 3 lateral izquierdo, 4 fondo derecha) | `switch.sonoff_100187166b_1` a `_4` |
+| **Transformador Elecomp 220 V → 24 V** | alimenta las electroválvulas (24 V AC) | — |
+| 5 contactores **Etheos CMB-016A** numerados 1 a 5 | 1–4: electroválvulas de cada zona; 5: **bomba** del riego | — |
+| Sonoff **TH16 R2** "Bomba · RIEGO M" | comando y medición de la bomba sumergible | ver `sensor.bomba_riego_*` |
+| Módulo rotulado **"5"** | *a identificar* (al lado del contactor 5) | — |
+| Sonoff Dual R3 SONDUR3-16 "Acceso peatonal / Reserva vehicular" | hoy: **llenado de la pileta** y **estacas del frente** (el rótulo es del diseño original) | `switch.sonoff_1001d8d053_1` / `_2` |
+| Borneras de abajo | cables de las electroválvulas y la bomba | — |
 
 ## Tablero del nicho de la pileta
 
