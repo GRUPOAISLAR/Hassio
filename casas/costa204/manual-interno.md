@@ -130,6 +130,20 @@ izquierda. Tomas: "termotanque y tomas del lavadero".
 
 ---
 
+## Llaveros de acceso (huéspedes)
+
+Dos llaveros, cada uno con la **tarjeta de la cerradura principal** (rotulada con su número) y
+una **tarjeta de la puerta lateral** (TTLock, "Smart keycard"). La foto de los llaveros **no se
+guarda** (se ven los cortes de las llaves mecánicas).
+
+| Llavero | Principal (Tuya) | Lateral (TTLock): nombre en la app hoy | Verificado |
+|---|---|---|---|
+| 102 | tarjeta 102 | "Inquilino 2" | 11/11 11:48:37, `sensor.puerta_lateral_last_operator` |
+| 103 | tarjeta 103 | "inquilino" | 11/11 11:49:00 |
+
+Sugerido: renombrar las tarjetas en la app TTLock como "Llavero 102" y "Llavero 103"; el aviso
+de Telegram usa ese nombre tal cual.
+
 ## Placard de los dueños (hall, junto al antetoilette)
 
 ![Placard cerrado](fotos/placard-duenos-cerrado.jpg)
