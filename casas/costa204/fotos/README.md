@@ -87,7 +87,9 @@ Para pedir una foto, usá el nombre del archivo o el del [glosario](../glosario.
 | Foto | Qué muestra |
 |---|---|
 | [dormitorio-1-nspanel-tecla.jpg](dormitorio-1-nspanel-tecla.jpg) | NSPanel y tecla del dormitorio 1 |
-| [dormitorio-1-tecla-puerta.jpg](dormitorio-1-tecla-puerta.jpg) | Tecla junto a la puerta del antebaño |
+| [dormitorio-1-tecla-puerta.jpg](dormitorio-1-tecla-puerta.jpg) | Tecla junto a la puerta (spots del dormitorio) |
+| [dormitorio-1-cortina-tecla.jpg](dormitorio-1-cortina-tecla.jpg) | Tecla de la cortina |
+| [dormitorio-1-mesa-de-luz.jpg](dormitorio-1-mesa-de-luz.jpg) | Mesa de luz: Google Mini y control del ventilador |
 
 ## Pasillo de servicio
 

@@ -424,20 +424,25 @@ pasillo que lleva a la habitación principal.
 
 ![Panel y tecla del dormitorio 1](fotos/dormitorio-1-nspanel-tecla.jpg)
 ![Tecla junto a la puerta](fotos/dormitorio-1-tecla-puerta.jpg)
+![Tecla de la cortina](fotos/dormitorio-1-cortina-tecla.jpg)
+![Mesa de luz: parlante y control del ventilador](fotos/dormitorio-1-mesa-de-luz.jpg)
 
-Al entrar, en la pared de la izquierda: el **panel de calefacción** (ver "Paneles de
-calefacción con pantalla") y al lado una tecla. Otra tecla sola junto a la puerta que da al
-antebaño de los dormitorios.
-
-| Tecla | Qué maneja |
+| Dónde | Qué maneja |
 |---|---|
-| Junto al panel | *A confirmar* |
-| Junto a la puerta del antebaño | Spots del antebaño de los dormitorios (*a confirmar*) |
+| Tecla junto a la puerta (entrada/salida) | Spots del techo del dormitorio |
+| Tecla al lado del panel, al entrar | *En revisión* (ver nota) |
+| Panel con pantalla, al entrar | Calefacción del dormitorio 1 y del baño de los dormitorios |
+| Tecla junto a la ventana | Cortina (un toque la mueve, otro la frena) |
+| Mesa de luz | Control remoto del ventilador de techo y parlante Google Mini de la habitación |
 
-> Nota interna (11/11 11:39:52–55): se apagó y prendió `switch.sonoff_10015f67ee_2`
-> ("Antebaño Dormitorios"). Diseño: circuito k (antebaño, caja 35, 1 tecla) y centro del
-> dormitorio 1 = circuito j (Shelly `34945471C5DB`, cajas 33 y 34). El NSPanel del dormitorio 1
-> está en el plan de NSPanel Easy (`nspanel.md`).
+> Nota interna (registro de HA, 11/11 11:39–11:41): puerta = `light.centro_dormitorio_1`
+> (Shelly `34945471C5DB`, entrada 1). La tecla del panel hizo que
+> `switch.sonoff_10015f67ee_2` ("Antebaño Dormitorios") se **apague y se prenda en 0,2 s** con
+> cada toque (queda igual): el canal está en un modo de entrada que sigue el pulso en vez de
+> conmutar. Revisar en eWeLink el modo de la entrada de ese canal. A las 11:41:13 se prendió
+> además `switch.sonoff_10015f67ee_1` ("Antebaño Dormitorio Chicos"), sin evento de tecla
+> asociado: confirmar qué tecla fue. El NSPanel del dormitorio 1 está en el plan de NSPanel
+> Easy (`nspanel.md`).
 
 ### Estar, junto a la salamandra
 
