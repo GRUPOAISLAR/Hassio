@@ -14,6 +14,13 @@ Para pedir una foto, usá el nombre del archivo o el del [glosario](../glosario.
 | [lavadero-salida-teclas.jpg](lavadero-salida-teclas.jpg) | Teclas de afuera junto a la puerta lateral |
 | [puerta-lateral.jpg](puerta-lateral.jpg) | Puerta lateral (entra al lavadero) |
 
+## Baño de la galería
+
+| Foto | Qué muestra |
+|---|---|
+| [bano-galeria-vista.jpg](bano-galeria-vista.jpg) | Baño de la galería |
+| [bano-galeria-teclas.jpg](bano-galeria-teclas.jpg) | Teclas del baño de la galería |
+
 ## Baño principal
 
 | Foto | Qué muestra |

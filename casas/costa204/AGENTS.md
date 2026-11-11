@@ -62,8 +62,9 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
   `off`). La visión nocturna infrarroja (`*_infrared_mode`) queda activa. No volver a
   encenderla; si la cámara la reenciende sola, agregar una automatización que la apague.
 - **Extractores con apagado automático a los 15 min**: toilette, baños de dormitorios y (desde
-  11/11/2026) baño principal (`automation.extractor_bano_principal_auto_off_15_min`). El del
-  baño de la galería (`switch.sonoff_10013afde4_1`) todavía no tiene.
+  11/11/2026) baño principal (`automation.extractor_bano_principal_auto_off_15_min`) y baño de
+  la galería (`automation.extractor_bano_galeria_auto_off_15_min`). Todos los extractores lo
+  tienen. Luz de la parrilla: se apaga sola si la galería quedó 1 h apagada.
 - **Sensor de temperatura del baño principal NO funciona (verificado 11/11/2026)**: es un
   Shelly H&T gen1 (`sensor.sensor_temperatura_bano_habitacion_principal_temperatura`) que no
   reporta; HA solo restaura 15,25 °C al reiniciar y a los ~20 min lo marca no disponible.

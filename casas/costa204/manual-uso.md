@@ -362,6 +362,22 @@ Placa junto a la puerta vidriada que sale al lateral:
 > medio no generó ningún evento (varios toques). Candidata a revisar: `switch.sonoff_10013aec78_1`
 > ("Luz Perimetral Fondo") todavía no tiene tecla identificada.
 
+### Baño de la galería
+
+![Baño de la galería](fotos/bano-galeria-vista.jpg)
+![Teclas del baño de la galería](fotos/bano-galeria-teclas.jpg)
+
+Junto a la puerta, al lado del enchufe:
+
+| Tecla | Qué maneja |
+|---|---|
+| Media tecla de arriba | Spots del baño |
+| Media tecla de abajo | Extractor (se apaga solo a los 15 minutos) |
+
+> Nota interna: luz `switch.sonoff_10013afde4_2`, extractor `switch.sonoff_10013afde4_1`
+> (verificado 11/11 11:28–11:29). Apagado automático:
+> `automation.extractor_bano_galeria_auto_off_15_min` (11/11/2026).
+
 ### Parrilla
 
 ![Ubicación de la tecla de la parrilla](fotos/galeria-parrilla-tecla-ubicacion.jpg)
