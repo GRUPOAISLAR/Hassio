@@ -522,8 +522,8 @@ frena).
 
 ![Tecla de la cortina y sensor de temperatura del estar](fotos/estar-sensor-temperatura-tecla-ventana.jpg)
 
-- Tecla sola en la pared blanca: **cortina del ventanal del estar** (un toque la mueve, otro la
-  frena).
+- Tecla sola en la pared blanca: es para la **cortina motorizada del ventanal**, que todavía
+  no está instalada. Por ahora no hace nada.
 - Sobre el mueble bajo del televisor está el **sensor de temperatura y humedad del estar**
   (pantallita blanca): no moverlo ni guardarlo.
 - **Control del televisor** (Hitachi, Google TV): en la mesa ratona. Encendido arriba a la
@@ -656,7 +656,9 @@ a la lista del disparador.
 - Cortinas: dormitorio 1 y baño de los dormitorios verificadas. Baño de la suite:
   `cover.sonoff_10013b0fa3` ("Cortina Baño Dorm Principal", nombre correcto).
   Cortina corrediza (blackout) de la habitación principal: `cover.sonoff_1001d8d39c`, verificada
-  11/11 14:40. **Todas las cortinas probadas quedan verificadas.** Verificado (11/11 14:38): después de
+  11/11 14:40. Dormitorio 2: `cover.sonoff_100155bb02`, verificada 11/11 14:42.
+  **Todas las cortinas instaladas quedan verificadas** (la del ventanal del estar todavía no
+  está colocada). Verificado (11/11 14:38): después de
   frenar, el siguiente toque la mueve en el sentido contrario.
 - Secciones ⬜ del índice: datos que tiene que pasar el dueño (llegada, reglas, salida,
   emergencias, recomendaciones de la zona).

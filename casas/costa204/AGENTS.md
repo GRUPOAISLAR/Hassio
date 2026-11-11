@@ -52,7 +52,11 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
 - **Seguridad**: Alarmo (sirena), 5 cámaras (Foscam: Frente_Patio_Interno, Frente_izquierda,
   Fondo_Izquierdo, Lateral_Derecho; más Camara Entrada), modo casa (Presente/Ausente) con sugerencia
   automática si todos están fuera más de 1 h.
-- **Cortinas** (8, incluida blackout de la habitación principal) y ventiladores de techo.
+- **Cortinas**: verificadas el 11/11/2026 tecla por tecla (blackout habitación principal
+  `cover.sonoff_1001d8d39c`, baño principal `…10013b0fa3`, dormitorio 1 `…100155bd91`, baño
+  dormitorios `…10013af029`, dormitorio 2 `…100155bb02`, habitación de servicio `…10013af1d0`).
+  La del ventanal del estar (`…10013b0576`) tiene controlador pero la cortina **no está
+  instalada**. Ventiladores de techo en las habitaciones.
 - **Integraciones/complementos**: eWeLink y Sonoff LAN, Shelly, Tuya, Node-RED, Mosquitto,
   Google AI (conversación/TTS/STT), Telegram.
 
@@ -93,7 +97,7 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
   activá Guía de la casa" → resumen hablado en todos los parlantes. "Ok Google" no puede
   hacer preguntas libres a la guía (va al asistente de Google); solo frases armadas.
   Al cambiar `manual-uso.md`, actualizar también el prompt del agente. Última actualización:
-  11/11/2026 tarde (toda la casa: entradas, lavadero, cocina, estar, galería, servicio, toilette,
+  11/11/2026 tarde, ajustada a las 14:42 (cortina del estar no instalada, teclas sin uso) (toda la casa: entradas, lavadero, cocina, estar, galería, servicio, toilette,
   habitaciones, red; regla "sos la casa, no el anfitrión"). Probada: responde la parrilla y
   deriva Wi-Fi/alarma al anfitrión sin dar claves.
   Probada el 11/11/2026 (tras cargar crédito prepago en Google AI Studio): responde bien

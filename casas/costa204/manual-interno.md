@@ -144,6 +144,7 @@ tiene el termostato con pantalla). Es el
 - **Sonoff THR316D** "SONTHRD16F-1 / CAL 5": termostato del estar (muestra temperatura y
   humedad).
 - **Sonoff Dual R3** "SONDUR3-18 / CORT 8": cortina del ventanal del estar
+  (**controlador instalado, cortina todavía no**: falta traerla y conectarla; 11/11/2026)
   (`cover.sonoff_10013b0576`).
 - **Sonoff Dual R3** rotulado "CORT 9", re-rotulado a mano **"CALEF"**: hoy se usa para
   calefacción, no para la cortina 9.
@@ -240,7 +241,7 @@ del dormitorio 2. Bornera, térmica **C10 bipolar** y:
 |---|---|---|
 | Shelly Dimmer 2 "DORM 2 SHDIM-6" | spots del dormitorio 2 | `light.luz_spots_dormitorio_2` |
 | Shelly Dimmer 2 (rótulo "…dormitorio…", SHDIM-7 según planilla) | techo del hall de los dormitorios | `light.luz_techo_hall_dormitorios` |
-| Sonoff Dual R3 "D2 SONDUR-20 CORT 7" | cortina (blackout) del dormitorio 2 | `cover.sonoff_100155bb02` "Cortina Dormitorio 2" |
+| Sonoff Dual R3 "D2 SONDUR-20 CORT 7" | cortina del dormitorio 2 | `cover.sonoff_100155bb02` "Cortina Dormitorio 2" (verificado 11/11) |
 | 2 relés de estado sólido (rojos, LCDT-48D10AA, 10 A) | calefacción eléctrica (accionados por el NSPanel) | — |
 | Sonoff iFan "DORM 2 SOFUN-2 VENT 2" | ventilador de techo del dormitorio 2 (luz + velocidades) | `light.sonoff_10013f3c51_1` y su ventilador |
 
