@@ -292,9 +292,8 @@ No desenchufarlos.
 > - Derecha (sola) = no llega a HA: cableada a algo no domotizado o suelta. Probar de noche.
 > - La salida del Dimmer "Comedor Galería" (`light.shellydimmer2_409151588222`) son los
 >   **spots del comedor de la galería**. Su tecla está en el pasillo de la galería (placa
->   derecha, arriba). La entrada 2 (vajillero medio-arriba) estaba suelta: desde el 11/11 la
->   maneja `automation.cocina_tecla_del_vajillero_medio_arriba_prende_spots_del_comedor_de_la_galeria`
->   (evento `shelly.click`, canal 2 → `light.toggle`). Si se cae HA, esa tecla no anda.
+>   derecha, arriba). La entrada 2 (vajillero medio-arriba) no maniobraba (Shelly en
+>   `one_button`); desde el 11/11 el Shelly está en `dual_button` y anda directo.
 >
 > **Pendientes (11/11): 3 teclas que no llegan a nada.** Vajillero derecha (sola), galería
 > arriba (junto a los jarrones) y la del medio del pasillo de servicio (reflectores). Sospecha: cable suelto en alguna caja. Revisar con el electricista;
@@ -502,7 +501,7 @@ frena).
 | Panel con pantalla, junto a la puerta | Calefacción del dormitorio 2 y del hall de los dormitorios |
 | Placa de 3 teclas al lado del panel | *A confirmar* (diseño: cortina blackout y cortina del dormitorio 2, y tira LED del placard) |
 | Tecla junto a la ventana, al lado de la mesa de luz | Cortina (un toque la mueve, otro la frena) |
-| Teclón más cercano a la mesa de luz junto a la ventana | Spots del techo del dormitorio (por automatización) |
+| Teclón más cercano a la mesa de luz junto a la ventana | Spots del techo del dormitorio |
 | Cómoda con espejo | Control remoto del ventilador de techo y parlante Google Mini de la habitación |
 
 ![Tecla de la cortina](fotos/dormitorio-2-cortina-tecla.jpg)
@@ -511,7 +510,7 @@ frena).
 > Nota interna (11/11 11:42:29–11:44:15): puerta = `light.luz_spots_dormitorio_2` (Shelly
 > `3494547290BB`, entrada 1). A las 11:44:15 llegó un toque a la **entrada 2** de ese Shelly sin
 > cambiar la luz (SW2 suelta): es el teclón junto a la mesa de luz de la ventana. Desde el 11/11
-> lo maneja `automation.estar_teclas_junto_a_la_salamandra_entradas_2_sueltas`. Según la
+> anda directo desde que el Shelly pasó a `dual_button` (11/11, ver `relevamiento-teclas.md`). Según la
 > planilla los spots del dormitorio 2 tienen dos teclas (cajas 24 y 25), así que conviene
 > asignarla con una automatización como en el estar. La cortina no aparece en el registro:
 > verificar si su Sonoff está en HA. Ventilador: `light.sonoff_10013f3c51_1`.
@@ -550,9 +549,8 @@ vacía):
 > Nota interna (registro de HA, 11/11 11:35–11:37): arriba = entrada 2 del Shelly
 > `34945471BCDE` (`light.luz_estar_techo_ventanal`), medio = entrada 2 de `244CAB402272`
 > (`light.luz_estar_centro`, anda directo), abajo = entrada 2 de `34945471CAED`
-> (`light.luz_spots_estar`). Arriba y abajo no maniobraban la luz (entradas sueltas); desde el
-> 11/11 las maneja `automation.estar_teclas_junto_a_la_salamandra_entradas_2_sueltas`, según la
-> planilla de diseño (circuitos R y P). Si se cae HA, esas dos no andan.
+> (`light.luz_spots_estar`). Arriba y abajo no maniobraban la luz (Shelly en `one_button`);
+> desde el 11/11 los Shelly están en `dual_button` y andan directo, también sin HA.
 
 ### Hall de entrada (al entrar por la puerta principal, pared de la derecha)
 

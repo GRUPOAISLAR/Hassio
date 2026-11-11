@@ -51,7 +51,7 @@ Ya estaban en `dual_button`: .36, .38, .43, .83, .148, .165, .181, .188, .189, .
 
 Las automatizaciones puente (`automation.estar_teclas_junto_a_la_salamandra_entradas_2_sueltas`
 y `automation.cocina_tecla_del_vajillero_medio_arriba_prende_spots_del_comedor_de_la_galeria`)
-quedaron **desactivadas**; borrarlas cuando se confirme a la vista que las teclas andan.
+se **borraron** el 11/11 al confirmarse a la vista que las teclas andan (12:53).
 Teclas que podrían empezar a andar por este cambio: galería junto a los jarrones (arriba,
 SW2 de galería living) y otras segundas teclas de la planilla de diseño. Volver a probarlas.
 
