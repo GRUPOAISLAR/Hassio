@@ -323,6 +323,18 @@ calefacción** de la galería (ver "Paneles de calefacción con pantalla").
 > 5 toques, ningún evento): cableada a algo no domotizado o suelta. Probar de noche mirando
 > exterior/perímetro, o bajando térmicas de iluminación.
 
+### Parrilla
+
+![Ubicación de la tecla de la parrilla](fotos/galeria-parrilla-tecla-ubicacion.jpg)
+![Tecla de la parrilla](fotos/galeria-parrilla-tecla.jpg)
+
+Tecla sola en la pared blanca, al lado del asador: prende la **luz de la parrilla**. Si queda
+prendida y el resto de la galería está apagado, la casa la apaga sola después de una hora.
+
+> Nota interna: `switch.sonoff_10013b0692_1` ("Luz Parrilla"). Apagado automático:
+> `automation.parrilla_apagar_luz_si_la_galeria_quedo_apagada_1_h` (parrilla prendida ≥ 1 h y
+> living, colgante, spots comedor, barra y pasillo de la galería apagados ≥ 1 h).
+
 ### Brillo mínimo de las luces dimerizables
 
 `automation.luces_brillo_minimo_que_no_parezcan_apagadas` (11/11/2026): si una luz dimerizable
