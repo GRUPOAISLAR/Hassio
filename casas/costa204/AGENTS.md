@@ -69,8 +69,14 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
   reporta; HA solo restaura 15,25 °C al reiniciar y a los ~20 min lo marca no disponible.
   `climate.termostato_bano_principal` (YAML) queda en `idle` con ese valor viejo: el baño no
   se está climatizando. Hay además un sensor ZHA viejo del mismo nombre, no disponible.
-- **NSPanel (firmware de fábrica)**: solo maneja equipos de la cuenta eWeLink. Las tarjetas
-  de luces Shelly ("Centro…", "Hall D…") no responden; la cortina (Sonoff) sí.
+- **NSPanel (firmware de fábrica)**: solo maneja equipos de la cuenta eWeLink. Para mostrar
+  equipos de HA (p. ej. luces Shelly) se usa el complemento **eWeLink Smart Home** (CoolKit,
+  `f4f71350_ewelink_smart_home_slug`, web en el puerto 3000 / panel lateral): sincroniza
+  entidades de HA hacia la cuenta eWeLink y después se eligen como tarjetas del panel en la
+  app eWeLink. Requiere las entidades plantilla `ewelink_virtual_*` (ya están).
+  El 11/11/2026 estaba **en error** (por eso las tarjetas Shelly "Centro…" y "Hall D…" no
+  respondían); se arrancó y quedó corriendo. Alternativa de fondo si esto no alcanza:
+  reflashear con ESPHome + NSPanel Easy (probar primero en el panel de la galería).
 - **Guía para huéspedes con IA (11/11/2026)**: agente `conversation.guia_costa_204` (Gemini,
   subentrada de Google Generative AI) con el manual como instrucciones y **sin control de
   dispositivos** (`llm_hass_api` vacío: no abre cerraduras ni toca la alarma). Pipeline de
