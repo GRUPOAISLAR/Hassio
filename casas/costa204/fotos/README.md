@@ -45,6 +45,9 @@ Para pedir una foto, usá el nombre del archivo o el del [glosario](../glosario.
 |---|---|
 | [galeria-parrilla-tecla-ubicacion.jpg](galeria-parrilla-tecla-ubicacion.jpg) | Tecla de la parrilla: ubicación |
 | [galeria-parrilla-tecla.jpg](galeria-parrilla-tecla.jpg) | Tecla de la parrilla |
+| [galeria-pasillo-teclas-ubicacion.jpg](galeria-pasillo-teclas-ubicacion.jpg) | Pasillo de la galería: ubicación de las teclas |
+| [galeria-pasillo-teclas.jpg](galeria-pasillo-teclas.jpg) | Teclas del pasillo de la galería |
+| [galeria-pasillo-vista.jpg](galeria-pasillo-vista.jpg) | Pasillo de la galería |
 | [galeria-vista.jpg](galeria-vista.jpg) | Vista de la galería |
 | [galeria-teclas-nspanel.jpg](galeria-teclas-nspanel.jpg) | Teclas y NSPanel de la galería, de cerca |
 | [galeria-teclas-nspanel-jarrones.jpg](galeria-teclas-nspanel-jarrones.jpg) | Teclas y NSPanel detrás de los jarrones |

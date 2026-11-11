@@ -291,8 +291,8 @@ No desenchufarlos.
 >   asignar a algo con una automatización.
 > - Derecha (sola) = no llega a HA: cableada a algo no domotizado o suelta. Probar de noche.
 > - La salida del Dimmer "Comedor Galería" (`light.shellydimmer2_409151588222`) son los
->   **spots del comedor de la galería** (verificado 11/11 prendiéndolo desde HA). Ninguna tecla
->   probada los maneja: es probable que alguna de las 3 pendientes debiera hacerlo.
+>   **spots del comedor de la galería**. Su tecla está en el pasillo de la galería (placa
+>   derecha, arriba); la entrada 2 (vajillero medio-arriba) es la que no hace nada.
 >
 > **Pendientes (11/11): 3 teclas que no llegan a nada.** Vajillero derecha (sola), vajillero
 > medio-arriba (llega a la entrada 2 del Dimmer "Comedor Galería" sin efecto) y galería arriba
@@ -322,6 +322,27 @@ calefacción** de la galería (ver "Paneles de calefacción con pantalla").
 > Estaba al 1 % y parecía apagada. La tecla de **arriba** no llega a HA (probada 11/11 11:21,
 > 5 toques, ningún evento): cableada a algo no domotizado o suelta. Probar de noche mirando
 > exterior/perímetro, o bajando térmicas de iluminación.
+
+### Pasillo de la galería (entre la galería y la cocina)
+
+![Pasillo de la galería: ubicación de las teclas](fotos/galeria-pasillo-teclas-ubicacion.jpg)
+![Teclas del pasillo de la galería](fotos/galeria-pasillo-teclas.jpg)
+![El pasillo de la galería](fotos/galeria-pasillo-vista.jpg)
+
+Dos placas dobles en la pared, junto al ventanal:
+
+| Placa | Tecla | Qué maneja |
+|---|---|---|
+| Izquierda | Arriba | Colgante de la barra de la parrilla |
+| Izquierda | Abajo | Spots entre la parrilla y el horno (sector parrilla) |
+| Derecha (más cerca de la cocina) | Arriba | Spots del comedor de la galería |
+| Derecha (más cerca de la cocina) | Abajo | Colgante del comedor de la galería |
+
+> Nota interna (registro de HA, 11/11 11:25): izq. arriba = `light.luz_barra_galeria`
+> (Shelly `34945471BE06`); izq. abajo = `light.pasillogaleria` (Shelly `EC64C9C4DB9D`); der.
+> arriba = `light.shellydimmer2_409151588222` (entrada 1); der. abajo =
+> `light.luz_colagante_comedor_galeria` (entrada 1 del Shelly "Colgante Comedor Galería"; la
+> entrada 2 es la del vajillero).
 
 ### Parrilla
 

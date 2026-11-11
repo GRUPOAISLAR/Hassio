@@ -139,7 +139,7 @@ Registro de reparaciones (colector solar, etc.): [`mantenimiento.md`](mantenimie
   llega a la entrada 2 del Shelly "Comedor Galería" sin efecto; la derecha y la de arriba de la
   galería no llegan a HA (probar de noche). Las tres quedaron pendientes de electricista
   (¿cable suelto?). Los spots del comedor de la galería (`light.shellydimmer2_409151588222`)
-  hoy no tienen tecla.
+  se manejan desde el pasillo de la galería (placa derecha, arriba).
 
 ### Manual de uso
 
