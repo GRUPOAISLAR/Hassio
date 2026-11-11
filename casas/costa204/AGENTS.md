@@ -158,6 +158,8 @@ Registro de reparaciones (colector solar, etc.): [`mantenimiento.md`](mantenimie
 
 ### Manual de uso
 
+**Guía del huésped en Notion (principal desde el 11/11/2026)**: [Costa 204 · Guía del huésped](https://app.notion.com/p/415825a110c381abb4bde90f3a6f3990), publicada en https://catnip-nerine-9af.notion.site/Costa-204-Gu-a-del-hu-sped-415825a110c381abb4bde90f3a6f3990 (fotos de teclas por ambiente, capturas de la app y "Preguntale a la casa"; sin claves ni link de Home Assistant). El PDF impreso de 3 páginas que va con los llaveros tiene dos QR: app de huéspedes (`/huespedes-costa/casa`) y esta guía. Al cambiar teclas o reglas, actualizar también esta página.
+
 **Guía para huéspedes principal (español, inglés e imprimible de 3 páginas)**: https://claude.ai/artifact/PVbwRKaX5EUgoZdDTJV8hx (lienzo de diseño, armado en otra sesión). Complemento con fotos de las teclas: [`guia-huesped.html`](guia-huesped.html), publicada en https://claude.ai/artifact/Lwtm4mZLvVhNVKVYvFRPFy (privada; se comparte desde el menú Compartir). Secciones según la plantilla "Our home manual template" de HomeExchange. Al cambiar teclas o reglas, actualizar el manual, esta página y el prompt de la guía con IA. Horarios, reglas, basura, llaves, pileta y guardia: en `manual-uso.md` ("Reglas, salida y condiciones") y en el prompt de la guía con IA (actualizado 11/11/2026 tarde). Varias sesiones trabajan en paralelo: coordinar por este repo (subir y traer cambios) y no por archivos locales.
 
 Borrador del manual para huéspedes: [`manual-uso.md`](manual-uso.md), con fotos en `fotos/`
