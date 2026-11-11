@@ -46,6 +46,13 @@ Para pedir una foto, usá el nombre del archivo o el del [glosario](../glosario.
 |---|---|
 | [cocina-spots-galeria.jpg](cocina-spots-galeria.jpg) | Spots del techo del lado de la galería |
 
+## Estar / hall
+
+| Foto | Qué muestra |
+|---|---|
+| [estar-hall-teclas-ubicacion.jpg](estar-hall-teclas-ubicacion.jpg) | Teclas entre el hall y el estar: ubicación |
+| [estar-hall-teclas.jpg](estar-hall-teclas.jpg) | Teclas entre el hall y el estar (3 placas) |
+
 ## Galería
 
 | Foto | Qué muestra |
