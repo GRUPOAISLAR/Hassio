@@ -53,8 +53,8 @@ Reglas de este documento:
 - Son teclas **de pulsar (push)**: se aprietan y vuelven solas. No quedan "arriba" o "abajo".
 - **Pulsación corta**: prende o apaga.
 - **Medias teclas dimerizables**: dejándolas **apretadas** sube o baja el brillo. Si se
-  mantiene mucho tiempo, el brillo puede quedar casi en cero y parecer apagada: soltar y
-  volver a mantener para subirlo, o revisar en la app.
+  mantiene mucho tiempo, el brillo baja casi a cero; la casa lo sube sola a un nivel visible
+  a los pocos segundos.
 
 ### Habitación principal
 
