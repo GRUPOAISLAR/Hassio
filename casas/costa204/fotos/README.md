@@ -18,6 +18,9 @@ Para pedir una foto, usá el nombre del archivo o el del [glosario](../glosario.
 
 | Foto | Qué muestra |
 |---|---|
+| [antetoilette-tecla.jpg](antetoilette-tecla.jpg) | Tecla del antetoilette |
+| [placard-duenos-cerrado.jpg](placard-duenos-cerrado.jpg) | Placard de los dueños (cerrado) — interno |
+| [placard-duenos-abierto.jpg](placard-duenos-abierto.jpg) | Placard de los dueños (abierto) — interno |
 | [toilette-vista.jpg](toilette-vista.jpg) | Toilette: bacha y colgante |
 | [toilette-teclas.jpg](toilette-teclas.jpg) | Teclas del toilette |
 

@@ -130,6 +130,17 @@ izquierda. Tomas: "termotanque y tomas del lavadero".
 
 ---
 
+## Placard de los dueños (hall, junto al antetoilette)
+
+![Placard cerrado](fotos/placard-duenos-cerrado.jpg)
+![Placard abierto](fotos/placard-duenos-abierto.jpg)
+
+Placard de dos puertas, **uso privado**, cerrado con llave durante las estadías (bebidas,
+despensa, herramientas y repuestos eléctricos). Tiene un **sensor de movimiento Shelly
+Motion** ("Sensor placard"): si se abre, avisa por Telegram; con la casa en Ausente o en modo
+inquilino, además dispara la alerta (`automation.sensor_lateral_activado`) y puede activar la
+alarma. Al revisarlo, desarmar antes la alarma.
+
 ## Cocina (datos técnicos)
 
 Ver la parte de uso en `manual-uso.md`. Equipos: anafe a gas **Orbis** de 4 hornallas, campana,

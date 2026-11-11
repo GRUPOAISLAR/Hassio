@@ -46,6 +46,7 @@ huéspedes, el manual interno, Home Assistant, la guía con IA y los mensajes. C
 | NSPanel (termostatos) | Paneles de calefacción con 2 teclas | Habitación principal, dormitorios 1 y 2, galería | [foto](fotos/habitacion-principal-nspanel.jpg) | ✅ |
 | Repetidor Wi-Fi y parlante | Aparato blanco redondo | Habitación principal, mesita junto al ventanal | [foto](fotos/habitacion-principal-repetidor-wifi.jpg) | ✅ no mover |
 | Sensor de temperatura del baño | Shelly H&T | Baño de la habitación principal, sobre la mesada | — | ✅ no desenchufar |
+| Placard de los dueños | Placard de dos puertas, uso privado, con sensor de movimiento | Hall, junto al antetoilette | [foto](fotos/placard-duenos-cerrado.jpg) | 🔒 cerrado |
 | Colector solar de la pileta | Paños de manguera negra | Techo | [foto](fotos/colector-vista-general.jpg) | 🔒 |
 | Flotante del skimmer | Sensor de nivel del agua de la pileta | Skimmer de la pileta | — | 🔒 |
 

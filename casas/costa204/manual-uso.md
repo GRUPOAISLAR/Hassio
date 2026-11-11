@@ -362,6 +362,21 @@ Placa junto a la puerta vidriada que sale al lateral:
 > medio no generó ningún evento (varios toques). Candidata a revisar: `switch.sonoff_10013aec78_1`
 > ("Luz Perimetral Fondo") todavía no tiene tecla identificada.
 
+### Antetoilette (paso al toilette, junto al placard)
+
+![Tecla del antetoilette](fotos/antetoilette-tecla.jpg)
+
+Tecla sola en la pared, debajo de las tapas blancas: prende la **luz del antetoilette**.
+El placard de madera de dos puertas de al lado es **de uso privado de los dueños**: queda
+cerrado y no se usa durante la estadía.
+
+> Nota interna (11/11 11:45): la tecla no generó eventos en HA (luz no domotizada). El placard
+> tiene un sensor de movimiento Shelly ("Sensor placard",
+> `binary_sensor.sensor_acceso_peatonal_motion`): al abrirlo avisa por Telegram y, con la casa
+> en Ausente/Inquilino, `automation.sensor_lateral_activado` alerta. Es el que disparó la
+> alarma a las 11:32. Fotos: `placard-duenos-cerrado.jpg`, `placard-duenos-abierto.jpg` (no
+> van al manual del huésped).
+
 ### Toilette
 
 ![Toilette](fotos/toilette-vista.jpg)
