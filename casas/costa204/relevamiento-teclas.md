@@ -14,7 +14,7 @@ por `409151588222`). Las IP de la planilla no se copian acá.
 |---|---|---|---|
 | Pasillo de servicio, tecla del medio (caja 11, "GALERIA 3 TECLAS") | Circuito **a**: perímetro fondo, 6 apliques negros bidireccionales | Sonoff Dual R3 `10013aec78` canal 1 (`switch.sonoff_10013aec78_1`) | Desde HA funciona; la tecla no llega al Sonoff → cable de la entrada S1 suelto o sin conectar |
 | Galería junto a los jarrones, tecla de arriba (caja 7) | Circuito **T**: spots del techo del comedor de la galería | Shelly Dimmer 2 (hoy `409151588222`) | Re-probada 11/11 14:34 tras pasar los Shelly a `dual_button`: **sigue sin generar ningún evento** (la de abajo sí anda). No está cableada a ninguna entrada: las dos entradas de ese Shelly ya las usan el pasillo de la galería y el vajillero. Requiere electricista (o un botón inalámbrico). |
-| Junto al vajillero, tecla sola de la derecha | Probable circuito **J** (caja 18, "COCINA 1 TECLA"): luz de la isla (tubo LED de madera) | Shelly Dimmer 2 `34945471BC58` | No llega a HA. La entrada 2 de ese Shelly recibe en cambio la placa del medio entre hall y estar |
+| Junto al vajillero, tecla sola de la derecha | Probable circuito **J** (caja 18, "COCINA 1 TECLA"): luz de la isla (tubo LED de madera) | Shelly Dimmer 2 `34945471BC58` | Re-probada 11/11 tarde tras `dual_button`: sigue sin evento → sin cablear, pendiente de electricista. No llega a HA. La entrada 2 de ese Shelly recibe en cambio la placa del medio entre hall y estar |
 | Hall de entrada, derecha abajo (caja 2) | Circuito **C**: spots del techo de la reserva vehicular | Diseño: Sonoff `1001d8d053` (reasignado) | Hoy sin equipo para ese circuito; hay una automatización "Luz Acceso y Reserva con Sensor" (apagada) |
 | Placa del medio entre hall y estar (2 teclas) | Diseño: caja 5 (repite spots y centro del estar) o caja 6 (estar techo ventanal + galería living) | — | Llegan a la entrada 2 del Shelly de la isla (`34945471BC58`): cable cruzado o reasignado |
 
@@ -52,7 +52,8 @@ Ya estaban en `dual_button`: .36, .38, .43, .83, .148, .165, .181, .188, .189, .
 Las automatizaciones puente (`automation.estar_teclas_junto_a_la_salamandra_entradas_2_sueltas`
 y `automation.cocina_tecla_del_vajillero_medio_arriba_prende_spots_del_comedor_de_la_galeria`)
 se **borraron** el 11/11 al confirmarse a la vista que las teclas andan (12:53).
-Teclas que podrían empezar a andar por este cambio: galería junto a los jarrones (arriba,
+Resultado (11/11 tarde): todas las teclas del estar andan; vajillero derecha y galería jarrones
+arriba siguen sin cablear. Teclas que podían empezar a andar por este cambio: galería junto a los jarrones (arriba,
 SW2 de galería living) y otras segundas teclas de la planilla de diseño. Volver a probarlas.
 
 ## Posibles nombres cruzados en HA (verificar de noche, a la vista)
