@@ -71,6 +71,14 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
   se está climatizando. Hay además un sensor ZHA viejo del mismo nombre, no disponible.
 - **NSPanel (firmware de fábrica)**: solo maneja equipos de la cuenta eWeLink. Las tarjetas
   de luces Shelly ("Centro…", "Hall D…") no responden; la cortina (Sonoff) sí.
+- **Guía para huéspedes con IA (11/11/2026)**: agente `conversation.guia_costa_204` (Gemini,
+  subentrada de Google Generative AI) con el manual como instrucciones y **sin control de
+  dispositivos** (`llm_hass_api` vacío: no abre cerraduras ni toca la alarma). Pipeline de
+  Assist "Guía Costa 204 (huéspedes)" (STT/TTS Home Assistant Cloud es-AR) y
+  `script.guia_responder_en_parlantes` (pregunta → respuesta hablada en los parlantes).
+  Al cambiar `manual-uso.md`, actualizar también el prompt del agente.
+  **Bloqueo al 11/11/2026**: el proyecto de Google AI Studio está sin crédito prepago
+  (error 402): no anda ni la guía ni el pipeline "Google IA", que es el preferido de la casa.
 - TTLock Puerta Lateral: pilas al 0 %, `unavailable` hasta cambiarlas. El gateway está online.
 - Cuenta Tuya compartida con Lote 101: aquí están deshabilitados los equipos de la otra casa.
 - Reparaciones abiertas en HA (11/2026): migración de `chat_id` de Telegram en varias
