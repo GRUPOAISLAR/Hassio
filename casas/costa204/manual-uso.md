@@ -440,9 +440,19 @@ pasillo que lleva a la habitación principal.
 > `switch.sonoff_10015f67ee_2` ("Antebaño Dormitorios") se **apague y se prenda en 0,2 s** con
 > cada toque (queda igual): el canal está en un modo de entrada que sigue el pulso en vez de
 > conmutar. Revisar en eWeLink el modo de la entrada de ese canal. A las 11:41:13 se prendió
-> además `switch.sonoff_10015f67ee_1` ("Antebaño Dormitorio Chicos"), sin evento de tecla
-> asociado: confirmar qué tecla fue. El NSPanel del dormitorio 1 está en el plan de NSPanel
+> además `switch.sonoff_10015f67ee_1`: fue la tecla del antebaño (ver abajo). Falta saber qué
+> debería manejar el canal 2 (diseño: tira LED del placard del dormitorio 2 o del 1). El NSPanel del dormitorio 1 está en el plan de NSPanel
 > Easy (`nspanel.md`).
+
+### Antebaño de los dormitorios 1 y 2
+
+![Antebaño y su tecla](fotos/antebano-dormitorios-tecla.jpg)
+
+Tecla sola junto a la puerta, al lado de la mesada: prende la **luz del antebaño** (spots del
+techo sobre la bacha).
+
+> Nota interna (11/11 11:41:13): `switch.sonoff_10015f67ee_1` ("Antebaño Dormitorio Chicos",
+> también `light.dormitorio_1_dormitorio_1_y_hall_habitaciones_antebano_dormitorio_chicos`).
 
 ### Estar, junto a la salamandra
 

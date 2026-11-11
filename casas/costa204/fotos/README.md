@@ -91,6 +91,12 @@ Para pedir una foto, usá el nombre del archivo o el del [glosario](../glosario.
 | [dormitorio-1-cortina-tecla.jpg](dormitorio-1-cortina-tecla.jpg) | Tecla de la cortina |
 | [dormitorio-1-mesa-de-luz.jpg](dormitorio-1-mesa-de-luz.jpg) | Mesa de luz: Google Mini y control del ventilador |
 
+## Antebaño de los dormitorios
+
+| Foto | Qué muestra |
+|---|---|
+| [antebano-dormitorios-tecla.jpg](antebano-dormitorios-tecla.jpg) | Antebaño y su tecla |
+
 ## Pasillo de servicio
 
 | Foto | Qué muestra |
