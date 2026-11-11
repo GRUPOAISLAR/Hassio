@@ -648,8 +648,13 @@ a la lista del disparador.
 
 ## Pendientes para completar
 
-- Fotos y mapa de teclas del resto de los ambientes (estar, comedor, galería,
-  dormitorios 1 y 2, baños, hall, exterior).
+- Teclas sin función o por confirmar: vajillero (tecla sola de la derecha), galería junto a los
+  jarrones (arriba), pasillo de servicio (la del medio), hall de entrada (derecha abajo), placa
+  del medio entre hall y estar, placa de 3 teclas del dormitorio 2 y la tira LED del placard del
+  dormitorio 1. Detalle en `relevamiento-teclas.md`.
+- Spots del comedor: Shelly SHDIM-11 fuera de servicio (ver `mantenimiento.md`).
 - Botones del control del ventilador.
-- Cortinas: confirmar si el siguiente toque después de frenar la mueve en sentido contrario.
-- Secciones ⬜ del índice: datos que tiene que pasar el dueño.
+- Cortinas: confirmar cuál `cover` es cada una (dormitorio 1, baño de los dormitorios, baño
+  principal) y si el toque después de frenar invierte el sentido.
+- Secciones ⬜ del índice: datos que tiene que pasar el dueño (llegada, reglas, salida,
+  emergencias, recomendaciones de la zona).
