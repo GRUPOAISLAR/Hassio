@@ -90,6 +90,11 @@ Dos placas, de izquierda a derecha:
 | Cuarto de tecla del medio | Vestidor |
 | Cuarto de tecla de abajo | Extractor (se apaga solo a los 15 minutos) |
 
+Junto a la ventana del baño hay una **tecla sola: la cortina del baño** (un toque la mueve,
+otro toque la frena).
+
+![Tecla de la cortina del baño](fotos/bano-principal-tecla-cortina.jpg)
+
 Sobre la mesada hay un **sensor de temperatura** (Shelly H&T, enchufado con su
 cargador): no desenchufarlo. Con él, en invierno, la calefacción mantiene el baño templado.
 
