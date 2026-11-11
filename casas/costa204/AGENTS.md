@@ -58,6 +58,10 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
   `pyscript/inquilino_password.py`) y manda por Telegram el mensaje listo para pegar en el chat
   de la plataforma. `automation.huesped_airbnb_cerrar_acceso_a_la_app_al_irse` (día de salida
   11:00): contraseña al azar, salvo que ese día entre otra reserva. HomeExchange: pendiente.
+- **Red Wi-Fi: Google Nest Wifi** (router y puntos; los parlantes Nest de las habitaciones también
+  son puntos de la malla). Se administra desde la app Google Home. **No es Deco** (el Deco es de
+  Lote 101). Los huéspedes usan hoy la red principal; si se arma la red de invitados de Nest Wifi,
+  hay que compartirle los TV y parlantes ("dispositivos compartidos") para que puedan transmitir.
 - **Seguridad**: Alarmo (sirena), 5 cámaras (Foscam: Frente_Patio_Interno, Frente_izquierda,
   Fondo_Izquierdo, Lateral_Derecho; más Camara Entrada), modo casa (Presente/Ausente) con sugerencia
   automática si todos están fuera más de 1 h.
