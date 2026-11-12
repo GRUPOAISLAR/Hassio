@@ -61,8 +61,10 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
 - **Colector solar según calendario (12/11/2026)**: `automation.colector_solar_pausa_mientras_no_hay_nadie`
   (alias "Colector solar - según calendario de uso") prende o pausa `automation.colector_solar_encendido`.
   La casa "se usa" si hay una reserva "Reserved" en `calendar.reservas_airbnb` o cualquier evento en
-  `calendar.uso_propio_costa_204` (Local Calendar) entre hoy y los próximos 3 días (precalentamiento),
-  o si `modo_casa` está en Presente o Inquilino. Revisa a las 06:00, al iniciar HA y al cambiar
+  `calendar.uso_propio_costa_204` (Local Calendar) entre hoy y los próximos N días, o si `modo_casa`
+  está en Presente o Inquilino. N (precalentamiento) = (`input_number.pileta_temperatura_objetivo_llegada`,
+  28 °C, menos la última `sensor.temperatura_pileta_con_circulacion`) / `input_number.pileta_ganancia_neta_solar_por_dia`
+  (2 °C/día), entre 2 y 5 días. Medido 11-12/11/2026 con sol: de día +6 °C, de noche -4 °C sin cubrir. Revisa a las 06:00, al iniciar HA y al cambiar
   `modo_casa`. Los bloqueos "Airbnb (Not available)" **no** cuentan: las estadías propias se cargan en
   "Uso propio Costa 204" (cargado: 20/12/2026 al 09/01/2027, Nochebuena y Año Nuevo).
 - **Cupo diario de filtrado (12/11/2026)**: `script.filtro_periodico` (turnos de 30 min del schedule
