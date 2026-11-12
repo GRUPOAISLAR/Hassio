@@ -37,6 +37,10 @@ Solo Lote 101. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) es
   un corte (verificado en un corte real el 07/11/2026).
 - **Pileta y riego**: placa con PCF8574 (riego y filtrado), llenado de pileta y tanque, riego
   semanal por días.
+  Cupo diario de filtrado (12/11/2026): `automation.pileta_calentamiento_solar_filtrado` no arranca
+  turnos de 15 min ni sigue filtrando al cortar el solar si la bomba ya anduvo
+  `input_number.pileta_horas_de_filtrado_por_dia` (6 h) en el día (`sensor.filtro_pileta_horas_hoy`,
+  history_stats desde las 0 h, cuenta solar + filtrado). El calentamiento solar no tiene cupo.
 - **Cocina con recetas**: termostatos y timers para queso (Gruyere, Cremón) y yogur.
 - **Cámaras**: Foscam y ONVIF, más visión con LLM (personas y autos).
 - **Otros**: alarma "Alarma Lote 101", portón de garaje, Sonos y Chromecast, Nest, Grocy,

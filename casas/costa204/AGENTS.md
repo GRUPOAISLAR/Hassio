@@ -58,6 +58,18 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
   `pyscript/inquilino_password.py`) y manda por Telegram el mensaje listo para pegar en el chat
   de la plataforma. `automation.huesped_airbnb_cerrar_acceso_a_la_app_al_irse` (día de salida
   11:00): contraseña al azar, salvo que ese día entre otra reserva. HomeExchange: pendiente.
+- **Colector solar según calendario (12/11/2026)**: `automation.colector_solar_pausa_mientras_no_hay_nadie`
+  (alias "Colector solar - según calendario de uso") prende o pausa `automation.colector_solar_encendido`.
+  La casa "se usa" si hay una reserva "Reserved" en `calendar.reservas_airbnb` o cualquier evento en
+  `calendar.uso_propio_costa_204` (Local Calendar) entre hoy y los próximos 3 días (precalentamiento),
+  o si `modo_casa` está en Presente o Inquilino. Revisa a las 06:00, al iniciar HA y al cambiar
+  `modo_casa`. Los bloqueos "Airbnb (Not available)" **no** cuentan: las estadías propias se cargan en
+  "Uso propio Costa 204" (cargado: 20/12/2026 al 09/01/2027, Nochebuena y Año Nuevo).
+- **Cupo diario de filtrado (12/11/2026)**: `script.filtro_periodico` (turnos de 30 min del schedule
+  `schedule.filtradodiario` y de las 00:00) no arranca si la bomba ya anduvo
+  `input_number.pileta_horas_de_filtrado_por_dia` (6 h) en el día, contando el calentamiento solar
+  (`sensor.exterior_controlador_nicho_pileta_filtro_pileta_horas_hoy`). El mínimo de las 23:00
+  (`automation.pileta_filtrado_diario_minimo`, 4 h) y el solar no tienen cupo.
 - **Red Wi-Fi: Google Nest Wifi** (router y puntos; los parlantes Nest de las habitaciones también
   son puntos de la malla). Se administra desde la app Google Home. **No es Deco** (el Deco es de
   Lote 101). Los huéspedes usan hoy la red principal; si se arma la red de invitados de Nest Wifi,
