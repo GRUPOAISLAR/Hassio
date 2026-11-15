@@ -78,6 +78,69 @@ con algo de retraso. Con la bomba parada mide el nicho. Por eso:
 °C por kWh, relación con la producción FV, la nubosidad, el viento y la temperatura exterior, y
 si el apagado corta mientras todavía hay ganancia.
 
+### 1.ª entrega (15/11/2026, datos del 11/11 al 15/11 10:00)
+
+Bomba del filtro estimada en 950 W. "Pileta mañana" = lectura del sensor con circulación a las
+9:05 (primeros minutos de marcha, antes de que el colector aporte): es lo más parecido a la
+temperatura real del agua.
+
+| Día | Sol (FV) | Nubes | T ext. media | Arranques | Horas filtro | kWh filtro | kWh riego | Pileta mañana → mañana siguiente |
+|---|---|---|---|---|---|---|---|---|
+| 11/11 | 29,1 kWh | 75 % | 22,2 °C | 13 | ≈ 8,0 | ≈ 7,6 (sensor creado ese día: 5,4) | 1,0 | 22,2 → 24,0 (**+1,8 °C**) |
+| 12/11 | 31,2 kWh | 70 % | 21,5 °C | 4 | 4,2 | 4,0 | 2,5 | 24,0 → (13/11 sin lectura) |
+| 13/11 | 21,0 kWh | 95 % | 19,3 °C | 4 | 0,2 | 0,2 | 2,5 | → 23,9 el 14/11 (12 y 13: **≈ 0 °C** en dos días) |
+| 14/11 | 30,8 kWh | 76 % | 19,0 °C | 3 | 6,4 | 6,0 | 1,4 | 23,9 → 25,3 (**+1,4 °C**) |
+| 15/11 (hasta 10 h) | — | 93 % | 17,6 °C | 1 | 0,9 | 0,9 | 0,3 | 25,3 |
+
+Hallazgos:
+
+1. **El llenado automático quedó apagado desde el 11/11 13:10** (automatización "Pileta: llenado
+   por cámara + sensor Tuya" en `off`; la electroválvula `switch.sonoff_1001d8d053_1` no abrió
+   ni una vez desde el 12/11). Con el canal del skimmer bajo, "proteger filtro sin agua" corta la
+   bomba a los 3 min. Consecuencias:
+   - 12/11: corte a las 9:55 y el colector quedó parado de 9:52 a 11:55 entre 40 y 59 °C (las
+     mejores 2 h de sol perdidas); otro corte a las 15:04.
+   - 13/11: canal bajo todo el día → 4 arranques de 3 min, **sin calentar y sin filtrar** (el
+     filtrado mínimo de las 23:00 también se cortó a los 3 min).
+   - Desde el 14/11 1:52 el canal está bien y la bomba anda normal.
+   - **Acción: volver a encender el llenado** (o hacer la prueba del balde y encenderlo al
+     terminar).
+2. **Los arranques de 3 min no son ciclado del colector:** son el filtro periódico (9:00,
+   10:30, 12:30, 16:30) y el filtrado de las 23:00 cortados por la protección del skimmer. El
+   único ciclado real fue el 11/11 entre 7:57 y 9:02 (11 arranques), mientras se ajustaban las
+   automatizaciones; después no se repitió.
+3. **El apagado a 2,5 °C corta bien a la tarde** (11/11 16:06, 14/11 15:33: colector ≈ agua).
+   A la mañana corta temprano: el filtro periódico arranca a las 9:00 con poco sol (FV 1–2 kW),
+   con la bomba andando el colector baja casi a la temperatura del agua y a los ~50 min
+   (14/11 9:48, 15/11 9:53) la diferencia cae bajo 2,5 °C. Vuelve a arrancar a los 15–40 min.
+   Se pierde poco (≈ 40 min de sol flojo), pero suma un arranque por día.
+4. **`sensor.temperatura_pileta_con_circulacion` sobrestima el agua de día:** sube ≈ 1 °C por
+   hora mientras circula (22 → 28 °C el 11/11; 25,4 → 30,4 °C el 12/11), cosa imposible para el
+   volumen de la pileta. El sensor del nicho está en el caño que trae el agua caliente del
+   colector, o lo calienta el sol del nicho. Sirve como temperatura del agua solo en los primeros
+   minutos de la mañana. Para medir la ganancia real, poner una sonda en el skimmer o en la
+   succión.
+5. **Ganancia:** en un día de sol completo (FV ≈ 30 kWh) la pileta gana neto **+1,4 a +1,8 °C**
+   por día, con 6–8 h de bomba (6–7,6 kWh). Un día nublado como el 13/11 pierde lo ganado.
+
+Costo de climatizar (bomba del filtro; sin contar el riego):
+
+| | kWh | A 125,75 $/kWh (tarifa sin impuestos) | A ≈ 375 $/kWh (factura real) |
+|---|---|---|---|
+| 1 h de bomba | 0,95 | ≈ $ 120 | ≈ $ 356 |
+| Día de sol completo (6–8 h) | 6–7,6 | ≈ $ 750–960 | ≈ $ 2.250–2.850 |
+| Solo lo que se suma a las 4 h de filtrado mínimo (2,4–4 h) | 2,3–3,8 | ≈ $ 290–480 | ≈ $ 860–1.430 |
+| Por °C ganado (día de sol) | ≈ 4,3 | ≈ $ 540 | ≈ $ 1.600 |
+
+Recomendación (por ahora, con 4 días de datos):
+- **Diferenciales: dejar 7 °C para encender y 2,5 °C para apagar.** No se vio que el apagado
+  corte con ganancia a la tarde, y el encendido a 7 °C se alcanza en pocos minutos con sol.
+- Mover el filtro periódico de las 9:00 a las 10:30, o no arrancarlo si la producción FV es
+  menor a ~2,5 kW. Así no gasta un arranque con sol flojo.
+- Para cobrar a los huéspedes: usar ≈ 3 kWh por día de sol como costo propio de climatizar (lo
+  que excede al filtrado mínimo). Ya entra en los 40 kWh por día incluidos.
+- Volver a revisar con más días y el llenado encendido: 2.ª entrega el 22/11/2026.
+
 ## Pendiente: prueba de pérdida de la pileta (balde)
 
 Para hacer en otra visita. Antes de empezar, **pausar el llenado automático** (automatización
