@@ -103,8 +103,15 @@ Hallazgos:
    - 13/11: canal bajo todo el día → 4 arranques de 3 min, **sin calentar y sin filtrar** (el
      filtrado mínimo de las 23:00 también se cortó a los 3 min).
    - Desde el 14/11 1:52 el canal está bien y la bomba anda normal.
-   - **Acción: volver a encender el llenado** (o hacer la prueba del balde y encenderlo al
-     terminar).
+   - **Corrección (dueño, 15/11):** el llenado está apagado a propósito: no se llenó con nada
+     desde el 11/11 y está en curso la prueba del balde (se ve el balde en el primer escalón en la
+     cámara Fondo_Izquierdo). El skimmer está **cerrado**, así que su flotante marca alto siempre
+     y no sirve para saber el nivel. La protección por canal bajo no va a actuar mientras siga
+     cerrado.
+   - Nivel: no hay sensor que lo mida en mm. La cámara del canal (`sensor.pileta_canal_skimmer`)
+     marca casi siempre "seco" o "indeterminado" desde el 12/11, y en la foto del 15/11 10:13 el
+     agua se ve por debajo del borde desbordante. Los milímetros hay que leerlos en las marcas
+     del balde.
 2. **Los arranques de 3 min no son ciclado del colector:** son el filtro periódico (9:00,
    10:30, 12:30, 16:30) y el filtrado de las 23:00 cortados por la protección del skimmer. El
    único ciclado real fue el 11/11 entre 7:57 y 9:02 (11 arranques), mientras se ajustaban las
