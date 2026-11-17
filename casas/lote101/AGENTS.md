@@ -85,3 +85,15 @@ Solo Lote 101. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) es
 
 Los archivos de configuración de esta casa que se versionen van en `casas/lote101/`
 (nunca `secrets.yaml` ni credenciales).
+
+## Aire de la galería (17/11/2026)
+
+- El kit de la galería (`climate.aire_galeria`) no informa el estado real: HA solo sabe lo que él mismo
+  mandó. Mandarle "apagar" a ese aire **apagado lo prende**: el 15 y 16/11, "A dormir" lo prendió y
+  quedó en frío a 30 °C dos días.
+- Con frío a 30 °C el compresor no arranca y el aire consume ~30 W (solo ventilador): la fase S no
+  sirve para confirmar si se prendió.
+- `script.aire_galeria_apagar_por_consumo` ahora **no manda nada si HA lo tiene apagado**. Si alguien
+  lo prende o apaga con el control remoto, hay que igualar HA con `hpa4911.set_assumed_hvac_mode`
+  (no manda nada al aire).
+
