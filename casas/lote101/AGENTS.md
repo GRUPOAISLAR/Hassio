@@ -37,6 +37,10 @@ Solo Lote 101. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) es
   un corte (verificado en un corte real el 07/11/2026).
 - **Pileta y riego**: placa con PCF8574 (riego y filtrado), llenado de pileta y tanque, riego
   semanal por días.
+  Cupo diario de filtrado (12/11/2026): `automation.pileta_calentamiento_solar_filtrado` no arranca
+  turnos de 15 min ni sigue filtrando al cortar el solar si la bomba ya anduvo
+  `input_number.pileta_horas_de_filtrado_por_dia` (6 h) en el día (`sensor.filtro_pileta_horas_hoy`,
+  history_stats desde las 0 h, cuenta solar + filtrado). El calentamiento solar no tiene cupo.
 - **Cocina con recetas**: termostatos y timers para queso (Gruyere, Cremón) y yogur.
 - **Cámaras**: Foscam y ONVIF, más visión con LLM (personas y autos).
 - **Otros**: alarma "Alarma Lote 101", portón de garaje, Sonos y Chromecast, Nest, Grocy,
@@ -81,3 +85,15 @@ Solo Lote 101. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) es
 
 Los archivos de configuración de esta casa que se versionen van en `casas/lote101/`
 (nunca `secrets.yaml` ni credenciales).
+
+## Aire de la galería (17/11/2026)
+
+- El kit de la galería (`climate.aire_galeria`) no informa el estado real: HA solo sabe lo que él mismo
+  mandó. Mandarle "apagar" a ese aire **apagado lo prende**: el 15 y 16/11, "A dormir" lo prendió y
+  quedó en frío a 30 °C dos días.
+- Con frío a 30 °C el compresor no arranca y el aire consume ~30 W (solo ventilador): la fase S no
+  sirve para confirmar si se prendió.
+- `script.aire_galeria_apagar_por_consumo` ahora **no manda nada si HA lo tiene apagado**. Si alguien
+  lo prende o apaga con el control remoto, hay que igualar HA con `hpa4911.set_assumed_hvac_mode`
+  (no manda nada al aire).
+

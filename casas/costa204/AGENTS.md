@@ -49,6 +49,38 @@ Solo Costa 204. Lo común (repo, domotica-hub, integración `hpa4911`, reglas) e
   de un inquilino). Tarjetas n.º 102 y 103 = llaveros de huéspedes (cada llavero trae además
   su tarjeta TTLock de la puerta lateral: "Inquilino 2" = 102, "inquilino" = 103); el aviso de
   Telegram los nombra "el huésped (llavero 102/103)". Ver `manual-interno.md`.
+- **Reservas de Airbnb (11/11/2026)**: `calendar.reservas_airbnb` (integración Remote Calendar con
+  el iCal de exportación de Airbnb; el link es secreto: solo en la integración, nunca en el repo ni en
+  Notion). Eventos "Reserved" = reservas; "Airbnb (Not available)" = bloqueos.
+  `automation.huesped_airbnb_generar_acceso_el_dia_antes_de_la_llegada` (10:00 del día anterior):
+  carga entrada 12:00 / salida 11:00 y corre `script.huesped_generar_acceso`, que ahora también
+  cambia la contraseña del usuario `inquilino` (`pyscript.inquilino_cambiar_password`,
+  `pyscript/inquilino_password.py`) y manda por Telegram el mensaje listo para pegar en el chat
+  de la plataforma. `automation.huesped_airbnb_cerrar_acceso_a_la_app_al_irse` (día de salida
+  11:00): contraseña al azar, salvo que ese día entre otra reserva. HomeExchange: pendiente.
+- **Colector solar según calendario (12/11/2026)**: `automation.colector_solar_pausa_mientras_no_hay_nadie`
+  (alias "Colector solar - según calendario de uso") prende o pausa `automation.colector_solar_encendido`.
+  La casa "se usa" si hay una reserva "Reserved" en `calendar.reservas_airbnb` o cualquier evento en
+  `calendar.uso_propio_costa_204` (Local Calendar) entre hoy y los próximos N días, o si `modo_casa`
+  está en Presente o Inquilino. N (precalentamiento) = (`input_number.pileta_temperatura_objetivo_llegada`,
+  28 °C, menos la última `sensor.temperatura_pileta_con_circulacion`) / `input_number.pileta_ganancia_neta_solar_por_dia`
+  (2 °C/día), entre 2 y 5 días. Medido 11-12/11/2026 con sol: de día +6 °C, de noche -4 °C sin cubrir. Revisa a las 06:00, al iniciar HA y al cambiar
+  `modo_casa`. Los bloqueos "Airbnb (Not available)" **no** cuentan: las estadías propias se cargan en
+  "Uso propio Costa 204" (cargado: 20/12/2026 al 09/01/2027, Nochebuena y Año Nuevo).
+- **Cupo diario de filtrado (12/11/2026)**: `script.filtro_periodico` (turnos de 30 min del schedule
+  `schedule.filtradodiario` y de las 00:00) no arranca si la bomba ya anduvo
+  `input_number.pileta_horas_de_filtrado_por_dia` (6 h) en el día, contando el calentamiento solar
+  (`sensor.exterior_controlador_nicho_pileta_filtro_pileta_horas_hoy`). El mínimo de las 23:00
+  (`automation.pileta_filtrado_diario_minimo`, 4 h) y el solar no tienen cupo.
+- **Red Wi-Fi: Google Nest Wifi** (router y puntos; los parlantes Nest de las habitaciones también
+  son puntos de la malla). Se administra desde la app Google Home. **No es Deco** (el Deco es de
+  Lote 101). Los huéspedes usan hoy la red principal; si se arma la red de invitados de Nest Wifi,
+  hay que compartirle los TV y parlantes ("dispositivos compartidos") para que puedan transmitir.
+- **Shelly sin contraseña (relevado 11/11/2026)**: los 30 Shelly de la casa (26 Dimmer 2, 1PM del
+  extractor del toilette, sensor de movimiento, 2 H&T, RGBW2 de la pileta, i4 Gen3) están en HA
+  sin usuario ni contraseña: cualquiera en la red principal puede abrir su página y cambiarlos.
+  Prioridad: sacar a los huéspedes de la red principal (red de invitados de Nest Wifi). Ponerles
+  clave exige además actualizar las credenciales de cada uno en HA, o quedan no disponibles.
 - **Seguridad**: Alarmo (sirena), 5 cámaras (Foscam: Frente_Patio_Interno, Frente_izquierda,
   Fondo_Izquierdo, Lateral_Derecho; más Camara Entrada), modo casa (Presente/Ausente) con sugerencia
   automática si todos están fuera más de 1 h.
@@ -157,6 +189,8 @@ Registro de reparaciones (colector solar, etc.): [`mantenimiento.md`](mantenimie
   hall–estar llega a la SW2 del Shelly de la isla (sin cambiar a propósito).
 
 ### Manual de uso
+
+**Guía del huésped en Notion (principal desde el 11/11/2026)**: [Costa 204 · Guía del huésped](https://app.notion.com/p/415825a110c381abb4bde90f3a6f3990), publicada en https://catnip-nerine-9af.notion.site/Costa-204-Gu-a-del-hu-sped-415825a110c381abb4bde90f3a6f3990 (fotos de teclas por ambiente, capturas de la app y "Preguntale a la casa"; sin claves ni link de Home Assistant). El PDF impreso de 3 páginas que va con los llaveros tiene dos QR: app de huéspedes (`/huespedes-costa/casa`) y esta guía. Al cambiar teclas o reglas, actualizar también esta página.
 
 **Guía para huéspedes principal (español, inglés e imprimible de 3 páginas)**: https://claude.ai/artifact/PVbwRKaX5EUgoZdDTJV8hx (lienzo de diseño, armado en otra sesión). Complemento con fotos de las teclas: [`guia-huesped.html`](guia-huesped.html), publicada en https://claude.ai/artifact/Lwtm4mZLvVhNVKVYvFRPFy (privada; se comparte desde el menú Compartir). Secciones según la plantilla "Our home manual template" de HomeExchange. Al cambiar teclas o reglas, actualizar el manual, esta página y el prompt de la guía con IA. Horarios, reglas, basura, llaves, pileta y guardia: en `manual-uso.md` ("Reglas, salida y condiciones") y en el prompt de la guía con IA (actualizado 11/11/2026 tarde). Varias sesiones trabajan en paralelo: coordinar por este repo (subir y traer cambios) y no por archivos locales.
 
