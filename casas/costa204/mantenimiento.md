@@ -148,6 +148,53 @@ Recomendación (por ahora, con 4 días de datos):
   que excede al filtrado mínimo). Ya entra en los 40 kWh por día incluidos.
 - Volver a revisar con más días y el llenado encendido: 2.ª entrega el 22/11/2026.
 
+### 2.ª entrega (22/11/2026, datos del 15/11 al 22/11 10:00)
+
+| Día | Sol (FV) | Nubes | T ext. media | Horas filtro | kWh filtro | kWh riego | Nota |
+|---|---|---|---|---|---|---|---|
+| 15/11 | 21,7 kWh | 95 % | 19,1 °C | ≈ 3,2 | 3,0 | 1,4 | Apagados por diferencia a las 9:53, 11:30 y 13:14 |
+| 16/11 | 19,7 kWh | 100 % | 20,6 °C | ≈ 5,1 | 4,9 | 2,5 | 10:30–14:33 seguido; última lectura válida de la pileta |
+| 17/11 | 11,2 kWh | 83 % | 18,6 °C | 0,2 | 0,2 | 1,4 | **Desde 1:49 el flotante del skimmer marca BAJO** |
+| 18/11 | 20,7 kWh | 56 % | 17,7 °C | 0,2 | 0,2 | 1,4 | Cada arranque cortado a los 3 min |
+| 19/11 | 18,6 kWh | 85 % | 16,5 °C | 0,25 | 0,2 | 2,5 | Ídem |
+| 20/11 | 21,7 kWh | 53 % | 15,9 °C | 0,2 | 0,2 | 2,5 | Ídem |
+| 21/11 | 32,9 kWh | 35 % | 17,3 °C | 0,4 | 0,4 | 1,4 | Mejor día de sol (colector 57 °C) sin aprovechar; 6 arranques seguidos 10:45–11:01 |
+| 22/11 (hasta 10 h) | 5,6 kWh | 84 % | 15,3 °C | 0 | 0 | 0,3 | |
+
+Pileta (lectura de la mañana con circulación): 25,3 °C el 15/11 → 24,8 °C el 16/11 (−0,5 °C con
+un día cubierto). **Desde el 17/11 no hay lecturas válidas:** ningún arranque llega a los 5 min
+que necesita el sensor. El sensor crudo del nicho marca 20,4 °C (nicho, no agua).
+
+Hallazgos:
+
+1. **La pileta lleva 5 días casi sin filtrar ni calentar.** Desde el 17/11 1:49 el flotante
+   `switch.nivel_skimmer_switch_1` marca BAJO (salvo 3 min el 21/11) y "Pileta: proteger filtro
+   sin agua en skimmer" corta cada arranque a los 3 min: filtro periódico (10:30, 12:30, 16:30),
+   filtrado mínimo de las 23:00 y el colector. Unos 12 min de bomba por día contra 4 h de
+   mínimo. Riesgo de agua verde.
+2. El llenado automático sigue apagado (desde el 11/11 13:10) y la electroválvula no abrió.
+   Con 11 días sin reponer (evaporación más la pérdida del colector), lo más probable es que
+   el nivel haya bajado del canal desbordante. El dueño dijo que con el skimmer cerrado el
+   flotante marca alto siempre; desde el 17/11 marca bajo, así que **a revisar en el lugar**
+   (nivel del agua y estado del skimmer).
+3. 15 y 16/11, con bomba normal: el apagado a 2,5 °C corta temprano con poco sol (9:35, 9:53)
+   y vuelve a arrancar el filtro periódico. Sin ciclado rápido del colector. Los 6 arranques del
+   21/11 (10:45–11:01) son encendidos sucesivos cortados por la protección; no salen de las
+   automatizaciones del colector (que exigen el flotante en alto), parecen manuales.
+4. Riego estable: 1,4–2,5 kWh/día (≈ $ 175–315 a tarifa; $ 520–950 real).
+
+Costo de climatizar: sin días de sol con bomba normal en este período, se mantienen los valores
+de la 1.ª entrega (≈ 3 kWh por día de sol sobre el filtrado mínimo; ≈ 4,3 kWh por °C).
+
+Recomendación:
+- **Urgente:** revisar el nivel y el skimmer. Si la prueba del balde ya terminó, encender el
+  llenado; si no, reponer agua a mano hasta el canal y filtrar unas horas.
+- Diferenciales: sin cambios (7 °C / 2,5 °C) hasta tener una semana con la bomba normal.
+- Mover el filtro periódico de las 9:00 a las 10:30 sigue pendiente de decisión del dueño (el
+  15 y 16/11 todavía arrancó a las 9:00; desde el 17/11 arranca a las 10:30: lo cambió alguien
+  o es el cupo/condición del script — a verificar).
+- 3.ª entrega: 29/11/2026.
+
 ## Pendiente: prueba de pérdida de la pileta (balde)
 
 Para hacer en otra visita. Antes de empezar, **pausar el llenado automático** (automatización
