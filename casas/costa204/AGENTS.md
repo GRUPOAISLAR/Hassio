@@ -201,3 +201,17 @@ Borrador del manual para huéspedes: [`manual-uso.md`](manual-uso.md), con fotos
 
 Los archivos de configuración de esta casa que se versionen van en `casas/costa204/`
 (nunca `secrets.yaml` ni credenciales).
+
+## Prueba de nivel de la pileta (noviembre 2026)
+
+- 11/11 → 27/11, con el llenado automático apagado: la pileta bajó de 30 a 21 cm (medido desde el piso
+  de la playa) y el balde de referencia de 20 a 10 cm. Bajaron lo mismo: por debajo de 30 cm no hay
+  pérdida, solo evaporación (~6 mm/día, ~160 L/día, agua a ~32 °C). La pérdida que se veía antes
+  estaría más arriba (borde o sistema de desborde: canal, cámara de compensación y caños).
+- 27/11, a pedido de Matías (pileta): desborde cerrado y **filtrado apagado hasta nuevo aviso** para
+  ver dónde se frena el descenso. Apagadas: `automation.filtrado_periodico`,
+  `automation.automatizacion_bomba_de_pileta`, `automation.pileta_filtrado_diario_minimo`,
+  `automation.encendido_ionizador`, `automation.colector_solar_encendido` y
+  `automation.colector_solar_pausa_mientras_no_hay_nadie` (la que lo reactiva por calendario); bomba e
+  ionizador en off. Para volver: prender esas automatizaciones. Antes del 17/12 (precalentamiento
+  para el 20/12) hay que reactivar el colector.
